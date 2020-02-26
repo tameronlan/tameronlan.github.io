@@ -1,0 +1,50 @@
+.confirm-close-discount {
+    background-color: rgba(33, 33, 33, 0);
+    overflow: hidden;
+    transition: background-color 0.4s;
+
+    &__popup {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 12px 12px 0 0;
+        padding: 30px 40px 14px;
+        transition: bottom 0.4s;
+
+        @include absolute($right: 0, $bottom: -250px, $left: 0);
+    }
+
+    &__title {
+        text-align: center;
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    &__countdown {
+        background-color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        color: #df1414;
+        padding: 6px 16px 4px;
+        border: 2px solid #df1414;
+        border-radius: 20px;
+        pointer-events: none;
+
+        @include absolute($top: -8px, $right: -24px);
+    }
+
+    button {
+        margin-bottom: 16px;
+    }
+}
+
+.shown {
+    &.confirm-close-discount {
+        background-color: rgba(33, 33, 33, 0.75);
+    }
+
+    .confirm-close-discount__popup {
+        bottom: 0;
+    }
+}

@@ -1,0 +1,25 @@
+.field-editor {
+    padding: 24px;
+
+    &__header{
+        padding: 4px 0 20px;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    &__title{
+        font-family: $font-family-montserrat;
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    &__description {
+        margin-bottom: 12px;
+    }
+    
+    &__btn{
+        border-radius: 8px;
+        display: block;
+        width: 100%;
+    }
+}

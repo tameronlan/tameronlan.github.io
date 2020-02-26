@@ -1,0 +1,55 @@
+.start-promo {
+    position: relative;
+    text-align: center;
+    padding: 24px 0;
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    &__title {
+        font-size: 22px;
+        font-weight: bold;
+        color: #231925;
+        margin-bottom: 32px;
+    }
+
+    &__photo-wrap {
+        background-size: cover;
+        padding-top: 75%;
+    }
+
+    &__counter {
+        align-self: center;
+        position: relative;
+        background-color: #ffeee6;
+        border: 1px solid #e18a61;
+        border-radius: 8px;
+        font-weight: bold;
+        width: 212px;
+        padding: 6px 4px 16px;
+        margin-top: -48px;
+        margin-bottom: 16px;
+
+        strong {
+            display: block;
+            font-size: 28px;
+            color: #782336;
+            margin-bottom: 3px;
+        }
+    }
+
+    &__message {
+        flex-grow: 1;
+        font-size: 16px;
+        padding: 0 16px;
+        margin-bottom: 16px;
+    }
+
+    &__button {
+        align-self: center;
+        min-width: 280px;
+        background-color: #782336;
+        color: #fff;
+        border-radius: 100px;
+    }
+}

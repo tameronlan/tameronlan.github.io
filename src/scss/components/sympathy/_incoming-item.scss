@@ -1,0 +1,121 @@
+.incoming-item {
+    position: relative;
+    background-color: $color-gray2;
+    border-radius: 2px;
+    overflow: hidden;
+
+    &__photo-wrap {
+        padding-top: 100%;
+    }
+
+    &__photo {
+        background-position: center;
+        background-size: cover;
+        @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
+    }
+
+    &__lock {
+        background-color: rgba(0, 0, 0, .5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
+    }
+
+    &__new {
+        font-size: 11px;
+        background-color: $color-darkblue;
+        border-radius: 2px;
+        color: #fff;
+        padding: 5px 6px;
+        @include absolute($top: 0, $left: 0);
+    }
+
+    &__extra {
+        @include absolute($right: 0, $bottom: 0, $left: 0);
+
+        &:before {
+            content: '';
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+            opacity: 0.75;
+            height: 72px;
+            @include absolute($right: 0, $bottom: 0, $left: 0);
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin: 0 18px 8px 8px;
+
+        .online-status {
+            flex-shrink: 0;
+        }
+    }
+
+    &__name-wrap {
+        display: flex;
+        color: #fff;
+        max-width: 100%;
+    }
+
+    &__age {
+        white-space: nowrap;
+    }
+
+    &__actions {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-bottom: 6px;
+    }
+
+    &__action {
+        padding: 2px 14px;
+    }
+
+    &__action-liked {
+        path {
+            fill: $color-yellow;
+        }
+    }
+
+    &__action-separator {
+        background-color: $color-gray2;
+        border-radius: 2px;
+        width: 1px;
+        height: 24px;
+    }
+
+    &__new-couple {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255, 255, 255, .75);
+        @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
+
+        div {
+            font-size: 20px;
+            font-weight: bold;
+            color: $color-yellow;
+            background: linear-gradient(90deg, #f6ad1e, #f65f1e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}
+
+.incoming-item_locked {
+    .incoming-item__photo {
+        filter: blur(10px);
+        @include absolute($top: -10px, $right: -10px, $bottom: -10px, $left: -10px);
+    }
+
+    .incoming-item__extra {
+        &:before {
+            content: none;
+        }
+    }
+}

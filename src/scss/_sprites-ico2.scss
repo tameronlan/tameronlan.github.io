@@ -1,0 +1,80 @@
+.ico2 {
+  background-image: url(~@/assets/generated-sprite-ico2-ddebd.png);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .ico2 {
+    background-image: url(~@/assets/generated-sprite-ico2-46836-2x.png);
+    background-size: 86px 70px;
+  }
+}
+
+.ico2_check-read {
+  background-position: 0px -46px;
+  width: 24px;
+  height: 24px;
+}
+.ico2_gift-mess {
+  background-position: 0px 0px;
+  width: 50px;
+  height: 46px;
+}
+.ico2_menu {
+  background-position: -24px -46px;
+  width: 16px;
+  height: 24px;
+}
+.ico2_photo-black-16 {
+  background-position: -40px -46px;
+  width: 16px;
+  height: 14px;
+}
+.ico2_photo-messenger {
+  background-position: -50px 0px;
+  width: 36px;
+  height: 36px;
+}
+
+
+%ico2 {
+  background-image: url(~@/assets/generated-sprite-ico2-ddebd.png);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  %ico2 {
+    background-image: url(~@/assets/generated-sprite-ico2-46836-2x.png);
+    background-size: 86px 70px;
+  }
+}
+
+%ico2_check-read {
+  background-position: 0px -46px;
+  width: 24px;
+  height: 24px;
+}
+%ico2_gift-mess {
+  background-position: 0px 0px;
+  width: 50px;
+  height: 46px;
+}
+%ico2_menu {
+  background-position: -24px -46px;
+  width: 16px;
+  height: 24px;
+}
+%ico2_photo-black-16 {
+  background-position: -40px -46px;
+  width: 16px;
+  height: 14px;
+}
+%ico2_photo-messenger {
+  background-position: -50px 0px;
+  width: 36px;
+  height: 36px;
+}

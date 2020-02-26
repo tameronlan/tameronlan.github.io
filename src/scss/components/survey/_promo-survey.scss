@@ -1,0 +1,65 @@
+.promo-survey {
+    display: flex;
+    flex-direction: column;
+    //background: #f0f0f0 url(~@/assets/couple3.jpg) center top no-repeat;
+    background-size: cover;
+    padding: 22px 0 12px;
+    @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
+
+    &:before {
+        content: '';
+        background: linear-gradient(0deg, rgba(196, 196, 196, 0) 0%, rgba(0, 0, 0, 0.68) 81.73%);
+        height: 233px;
+        @include absolute($top: 0, $right: 0, $left: 0);
+    }
+
+    &:after {
+        content: '';
+        background: linear-gradient(180deg, rgba(196, 196, 196, 0) -58.76%, rgba(0, 0, 0, 0.47) 86.6%);
+        height: 97px;
+        pointer-events: none;
+        @include absolute($right: 0, $bottom: 0, $left: 0);
+    }
+
+    &__title {
+        position: relative;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+        flex-grow: 1;
+        padding: 0 24px;
+    }
+
+    &__subtitle {
+        position: relative;
+        background-color: #fff;
+        font-size: 16px;
+        text-align: center;
+        color: $color-black;
+        padding: 18px 20px 20px;
+        margin-bottom: 12px;
+        z-index: 1;
+    }
+
+    &__start-btn {
+        align-self: center;
+        z-index: 1;
+    }
+
+    &.country_id {
+        background-image: url(~@/assets/lang/id/couple3-id.jpg);
+    }
+
+    &.country_tr {
+        background-image: url(~@/assets/lang/tr/couple3-tr.jpg);
+    }
+
+    &.country_br {
+        background-image: url(~@/assets/lang/br/couple3-br.jpg);
+    }
+
+    &.country_in {
+        background-image: url(~@/assets/lang/in/couple3-in.jpg);
+    }
+}

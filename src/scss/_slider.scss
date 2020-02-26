@@ -1,0 +1,30 @@
+.slider{
+    width: 68px;
+    height: 32px;
+    border-radius: 16px;
+    background: $color-gray2;
+    transition: .1s linear;
+    position: relative;
+
+    &__circle{
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        left: 0;
+        top: 2px;
+        transform: translateX(2px);
+        transition: .1s linear;
+        border-radius: 50%;
+        background: $color-white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    &_on{
+        background: $color-darkblue;
+
+        .slider__circle{
+            background: $color-blue-1;
+            transform: translateX(38px);
+        }
+    }
+}

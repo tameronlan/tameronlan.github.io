@@ -1,0 +1,59 @@
+@import "vars";
+@import "mixins";
+@import "grid";
+@import "ico";
+@import "ripple-effect";
+
+.app * {
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #fff;
+}
+
+/* fix not responding textarea in ios */
+textarea {
+    -webkit-touch-callout: auto !important;
+    -webkit-user-select: auto !important;
+    user-select: auto !important;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: $font-family-lato;
+    font-size: $font-xm;
+    font-weight: $font-wn;
+    color: $color-black;
+    height: 100%;
+    margin: 0;
+}
+
+@import "file-directive";
+@import "touch-directive";
+@import "btn";
+@import "text";
+@import "input";
+@import "components/main";
+@import "topbar";
+@import "actions-dialog";
+@import "push";
+@import "fonts";
+@import "slider";
+
+// Include generated sprites
+@import "sprites-ico";
+@import "sprites-ico2";
+@import "sprites-ico-nav";
+//@import "sprites-ico-bill";
+
+

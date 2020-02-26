@@ -1,0 +1,198 @@
+.my-profile {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    &__top{
+        position: relative;
+        background: url(~@/assets/profile-top-bg.jpg) no-repeat center bottom;
+        background-size: cover;
+        margin: 0 0 56px;
+
+        &:before{
+            padding-bottom: 35%;
+            content: '';
+            display: block;
+        }
+    }
+
+    &__settings{
+        position: absolute;
+        padding: 16px;
+        right: 0;
+        top: 0;
+    }
+
+    &-avatar{
+        position: absolute;
+        left: 50%;
+        width: 152px;
+        height: 152px;
+        border: 2px solid #fff;
+        background: no-repeat center $color-blue-1;
+        background-size: cover;
+        bottom: -42px;
+        border-radius: 50%;
+        margin-left: -76px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__uploader{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            &_mini{
+                left: 104px;
+                top: 104px;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: $color-blue-1;
+            }
+        }
+        
+        &__text{
+            padding: 8px 0 0;
+            font-size: 14px;
+            line-height: 20px;
+            color: #fff;
+        }
+    }
+
+    &__divider{
+        height: 1px;
+        background: $color-gray2;
+        margin: 0 0 12px;
+    }
+
+    &__photos{
+        display: block;
+        white-space: nowrap;
+        margin: 0 -24px;
+        font-size: 0;
+        background: $color-gray2;
+        overflow: hidden;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    &__photo{
+        width: 152px;
+        height: 152px;
+        white-space: nowrap;
+        display: inline-block;
+        background: no-repeat center;
+        background-size: cover;
+        vertical-align: top;
+        flex-direction: column;
+
+        &_add{
+            display: inline-flex;
+            background: $color-blue-1;
+            color: #fff;
+            justify-content: center;
+            align-items: center;
+            font-size: $font-s;
+        }
+
+        .ico-native_plus{
+            margin-bottom: 14px;
+        }
+    }
+
+    &__middle{
+
+    }
+}
+
+.my-profile-soft{
+    padding: 12px 24px 14px 80px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 16px;
+
+    &__ico{
+        position: absolute;
+        left: 40px;
+        transform: translateX(-50%) ;
+        top: 10px;
+    }
+
+    &__title{
+        line-height: 23px;
+    }
+
+    &__title{
+        color: $color-black;
+        font-size: $font-m;
+    }
+
+    &__link{
+        font-size: $font-xm;
+        color: $color-text-light-blue;
+    }
+
+    &__side{
+        margin: 0 0 0 12px;
+    }
+}
+
+.my-profile-soft-views{
+    padding: 4px;
+    background: #0F2F61;
+    height: 32px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__add{
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: $color-turquoise-1;
+        position: relative;
+
+        &:before,
+        &:after{
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 14px;
+            background: #fff;
+            border-radius: 2px;
+            left: 50%;
+            top: 50%;
+            margin: -7px 0 0 -1px;
+        }
+
+        &:after{
+            width: 14px;
+            height: 2px;
+            margin: -1px 0 0 -7px;
+        }
+    }
+
+    &__count{
+        padding: 2px 8px 0 12px;
+        min-width: 56px;
+        text-align: center;
+        font-size: $font-m;
+        color: $color-white;
+        font-weight: 600;
+    }
+}

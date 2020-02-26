@@ -1,0 +1,36 @@
+.cities-popup {
+    padding: 20px;
+
+    input[type="text"] {
+        font-size: 20px;
+        background-color: #f0f0f0;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid #d8d8d8;
+        caret-color: $color-black;
+        padding: 6px 0;
+        margin-bottom: 16px;
+        width: 100%;
+    }
+
+    &__list {
+        max-height: 350px;
+        overflow: hidden;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    &__list-item {
+        margin-bottom: 12px;
+    }
+
+    &__city-title {
+        font-size: 16px;
+        color: #333;
+    }
+
+    &__city-description {
+        font-size: 12px;
+        color: $color-gray3;
+    }
+}

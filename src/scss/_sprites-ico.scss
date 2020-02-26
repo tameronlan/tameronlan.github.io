@@ -1,0 +1,250 @@
+.ico {
+  background-image: url(~@/assets/generated-sprite-ico-eae52.png);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .ico {
+    background-image: url(~@/assets/generated-sprite-ico-caa0e-2x.png);
+    background-size: 327px 312px;
+  }
+}
+
+.ico_arrow-left-blue-24 {
+  background-position: -219px -141px;
+  width: 24px;
+  height: 24px;
+}
+.ico_arrow-left-white-24 {
+  background-position: -298px -166px;
+  width: 24px;
+  height: 24px;
+}
+.ico_cards-blue {
+  background-position: 0px -254px;
+  width: 56px;
+  height: 58px;
+}
+.ico_chat {
+  background-position: -113px -93px;
+  width: 106px;
+  height: 100px;
+}
+.ico_close-gray {
+  background-position: -250px -166px;
+  width: 24px;
+  height: 24px;
+}
+.ico_coins {
+  background-position: -185px -193px;
+  width: 59px;
+  height: 55px;
+}
+.ico_crown {
+  background-position: -61px -193px;
+  width: 62px;
+  height: 56px;
+}
+.ico_dating {
+  background-position: 0px -93px;
+  width: 113px;
+  height: 100px;
+}
+.ico_feed-dislike {
+  background-position: 0px -193px;
+  width: 61px;
+  height: 61px;
+}
+.ico_feed-like {
+  background-position: -250px -100px;
+  width: 74px;
+  height: 66px;
+}
+.ico_geo {
+  background-position: -250px 0px;
+  width: 77px;
+  height: 100px;
+}
+.ico_heart {
+  background-position: -123px -193px;
+  width: 62px;
+  height: 55px;
+}
+.ico_location {
+  background-position: -303px -217px;
+  width: 16px;
+  height: 16px;
+}
+.ico_logo {
+  background-position: 0px 0px;
+  width: 250px;
+  height: 93px;
+}
+.ico_menu-blue-24 {
+  background-position: -274px -166px;
+  width: 24px;
+  height: 24px;
+}
+.ico_photo-add-big {
+  background-position: -56px -254px;
+  width: 47px;
+  height: 44px;
+}
+.ico_photo-add-small {
+  background-position: -103px -254px;
+  width: 32px;
+  height: 32px;
+}
+.ico_photo-white {
+  background-position: -219px -117px;
+  width: 24px;
+  height: 24px;
+}
+.ico_pointer-right-lightblue-20 {
+  background-position: -219px -165px;
+  width: 20px;
+  height: 20px;
+}
+.ico_question-blue {
+  background-position: -303px -193px;
+  width: 14px;
+  height: 24px;
+}
+.ico_setting {
+  background-position: -219px -93px;
+  width: 24px;
+  height: 24px;
+}
+.ico_views {
+  background-position: -244px -193px;
+  width: 59px;
+  height: 55px;
+}
+
+
+%ico {
+  background-image: url(~@/assets/generated-sprite-ico-eae52.png);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  %ico {
+    background-image: url(~@/assets/generated-sprite-ico-caa0e-2x.png);
+    background-size: 327px 312px;
+  }
+}
+
+%ico_arrow-left-blue-24 {
+  background-position: -219px -141px;
+  width: 24px;
+  height: 24px;
+}
+%ico_arrow-left-white-24 {
+  background-position: -298px -166px;
+  width: 24px;
+  height: 24px;
+}
+%ico_cards-blue {
+  background-position: 0px -254px;
+  width: 56px;
+  height: 58px;
+}
+%ico_chat {
+  background-position: -113px -93px;
+  width: 106px;
+  height: 100px;
+}
+%ico_close-gray {
+  background-position: -250px -166px;
+  width: 24px;
+  height: 24px;
+}
+%ico_coins {
+  background-position: -185px -193px;
+  width: 59px;
+  height: 55px;
+}
+%ico_crown {
+  background-position: -61px -193px;
+  width: 62px;
+  height: 56px;
+}
+%ico_dating {
+  background-position: 0px -93px;
+  width: 113px;
+  height: 100px;
+}
+%ico_feed-dislike {
+  background-position: 0px -193px;
+  width: 61px;
+  height: 61px;
+}
+%ico_feed-like {
+  background-position: -250px -100px;
+  width: 74px;
+  height: 66px;
+}
+%ico_geo {
+  background-position: -250px 0px;
+  width: 77px;
+  height: 100px;
+}
+%ico_heart {
+  background-position: -123px -193px;
+  width: 62px;
+  height: 55px;
+}
+%ico_location {
+  background-position: -303px -217px;
+  width: 16px;
+  height: 16px;
+}
+%ico_logo {
+  background-position: 0px 0px;
+  width: 250px;
+  height: 93px;
+}
+%ico_menu-blue-24 {
+  background-position: -274px -166px;
+  width: 24px;
+  height: 24px;
+}
+%ico_photo-add-big {
+  background-position: -56px -254px;
+  width: 47px;
+  height: 44px;
+}
+%ico_photo-add-small {
+  background-position: -103px -254px;
+  width: 32px;
+  height: 32px;
+}
+%ico_photo-white {
+  background-position: -219px -117px;
+  width: 24px;
+  height: 24px;
+}
+%ico_pointer-right-lightblue-20 {
+  background-position: -219px -165px;
+  width: 20px;
+  height: 20px;
+}
+%ico_question-blue {
+  background-position: -303px -193px;
+  width: 14px;
+  height: 24px;
+}
+%ico_setting {
+  background-position: -219px -93px;
+  width: 24px;
+  height: 24px;
+}
+%ico_views {
+  background-position: -244px -193px;
+  width: 59px;
+  height: 55px;
+}

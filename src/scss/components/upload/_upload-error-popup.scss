@@ -1,0 +1,16 @@
+.upload-error-popup {
+    text-align: center;
+
+    &__title {
+        padding: 40px 40px 10px;
+        color: #333;
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    &__message {
+        padding: 0 20px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+}

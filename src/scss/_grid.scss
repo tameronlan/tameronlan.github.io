@@ -1,0 +1,226 @@
+%nclear {
+    *zoom: 1;
+    &:before {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+
+/* Paddings */
+
+$paddings: (
+    ('auto', auto),
+    ('0', 0),
+    ('xl', $xl),
+    ('l', $l),
+    ('xm', $xm),
+    ('m', $m),
+    ('s', $s),
+    ('xs', $xs)
+);
+
+$padding-sides: (
+    ('t', 'top'),
+    ('r', 'right'),
+    ('b', 'bottom'),
+    ('l', 'left')
+);
+
+$padding-ways: (
+    ('v', 'top', 'bottom'),
+    ('h', 'left', 'right')
+);
+
+
+@each $side in $padding-sides {
+    $side-alias: nth($side, 1);
+    $side-prop: nth($side, 2);
+
+    @each $padding in $paddings {
+        $padding-alias: nth($padding, 1);
+        $padding-value: nth($padding, 2);
+
+        .p#{$side-alias}_#{$padding-alias} {
+            padding-#{$side-prop}: $padding-value;
+        }
+
+        .m#{$side-alias}_#{$padding-alias} {
+            margin-#{$side-prop}: $padding-value;
+        }
+
+        %p#{$side-alias}_#{$padding-alias} {
+            padding-#{$side-prop}: $padding-value;
+        }
+
+        %m#{$side-alias}_#{$padding-alias} {
+            margin-#{$side-prop}: $padding-value;
+        }
+    }
+}
+
+@each $way in $padding-ways {
+    $way-alias: nth($way, 1);
+    $way-prop1: nth($way, 2);
+    $way-prop2: nth($way, 3);
+
+    @each $padding in $paddings {
+        $padding-alias: nth($padding, 1);
+        $padding-value: nth($padding, 2);
+
+        .p#{$way-alias}_#{$padding-alias} {
+            padding-#{$way-prop1}: $padding-value;
+            padding-#{$way-prop2}: $padding-value;
+        }
+
+        .m#{$way-alias}_#{$padding-alias} {
+            margin-#{$way-prop1}: $padding-value;
+            margin-#{$way-prop2}: $padding-value;
+        }
+
+        %p#{$way-alias}_#{$padding-alias} {
+            padding-#{$way-prop1}: $padding-value;
+            padding-#{$way-prop2}: $padding-value;
+        }
+
+        %m#{$way-alias}_#{$padding-alias} {
+            margin-#{$way-prop1}: $padding-value;
+            margin-#{$way-prop2}: $padding-value;
+        }
+    }
+}
+
+@each $padding in $paddings {
+    $padding-alias: nth($padding, 1);
+    $padding-value: nth($padding, 2);
+
+    .p_#{$padding-alias} {
+        padding: $padding-value;
+    }
+
+    .m_#{$padding-alias} {
+        margin: $padding-value;
+    }
+    %p_#{$padding-alias} {
+        padding: $padding-value;
+    }
+
+    %m_#{$padding-alias} {
+        margin: $padding-value;
+    }
+}
+
+/* Grid */
+
+.row, %row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    align-items: stretch;
+    align-content: flex-start;
+
+    &_justify-content-start {
+        justify-content: flex-start;
+    }
+    &_justify-content-center {
+        justify-content: center;
+    }
+    &_justify-content-end {
+        justify-content: flex-end;
+    }
+    &_justify-content-around {
+        justify-content: space-around;
+    }
+    &_justify-content-between {
+        justify-content: space-between;
+    }
+
+    &_align-items-start {
+        align-items: flex-start;
+    }
+    &_align-items-center {
+        align-items: center;
+    }
+    &_align-items-end {
+        align-items: flex-end;
+    }
+    &_align-items-stretch {
+        align-items: stretch;
+    }
+
+    &_direction-column {
+        flex-direction: column;
+    }
+
+    &_wrap {
+        flex-wrap: wrap;
+    }
+}
+.col, %col {
+    flex: 1;
+    flex-grow: 1;
+    flex-basis: 0;
+
+    .row_auto-grow & {
+        flex-grow: 0;
+        flex-basis: auto;
+    }
+
+    &_grow-0 {
+        flex-grow: 0;
+    }
+
+    &_grow-1 {
+        flex-grow: 1;
+    }
+    &_grow-2 {
+        flex-grow: 2;
+    }
+    &_grow-3 {
+        flex-grow: 3;
+    }
+
+    &_pull-right {
+        margin-left: auto;
+    }
+
+    $columns: 12;
+
+    @for $i from 1 through $columns {
+        &_#{$i} {
+            flex-grow: 0;
+            flex-basis: auto;
+            width: 100% / $columns * $i;
+        }
+    }
+}
+
+/* Helpers */
+
+.hover-05 {
+    opacity: 0.5;
+    cursor: pointer;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.w100 {
+    width: 100%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+

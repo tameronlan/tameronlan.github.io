@@ -1,0 +1,24 @@
+.alert-dialog{
+    &__title{
+        font-size: $font-m;
+        padding: 12px 24px;
+    }
+
+    &__content{
+        padding: 12px 24px;
+    }
+
+    &__actions{
+        padding: 12px 24px;
+    }
+
+    &__action{
+        padding: 12px 60px;
+        border-radius: 8px;
+    }
+
+    .popup__content {
+        min-height: 0;
+        text-align: center;
+    }
+}

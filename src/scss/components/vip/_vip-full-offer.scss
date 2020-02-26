@@ -1,0 +1,168 @@
+.vip-full-offer {
+    padding: 40px 0 12px;
+    background-size: cover;
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    &:before {
+        content: '';
+        height: 272px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.85) 22%, #FFFFFF 100%);
+        opacity: 0.9;
+        @include absolute($right: 0, $bottom: 0, $left: 0);
+    }
+
+    &__title {
+        position: relative;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 0 26px;
+        margin-bottom: 28px;
+
+        span {
+            font-size: 36px;
+        }
+    }
+
+    &__profit {
+        position: relative;
+        flex-grow: 1;
+        list-style-type: none;
+        counter-reset: num;
+        padding: 0 26px 0 56px;
+        margin: 0;
+    }
+
+    &__profit-item {
+        position: relative;
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 18px;
+
+        &:before {
+            content: counter(num) '. ';
+            counter-increment: num;
+            font-size: 24px;
+            @include absolute($top: -12px, $left: -28px);
+        }
+    }
+
+    &__extra {
+        position: relative;
+    }
+
+    &__extra-content {
+        padding: 0 26px;
+    }
+
+    &__trial {
+        background-color: $color-darkblue;
+        color: #fff;
+        text-align: center;
+        padding: 14px 0;
+        margin-bottom: 30px;
+    }
+
+    &__trial-message {
+        font-size: 16px;
+
+        span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+
+    &__trial-sub-message {
+        font-size: 14px;
+        margin-top: 6px;
+    }
+
+    &__discount {
+        position: relative;
+        background-color: #df1414;
+        color: #fff;
+        text-align: center;
+        padding: 14px 0 13px;
+        margin-bottom: 30px;
+    }
+
+    &__discount-message {
+        font-size: 16px;
+        font-weight: bold;
+
+        span {
+            font-size: 24px;
+        }
+    }
+
+    &__discount-sub-message {
+        font-size: 14px;
+        margin-top: 6px;
+    }
+
+    &__discount-countdown {
+        background-color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        color: #df1414;
+        padding: 6px 16px 4px;
+        border: 2px solid #df1414;
+        border-radius: 20px;
+
+        @include absolute($top: -18px, $right: 16px);
+    }
+
+    &__price {
+        font-weight: bold;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 16px;
+
+        span:nth-child(1) {
+            text-decoration: line-through;
+        }
+
+        span:nth-child(2) {
+            font-size: 16px;
+        }
+    }
+
+    &__methods {
+        display: flex;
+        flex-direction: column;
+
+        .btn_size-m {
+            padding: 18px 0 16px;
+        }
+
+        .btn_link {
+            font-size: 14px;
+            color: $color-gray4;
+        }
+    }
+
+    &__buy-btn {
+        margin-bottom: 20px;
+    }
+
+    &__terms {
+        font-size: 12px;
+        color: $color-gray4;
+        text-align: center;
+
+        a {
+            color: $color-gray4;
+            -webkit-tap-highlight-color: transparent;
+        }
+    }
+
+    &__back {
+        @include absolute($top: 0, $right: 0);
+        padding: 14px;
+    }
+
+    &__close-confirm {
+        @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
+    }
+}

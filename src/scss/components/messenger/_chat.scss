@@ -1,0 +1,130 @@
+.messenger-chat {
+    height: 100%;
+    background: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+
+    &__body {
+        position: relative;
+        flex-grow: 1;
+    }
+}
+
+.messenger-messages-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.messenger-messages {
+    padding: 0 0 12px;
+}
+
+.messenger-sendbox {
+    flex-shrink: 0;
+    //padding-bottom: env(safe-area-inset-bottom);
+}
+
+.messenger-message {
+    display: flex;
+    align-items: flex-end;
+    margin: 2px 0;
+    position: relative;
+
+    &_mine {
+        justify-content: flex-end;
+    }
+
+    &_user-first {
+        margin-top: 12px;
+    }
+
+    &__ava {
+        position: absolute;
+        left: 16px;
+        bottom: 0;
+        display: none;
+        width: 20px;
+        height: 20px;
+        background: #ccc 50% 50%;
+        border-radius: 50%;
+        background-size: cover;
+
+        .messenger-message_user-last:not(.messenger-message_mine) & {
+            display: block;
+        }
+    }
+
+    &__bubble-wrapper {
+        margin-left: 36px;
+        margin-right: 16px;
+
+        .messenger-message:not(.messenger-message_mine) & {
+            margin-left: 40px;
+            margin-right: 36px;
+        }
+    }
+
+    &__bubble {
+        padding: 10px 16px;
+        background: #fff;
+        border: #ccc 1px solid;
+        border-radius: 20px 20px 20px 0;
+
+        .messenger-message_mine & {
+            background: #F0F0F0;
+            border-color: #F0F0F0;
+            border-radius: 20px 20px 0 20px;
+        }
+
+        &_photo{
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+
+            .messenger-message__date{
+                @include absolute($bottom: 0, $right: 0, $left: 0);
+                position: absolute;
+                padding: 8px 16px;
+                text-align: right;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+                color: $color-white;
+            }
+        }
+    }
+
+    &__text {
+        font-size: 18px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        color: $color-text-primary;
+    }
+
+    &__date {
+        margin-left: 8px;
+        color: #999;
+    }
+
+    &__readed {
+        color: #e4e4e4;
+        font-weight: lighter;
+        font-size: 12px;
+        text-align: right;
+        margin-right: 8px;
+    }
+
+    &__attachments {
+    }
+
+    &__attachment-photo {
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+}

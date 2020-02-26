@@ -1,0 +1,366 @@
+{
+  "personal_pronouns": {
+    "he": "er",
+    "she": "sie",
+    "him": "ihm",
+    "her": "ihr"
+  },
+  "survey_promo": {
+    "title": "Machen Sie einen Test, um eine genauere Übereinstimmung zu erhalten",
+    "title_male": "",
+    "title_female": "",
+    "subtitle": "Teilen Sie den Algorithmen von Evermatch mit, ob die folgenden Aussagen auf Ihre Übereinstimmung zutreffen",
+    "subtitle_male": "",
+    "subtitle_female": "",
+    "btn": "Test starten"
+  },
+  "question": {
+    "head": "Ihr Partner denkt, dass...",
+    "partner_male": "",
+    "partner_female": ""
+  },
+  "survey": {
+    "action_yes": "Ja",
+    "action_no": "Nein",
+    "action_skip": "Frage überspringen"
+  },
+  "survey_result": {
+    "title": "Wir haben die exaktesten Übereinstimmungen für Sie ausgewählt",
+    "match": "Übereinstimmungen mit <span><h2>254</h2> {gender}</span>",
+    "male": "Männern",
+    "female": "Frauen",
+    "based": "basierend auf ihren Antworten",
+    "price": "Erhalten Sie für {price} eine Woche lang den VIP-Status und chatten Sie sofort mit ihnen",
+    "trial": "Erhalten Sie VIP-Status"
+  },
+  "card": {
+    "like": "Like",
+    "dislike": "Gefällt mir nicht"
+  },
+  "swipe": {
+    "like": "Wischen Sie <span>nach rechts</span>, wenn Ihnen {pronouns}  gefällt",
+    "dislike": "Wischen Sie <span>nach links</span> wenn Ihnen {pronouns} nicht gefällt",
+    "dislike_sub": "Keine Sorge,<br>{pronouns} wird nichts davon erfahren",
+    "like_him": "er",
+    "like_her": "sie",
+    "btn": "Danke, verstanden"
+  },
+  "card_vip": {
+    "title": "Erhöhen Sie Ihre Chancen<br><h2>mit dem VIP-Status</h2><br><span>um 85 %</span>",
+    "btn": "Weitere Informationen"
+  },
+  "setting": {
+    "filters": "Filter"
+  },
+  "filter": {
+    "head": "Filter",
+    "action": "Speichern",
+    "age": "Alter"
+  },
+  "empty_feed": {
+    "title": "Momentan stimmen keine Profile mit Ihrer Anfrage überein...",
+    "msg": "Passen Sie Ihre Filter an, um Ihre Suchparameter zu ändern",
+    "btn": "Перейти в Фильтры"
+  },
+  "feed_limit": {
+    "title": "Sie haben heute 1.000 {gender} angesehen!",
+    "msg": "Sie können morgen weiter nach Ihrem Seelenverwandten suchen",
+    "male": "Männer",
+    "female": "Frauen"
+  },
+  "nav": {
+    "meeting": "Dating",
+    "sympathy": "Likes",
+    "message": "Nachrichten",
+    "profile": "Profil"
+  },
+  "main_photo": {
+    "msg_male": "{name} interessiert sich nur für Männer mit einem Foto",
+    "msg_female": "{name} interessiert sich nur für Frauen mit einem Foto",
+    "bnt_add": "Foto hinzufügen",
+    "bnt_later": "Laden Sie später<br>ein Foto hoch"
+  },
+  "real_photo": {
+    "msg": "Laden Sie ein Foto hoch, auf dem Ihr Gesicht gut sichtbar ist, und chatten Sie weiter",
+    "subtitle": "Ihr Foto wurde nicht akzeptiert",
+    "btn_add": "Wählen Sie ein anderes Foto aus",
+    "btn_later": "Nicht jetzt"
+  },
+  "mutual_symp": {
+    "title": "Übereinstimmung!",
+    "subtitle": "Sie und {name} haben sich gelikt!",
+    "placeholder": "Seien Sie nicht schüchtern, senden Sie {pronouns} eine Nachricht",
+    "btn": "Weiter"
+  },
+  "photo_request": {
+    "title": "Laden Sie ein Foto hoch, um sich endlich kennenzulernen",
+    "subtitle": "Ihre Chance, eine Übereinstimmung zu finden, ist mit einem Foto zehnmal höher",
+    "btn": "Wählen Sie ein Foto aus"
+  },
+  "review": {
+    "title": "Wie gefällt Ihnen Evermatch, {name}?",
+    "action1": "Bewertung",
+    "action2": "Bewertung später abgeben",
+    "positive": {
+      "title": "Tolle Bewertung!",
+      "subtitle": "Vielen Dank!<br>Möchten Sie die App auf Google Play bewerten?"
+    },
+    "negative": {
+      "title": "Ihre Bewertung:",
+      "subtitle": "Was könnten wir ihrer Meinung nach verbessern?",
+      "placeholder": "Ihr Kommentar",
+      "action1": "Kommentar senden",
+      "action2": "Nicht jetzt"
+    },
+    "result": {
+      "title": "Vielen Dank für Ihr Feedback!"
+    }
+  },
+  "complaint": {
+    "title": "Was ist los?",
+    "btn": "Beschweren",
+    "check": "Diesem Benutzer den Zugriff auf meine Seite verweigern",
+    "support": "Support",
+    "result": {
+      "title": "Vielen Dank<br>für Ihre Wachsamkeit",
+      "msg": "Wir übernehmen<br>ab hier"
+    }
+  },
+  "message_limit": {
+    "title": "Werden Sie ein VIP und chatten Sie ohne Einschränkungen",
+    "info": "Sie können dieser Person keine Chatanfrage senden. Sie können nicht mehr als {count} Anfragen pro Tag senden",
+    "action_activate": "VIP-Status aktivieren",
+    "action_become": "VIP werden"
+  },
+  "notification": {
+    "msg": "Nachricht gesendet",
+    "vip": "Sie haben jetzt VIP-Status"
+  },
+  "incoming": {
+    "tab": "Hat mich geliked",
+    "notify": "Sie sind ein VIP und können sehen, von wem Sie gelikt wurden",
+    "new": "Neu",
+    "empty": {
+      "photo_title": "Sie haben kein Foto...",
+      "photo_msg": "Fügen Sie ein Foto hinzu, um Likes von {gender} zu erhalten!",
+      "male": "Männern",
+      "female": "Frauen",
+      "like": "Warten Sie nicht, bis Sie ein Like von jemandem erhalten - Liken Sie sie zuerst!",
+      "first_m": "",
+      "first_w": "",
+      "bnt_add": "Foto hinzufügen",
+      "btn_view": "Foto anzeigen"
+    },
+    "offer": {
+      "msg": "Benutzer mit VIP-Status können sofort sehen, von wem sie gelikt wurden!",
+      "btn_activate": "VIP-Status aktivieren",
+      "btn_become": "VIP werden"
+    }
+  },
+  "locked_user": {
+    "title": "findet Sie attraktiv",
+    "male": "",
+    "female": "",
+    "subtitle": "Sehen Sie sich weitere Fotos an, um eine kostenlose Übereinstimmung zu finden, oder werden Sie VIP und antworten Sie sofort",
+    "btn_open": "Like",
+    "btn_play": "Das Dating-Spiel spielen"
+  },
+  "mutual": {
+    "title": "Ihre Übereinstimmungen",
+    "title_new": "Neue Übereinstimmungen",
+    "empty": "Liken Sie jemanden und finden Sie Ihre Übereinstimmung"
+  },
+  "messenger": {
+    "tab_all": "Alle",
+    "tab_online": "Online",
+    "online_empty": "Ihre Gesprächspartner scheinen gerade nicht online zu sein"
+  },
+  "suggestions": {
+    "title": "Sie haben immer noch keine Unterhaltungspartner?",
+    "subtitle_m": "Senden Sie einem dieser Männer eine Nachricht",
+    "subtitle_f": "Senden Sie einer dieser Frauen eine Nachricht"
+  },
+  "messenger_chat": {
+    "empty_m": "Senden Sie ihm zuerst eine Nachricht...",
+    "empty_f": "Senden Sie ihr zuerst eine Nachricht...",
+    "placeholder": "Senden Sie {pronouns} eine Nachricht",
+    "mutual_label": "Es beruht auf Gegenseitigkeit!",
+    "mutual_you_and": "Sie und {name}",
+    "mutual_msg": "<span>haben sich gegenseitig geliked</span> {dateDiff}"
+  },
+  "chat_photo_block": {
+    "title": "Fügen Sie ein Foto hinzu, um {pronouns} eine Nachricht zu senden",
+    "btn": "Wählen Sie ein Foto aus"
+  },
+  "mutual_message": {
+    "title": "Es beruht auf Gegenseitigkeit!",
+    "text": "Sie haben sich gegenseitig geliked <span>{dateDiff}</span>"
+  },
+  "profile": {
+    "link": "Profil anzeigen",
+    "btn_edit": "Bearbeiten",
+    "btn_vip": "Vollständigen<br>Zugang erhalten",
+    "vip_activated": "aktiviert",
+    "btn_settings": "Einstellungen"
+  },
+  "banner_photo": {
+    "title": "Laden Sie ein Foto hoch, um schneller eine Übereinstimmung zu finden",
+    "btn": "Wählen Sie ein Foto aus"
+  },
+  "profile_editor": {
+    "title": "Profil bearbeiten",
+    "btn_view": "Durchsuchen",
+    "male": "M",
+    "female": "F",
+    "field_name": "Name",
+    "field_age": "Alter, Geschlecht",
+    "field_target": "Beziehungsziel",
+    "field_sport": "Sport/Fitness",
+    "field_music": "Musik",
+    "field_movie": "Filme",
+    "field_books": "Bücher",
+    "field_hobby": "Hobbys",
+    "field_city": "Stadt",
+    "section_about": "Über mich",
+    "section_interests": "Meine Interessen",
+    "section_location": "Standort",
+    "about_description": "Schreiben Sie etwas Interessantes über sich",
+    "about_description2": "Erzählen Sie etwas, was man gern über Sie erfahren würde, wenn man Sie trifft",
+    "about_placeholder": "Ich mag / Ich kann",
+    "btn_edit": "Bearbeiten",
+    "btn_add": "Hinzufügen",
+    "user_name": {
+      "label": "Ihr Name",
+      "placeholder": "Mein Name"
+    },
+    "geo": {
+      "placeholder": "Meine Stadt",
+      "message": "Wählen Sie eine andere Stadt aus",
+      "error": "Ihr Standort konnte nicht erkannt werden"
+    }
+  },
+  "field_editor": {
+    "action_save": "Speichern",
+    "name_error_incorrect": "Geben Sie Ihren richtigen Namen ein",
+    "name_error_long": "Dieser Name ist zu lang",
+    "name_error_link": "Ihr Name darf keine Links enthalten",
+    "name_invalid": "Ungültiger Name",
+    "not_set": "Keine Angabe"
+  },
+  "photo_gallery": {
+    "title": "Fügen Sie bald ein Foto von sich hinzu",
+    "subtitle": "Sonst kann Sie niemand sehen",
+    "btn_photo": "Foto hinzufügen"
+  },
+  "photo_viewer": {
+    "btn_add": "Neues Foto hochladen",
+    "btn_main": "Als Hauptfoto festlegen",
+    "btn_delete": "Löschen"
+  },
+  "app_settings": {
+    "title": "Einstellungen",
+    "field_terms": "Benutzervereinbarung",
+    "privacy_policy": "Datenschutz-Bestimmungen",
+    "support": "Hilfe",
+    "delete": "Profil löschen"
+  },
+  "user_profile": {
+    "goals": "Beziehungsziel",
+    "interests": "Meine Interessen",
+    "job": "Beruf",
+    "about": "Weitere Informationen zu mir",
+    "city": "Wo ich jetzt bin",
+    "more": "{count} weitere Fotos",
+    "complain": "Beschweren",
+    "require_photo": "Fügen Sie ein Foto hinzu, um {pronouns} eine Nachricht zu senden",
+    "dialog_placeholder": "Senden Sie {pronouns} jetzt eine Nachricht",
+    "dialog_locked": "VIP-Status aktivieren und {pronouns} eine Nachricht senden"
+  },
+  "vip_offer": {
+    "title": "<span>Der VIP-Status</span><br>verbessert Ihre Erfahrung:",
+    "profit": [
+      "Sehen Sie, wer Sie gelikt hat und sofort darauf reagieren",
+      "Senden einer unbegrenzten Anzahl von Chatanfragen",
+      "Keine Werbung"
+    ],
+    "price": "{price} pro Woche",
+    "trial": "<span>{count}</span> Tage kostenlos testen",
+    "discount": "{count} % Rabatt - nur jetzt",
+    "discount_price": "{period} Woche für <span>{old_price}</span> <span>{price}</span>",
+    "restore": "Käufe wiederherstellen",
+    "trial_price": "dann <strong>{price}</strong> pro Monat",
+    "discount_ios_price": "<strike>{old_price}</strike> <strong>{price}</strong> pro Monat"
+  },
+  "billing": {
+    "android": {
+      "trial": "VIP werden",
+      "buy": "VIP werden"
+    },
+    "card": {
+      "trial": "VIP werden",
+      "buy": "VIP werden"
+    },
+    "ios": {
+      "trial": "Abonnieren",
+      "buy": "Abonnieren"
+    },
+    "survey": {
+      "buy": "Fangen Sie an zu chatten"
+    }
+  },
+  "discount_close": {
+    "title": "Sind Sie sicher, dass Sie den Rabatt ablehnen möchten?",
+    "confirm": "Rabatt ablehnen",
+    "reject": "{count} % Rabatt erhalten"
+  },
+  "push_permission": {
+    "message": "{my_name}, <br>Wischen nach <span>rechts</span> bedeutet, dass Sie {user_name} mögen. Möchten Sie benachrichtigt werden, wenn {gender} antwortet?",
+    "male": "er",
+    "female": "sie",
+    "accept": "Sicher",
+    "decline": "Nein danke"
+  },
+  "chat": {
+    "exception": {
+      "blacklisted": "Sie können diesem Benutzer nicht schreiben, da der Benutzer über die Datenschutzeinstellungen eingehende Nachrichten eingeschränkt hat."
+    }
+  },
+  "delete_profile": {
+    "title": "Ihr Profil sowie alle Kontakte löschen?",
+    "message": "Diese Aktion kann nicht rückgängig gemacht werden.<br><br>Wenn Sie Ihr Profil löschen, verlieren Sie:<br><ul><li>Nachrichtenverlauf</li><li>Likes</li><li>VIP-Status (falls vorhanden)</li></ul>",
+    "bnt_ok": "Profil löschen",
+    "btn_cancel": "Stornieren"
+  },
+  "upload_error": {
+    "title": "Ihr Foto konnte leider nicht hochgeladen werden",
+    "message": "Beachten Sie, dass die minimale Bildgröße 256 x 256 Pixel und die maximale Dateigröße 20 MB beträgt."
+  },
+  "date": {
+    "months": ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+    "yesterday": "gestern"
+  },
+  "start_promo": {
+    "title": "Herzlich willkommen!<br>Evermatch legt gerade erst los",
+    "counter": "<strong>{number}</strong> Benutzer aus {country} haben heute Konten erstellt",
+    "message": "Vergessen Sie nicht, morgen wieder vorbeizuschauen, um mehr neue Leute kennenzulernen",
+    "button": "Mit dem Dating beginnen",
+    "countries": {
+      "ru": "Russlans",
+      "br": "Brasilien",
+      "tr": "Türkei",
+      "id": "Indonesien",
+      "fr": "Frankreich",
+      "in": "Indien",
+      "us": "USA",
+      "de": "Deutschland",
+      "gb": "UK",
+      "ca": "Kanada"
+    },
+    "country": "Deutschland"
+  },
+  "support_chat": {
+    "name": "Support",
+    "placeholder": "Your message",
+    "message": "Hello! Something went wrong? Describe your problem"
+  }
+}

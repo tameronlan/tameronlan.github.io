@@ -1,0 +1,58 @@
+.photo-request {
+    position: relative;
+    //background: #111 url(~@/assets/couple2.jpg) center top no-repeat;
+    background-size: cover;
+
+    &:before {
+        position: relative;
+        content: '';
+        height: 443px;
+        background: linear-gradient(177.92deg, rgba(196, 196, 196, 0) 1.39%, rgba(41, 41, 41, 0.87) 41.37%, #1E1E1E 59.14%, #000000 98.57%);
+        @include absolute($right: 0, $bottom: 0, $left: 0);
+    }
+
+    &__couple {
+        position: relative;
+        width: 100%;
+        height: 432px;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: bold;
+        color: $color-yellow;
+        margin-bottom: 26px;
+    }
+
+    &__subtitle {
+        color: $color-gray2;
+        padding: 0 60px;
+        margin-bottom: 20px;
+    }
+
+    &__extra {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 26px 32px;
+
+        @include absolute($right: 0, $bottom: 0, $left: 0);
+    }
+
+    &.country_id {
+        background-image: url(~@/assets/lang/id/couple2-id.jpg);
+    }
+
+    &.country_tr {
+        background-image: url(~@/assets/lang/tr/couple2-tr.jpg);
+    }
+
+    &.country_br {
+        background-image: url(~@/assets/lang/br/couple2-br.jpg);
+    }
+
+    &.country_in {
+        background-image: url(~@/assets/lang/in/couple2-in.jpg);
+    }
+}

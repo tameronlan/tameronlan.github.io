@@ -1,0 +1,10 @@
+.text-field {
+    font-family: $font-family-lato;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+
+    &::placeholder {
+        color: $color-gray3;
+    }
+}

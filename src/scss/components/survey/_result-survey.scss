@@ -1,0 +1,119 @@
+.result-survey {
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    padding-top: 24px;
+    @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
+
+    &__title {
+        flex-shrink: 0;
+        font-size: 24px;
+        padding: 0 20px;
+        margin-bottom: 12px;
+
+        span {
+            color: $color-yellow-tapped;
+            font-weight: bold;
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+
+    &__results {
+        background-size: 380px 172px;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 172px;
+    }
+
+    &__description {
+        text-align: left;
+        margin: 0 auto;
+    }
+
+    &__match {
+        font-size: 20px;
+
+        h2 {
+            display: inline;
+            font-size: 32px;
+        }
+
+        span {
+            position: relative;
+            color: $color-yellow-tapped;
+            white-space: nowrap;
+            z-index: 1;
+
+            &:before {
+                content: '';
+                background: $color-yellow-disabled;
+                border-radius: 4px;
+                z-index: -1;
+                @include absolute($top: -2px, $right: -4px, $bottom: -2px, $left: -2px);
+            }
+        }
+    }
+
+    &__based {
+        font-size: 16px;
+        color: $color-gray4;
+    }
+
+    &__offer {
+        flex-shrink: 0;
+        background-color: #fff;
+        padding: 20px 20px 30px;
+    }
+
+    &__price {
+        font-size: 16px;
+        text-align: center;
+        line-height: 22px;
+        margin-bottom: 18px;
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    &__methods {
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+
+        .btn_size-m {
+            padding: 18px 0 16px;
+        }
+    }
+
+    &__buy-btn {
+        margin-bottom: 12px;
+    }
+
+    &__terms {
+        font-size: 12px;
+        color: $color-gray4;
+        text-align: center;
+        padding: 0 26px;
+
+        a {
+            color: $color-gray4;
+            -webkit-tap-highlight-color: transparent;
+        }
+    }
+}
+
+@media (max-height: 550px) {
+    .result-survey__results {
+        background-size: 336px 152px;
+        height: 152px;
+    }
+}

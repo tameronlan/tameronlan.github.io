@@ -1,0 +1,113 @@
+.waiters{
+    position: absolute;
+    right: 12px;
+    top: 4px;
+    left: 12px;
+    display: flex;
+    z-index: 5;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+    font-family: $font-family-montserrat;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(31, 0, 113, 0.2);
+    max-width: 720px;
+
+    &_empty{
+        left: 50%;
+        overflow: visible;
+        box-shadow: 0 0 0;
+
+        .waiters__motivator{
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(31, 0, 113, 0.2);
+            border-radius: 0 30px 30px 0;
+        }
+
+        .waiters__progress{
+            display: none;
+        }
+    }
+
+    &__motivator{
+        position: relative;
+        width: 50%;
+        padding: 0 24px 0 0;
+        background: $color-orange-1;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    &__progress{
+        position: relative;
+        width: 50%;
+        padding: 16px 42px 16px 24px;
+        background: $color-white;
+        display: flex;
+        align-items: center;
+        color: #3C64F3;
+    }
+    
+    &__users{
+        margin-left: -33px;
+        margin-right: 6px;
+        display: flex;
+
+        & :nth-child(1){
+            z-index: 3;
+        }
+
+        & :nth-child(2){
+            z-index: 2;
+        }
+
+        & :nth-child(3){
+            z-index: 1;
+        }
+    }
+
+    &-user{
+        width: 60px;
+        height: 60px;
+        box-shadow: 0 4px 12px rgba(31, 0, 113, 0.2);
+        border-radius: 50%;
+        background: #fff no-repeat center;
+        background-size: cover;
+        border: 3px solid #FF6125;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &_empty{
+            background: #46A6FF;
+            border: 4px solid #fff;
+        }
+
+        &_current{
+            border: none;
+        }
+
+        &__progress{
+            width: 60px;
+            height: 60px;
+        }
+
+        &__circle{
+            fill: rgba(#fff, 0);
+            stroke-width: 6px;
+            stroke: #fff;
+        }
+
+        &__circle_current{
+            stroke: #FFC960;
+        }
+    }
+
+    &-user + &-user{
+        margin-left: -50px;
+    }
+}

@@ -1,0 +1,366 @@
+{
+  "personal_pronouns": {
+    "he": "he",
+    "she": "she",
+    "him": "him",
+    "her": "her"
+  },
+  "survey_promo": {
+    "title": "Take a test to get a more accurate match",
+    "title_male": "",
+    "title_female": "",
+    "subtitle": "Tell Evermatch's algorithms whether or not the following statements apply to your match",
+    "subtitle_male": "",
+    "subtitle_female": "",
+    "btn": "Start test"
+  },
+  "question": {
+    "head": "Your partner thinks that...",
+    "partner_male": "",
+    "partner_female": ""
+  },
+  "survey": {
+    "action_yes": "Yes",
+    "action_no": "No",
+    "action_skip": "Skip question"
+  },
+  "survey_result": {
+    "title": "We've picked the most accurate matches <span>for you</span>",
+    "match": "Matches with <span><h2>254</h2> {gender}</span>",
+    "male": "men",
+    "female": "women",
+    "based": "based on their responses",
+    "price": "Get VIP status<br><span>and start chatting them right now</span>",
+    "trial": "Get VIP status<br><span>and start chatting them right now</span>"
+  },
+  "card": {
+    "like": "Like",
+    "dislike": "Don't like"
+  },
+  "swipe": {
+    "like": "Swipe <span>right</span> if you like {pronouns}",
+    "dislike": "Swipe <span>left</span> if you don't like {pronouns}",
+    "dislike_sub": "Don't worry,<br>{pronouns} won't know about it",
+    "like_him": "him",
+    "like_her": "her",
+    "btn": "Got it, thanks"
+  },
+  "card_vip": {
+    "title": "Increase your chances<br><span>by 85%</span><br><h2>with VIP status</h2>",
+    "btn": "Learn more"
+  },
+  "setting": {
+    "filters": "Filters"
+  },
+  "filter": {
+    "head": "Filter",
+    "action": "Save",
+    "age": "Age"
+  },
+  "empty_feed": {
+    "title": "No profiles match your request at the moment...",
+    "msg": "Adjust your filters to change your search parameters",
+    "btn": "Go to Filters"
+  },
+  "feed_limit": {
+    "title": "You've viewed 1,000 {gender} today!",
+    "msg": "You can keep looking for your soulmate tomorrow",
+    "male": "men",
+    "female": "women"
+  },
+  "nav": {
+    "meeting": "Dating",
+    "sympathy": "Likes",
+    "message": "Messages",
+    "profile": "Profile"
+  },
+  "main_photo": {
+    "msg_male": "{name} is only interested in men with a photo",
+    "msg_female": "{name} is only interested in women with a photo",
+    "bnt_add": "Add a photo",
+    "bnt_later": "Upload a photo<br>later"
+  },
+  "real_photo": {
+    "msg": "Upload a photo in which your face is clearly visible and keep chatting",
+    "subtitle": "Your photo was not accepted",
+    "btn_add": "Choose another photo",
+    "btn_later": "Not now"
+  },
+  "mutual_symp": {
+    "title": "It's a match!",
+    "subtitle": "You and {name} like each other!",
+    "placeholder": "Don't be shy, send {pronouns} a message",
+    "btn": "Continue"
+  },
+  "photo_request": {
+    "title": "Upload a photo to start really getting to know each other",
+    "subtitle": "Your chance of finding a match are ten times better with a photo",
+    "btn": "Choose a photo"
+  },
+  "review": {
+    "title": "How do you like Evermatch, {name}?",
+    "action1": "Review",
+    "action2": "Review later",
+    "positive": {
+      "title": "Great review!",
+      "subtitle": "Thank you so much!<br>Would you like to review the app on Google Play?"
+    },
+    "negative": {
+      "title": "Your review:",
+      "subtitle": "What do you think we should improve?",
+      "placeholder": "Your comment",
+      "action1": "Submit comment",
+      "action2": "Not now"
+    },
+    "result": {
+      "title": "Thank you for your feedback!"
+    }
+  },
+  "complaint": {
+    "title": "What's the matter?",
+    "btn": "Complain",
+    "check": "Deny this user access to my page",
+    "support": "Support",
+    "result": {
+      "title": "Thank you<br>for your vigilance",
+      "msg": "We'll take it from here"
+    }
+  },
+  "message_limit": {
+    "title": "Become a VIP and chat with no restrictions",
+    "info": "You cannot send this person a chat request. You cannot send more than {count} requests per day",
+    "action_activate": "Activate VIP status",
+    "action_become": "Become a VIP"
+  },
+  "notification": {
+    "msg": "Message sent",
+    "vip": "You now have VIP status"
+  },
+  "incoming": {
+    "tab": "Likes me",
+    "notify": "You are a VIP and can see who likes you",
+    "new": "New",
+    "empty": {
+      "photo_title": "You don't have a photo...",
+      "photo_msg": "Add a photo to get likes from {gender}!",
+      "male": "men",
+      "female": "women",
+      "like": "Don't wait around for someone to like you - like them first!",
+      "first_m": "",
+      "first_w": "",
+      "bnt_add": "Add a photo",
+      "btn_view": "View photo"
+    },
+    "offer": {
+      "msg": "Users with VIP status can see who likes them right away!",
+      "btn_activate": "Activate VIP status",
+      "btn_become": "Become a VIP"
+    }
+  },
+  "locked_user": {
+    "title": "finds you attractive",
+    "male": "",
+    "female": "",
+    "subtitle": "Keep looking at photos to find a match for free or become a VIP and respond right away",
+    "btn_open": "Like",
+    "btn_play": "Play the dating game"
+  },
+  "mutual": {
+    "title": "Your matches",
+    "title_new": "New matches",
+    "empty": "Like someone and find your match"
+  },
+  "messenger": {
+    "tab_all": "All",
+    "tab_online": "Online",
+    "online_empty": "Your conversation partners don't seem to be online right now"
+  },
+  "suggestions": {
+    "title": "Still not chatting with anyone?",
+    "subtitle_m": "Send one of these men a message",
+    "subtitle_f": "Send one of these women a message"
+  },
+  "messenger_chat": {
+    "empty_m": "Send him a message first...",
+    "empty_f": "Send her a message first...",
+    "placeholder": "Send {pronouns} a message",
+    "mutual_label": "It's mutual!",
+    "mutual_you_and": "You and {name}",
+    "mutual_msg": "<span>liked each other</span> {dateDiff}"
+  },
+  "chat_photo_block": {
+    "title": "To send {pronouns} a message,<br>add a photo",
+    "btn": "Choose a photo"
+  },
+  "mutual_message": {
+    "title": "It's mutual!",
+    "text": "You liked each other <span>{dateDiff}</span>"
+  },
+  "profile": {
+    "link": "View profile",
+    "btn_edit": "Edit",
+    "btn_vip": "Get<br>full access",
+    "vip_activated": "activated",
+    "btn_settings": "Settings"
+  },
+  "banner_photo": {
+    "title": "Upload a photo to find a match more quickly",
+    "btn": "Choose a photo"
+  },
+  "profile_editor": {
+    "title": "Edit profile",
+    "btn_view": "Browse",
+    "male": "M",
+    "female": "W",
+    "field_name": "Name",
+    "field_age": "Age, gender",
+    "field_target": "Relationship goal",
+    "field_sport": "Sports/exercise",
+    "field_music": "Music",
+    "field_movie": "Movies",
+    "field_books": "Books",
+    "field_hobby": "Hobbies",
+    "field_city": "City",
+    "section_about": "About me",
+    "section_interests": "My interests",
+    "section_location": "Location",
+    "about_description": "Write something interesting about yourself",
+    "about_description2": "Talk about something that would be interesting to learn about you when meeting you",
+    "about_placeholder": "I like / I can",
+    "btn_edit": "Edit",
+    "btn_add": "Add",
+    "user_name": {
+      "label": "Your name",
+      "placeholder": "My name"
+    },
+    "geo": {
+      "placeholder": "My city",
+      "message": "Choose another city",
+      "error": "Failed to detect your location"
+    }
+  },
+  "field_editor": {
+    "action_save": "Save",
+    "name_error_incorrect": "Enter your real name",
+    "name_error_long": "That name is too long",
+    "name_error_link": "Your name cannot contain links",
+    "name_invalid": "Invalid name",
+    "not_set": "Not specified"
+  },
+  "photo_gallery": {
+    "title": "Add a photo of yourself soon",
+    "subtitle": "Otherwise no one will be able to see you",
+    "btn_photo": "Add a photo"
+  },
+  "photo_viewer": {
+    "btn_add": "Upload new photo",
+    "btn_main": "Set as main photo",
+    "btn_delete": "Delete"
+  },
+  "app_settings": {
+    "title": "Settings",
+    "field_terms": "User Agreement",
+    "privacy_policy": "Privacy Policy",
+    "support": "Help",
+    "delete": "Delete profile"
+  },
+  "user_profile": {
+    "goals": "Relationship goal",
+    "interests": "My interests",
+    "job": "Profession",
+    "about": "More about me",
+    "city": "Where I am now",
+    "more": "{count} more photos",
+    "complain": "Complain",
+    "require_photo": "Add a photo to send {pronouns} a message",
+    "dialog_placeholder": "Send {pronouns} a message right now",
+    "dialog_locked": "Activate VIP status and send {pronouns} a message"
+  },
+  "vip_offer": {
+    "title": "<span>VIP status</span><br>will improve your experience:",
+    "profit": [
+      "See who likes you and respond to them right away",
+      "Send an unlimited number of chat requests",
+      "No ads"
+    ],
+    "price": "{price} per week",
+    "trial": "Try it for <span>{count}</span> <span>days for free</span>",
+    "discount": "<span>{count}%</span> off - right now only",
+    "discount_price": "{period} week for <span>{old_price}</span> <span>{price}</span>",
+    "restore": "Restore purchases",
+    "trial_price": "then <strong>{price}</strong> per month",
+    "discount_ios_price": "<strike>{old_price}</strike> <strong>{price}</strong> per month"
+  },
+  "billing": {
+    "android": {
+      "trial": "Become a VIP",
+      "buy": "Become a VIP"
+    },
+    "card": {
+      "trial": "Activate with a card",
+      "buy": "Pay with a card"
+    },
+    "ios": {
+      "trial": "Subscribe",
+      "buy": "Subscribe"
+    },
+    "survey": {
+      "buy": "Start chatting"
+    }
+  },
+  "discount_close": {
+    "title": "Are you sure you want to decline the discount?",
+    "confirm": "Decline discount",
+    "reject": "Get {count}% off"
+  },
+  "push_permission": {
+    "message": "{my_name}, <br>Swiping <span>right</span> means that you like {user_name}. Do you want to get a notification when {gender} responds?",
+    "male": "he",
+    "female": "she",
+    "accept": "Sure",
+    "decline": "No thanks"
+  },
+  "chat": {
+    "exception": {
+      "blacklisted": "You cannot write to this user because the user has blacklisted you."
+    }
+  },
+  "delete_profile": {
+    "title": "Delete your profile and all your contacts?",
+    "message": "This action cannot be undone<br><br>If you delete your profile, you will lose:<br><ul><li>Message history</li><li>Likes</li><li>VIP status (if you have it)</li></ul>",
+    "bnt_ok": "Delete profile",
+    "btn_cancel": "Cancel"
+  },
+  "upload_error": {
+    "title": "Sorry, failed to upload photo",
+    "message": "Keep in mind that the minimum image size is 256x256 and the maximum file size is 20 MB."
+  },
+  "date": {
+    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "yesterday": "yesterday"
+  },
+  "start_promo": {
+    "title": "Welcome!<br>Evermatch is just getting started",
+    "counter": "<strong>{number}</strong> users from {country} created accounts today",
+    "message": "Don't forget to check back in tomorrow to meet more new people",
+    "button": "Start dating",
+    "countries": {
+      "ru": "Russia",
+      "br": "Brazil",
+      "tr": "Turkey",
+      "id": "Indonesia",
+      "fr": "France",
+      "in": "India",
+      "us": "USA",
+      "de": "Germany",
+      "gb": "UK",
+      "ca": "Canada"
+    },
+    "country": "USA"
+  },
+  "support_chat": {
+    "name": "Support",
+    "placeholder": "Your message",
+    "message": "Hello! Something went wrong? Describe your problem"
+  }
+}

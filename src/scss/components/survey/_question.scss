@@ -1,0 +1,71 @@
+.question {
+    padding: 0 40px;
+
+    &__head {
+        font-size: 16px;
+        margin-bottom: 14px;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    &__answer {
+        display: inline-block;
+        position: relative;
+        background-color: $color-yellow-disabled;
+        border-radius: 8px;
+        font-weight: bold;
+        text-align: center;
+        padding: 8px 4px 7px;
+        min-width: 68px;
+        transform-origin: bottom left;
+
+        &:before {
+            content: '';
+            @extend %ico;
+            @include absolute($top: 100%, $left: 10px);
+        }
+    }
+}
+
+.answer-enter-active, .answer-leave-active {
+    transition: all .3s ease-out;
+}
+
+.answer-enter, .answer-leave-to {
+    transform: translate(0, 20px) rotate(15deg);
+    opacity: 0;
+}
+
+.questions-enter-active, .questions-leave-active {
+    position: absolute;
+    transition: all .6s ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+.questions-enter, .questions-leave-to {
+    opacity: 0;
+}
+
+.questions-enter {
+    transform: translateX(100%);
+}
+
+.questions-leave-to {
+    transform: translateX(-100%);
+}
+
+.question-actions-enter-active, .question-actions-leave-active {
+    transition: opacity .3s ease;
+}
+
+.question-actions-enter-active {
+    transition-delay: .6s;
+}
+
+.question-actions-enter, .question-actions-leave-to {
+    opacity: 0;
+}

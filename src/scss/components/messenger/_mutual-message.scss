@@ -1,0 +1,17 @@
+.mutual-message {
+    text-align: center;
+    padding: 0 20px;
+
+    &__title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #f65f1e;
+    }
+
+    &__text {
+        span {
+            font-size: 12px;
+            color: $color-gray3;
+        }
+    }
+}
