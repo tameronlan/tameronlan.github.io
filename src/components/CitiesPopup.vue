@@ -16,7 +16,7 @@
 
 <script>
     import {getCitiesByName} from '@/api/meeting';
-    import Loader from './Loader';
+    import Loader from './common/Loader';
 
     export default {
         name: 'CitiesPopup',

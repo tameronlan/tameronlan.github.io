@@ -30,7 +30,7 @@
     import NumberField from './NumberField';
     import GeoField from './GeoField';
     import InputField from './InputField';
-    import Loader from '@/components/Loader';
+    import Loader from '@/components/common/Loader';
     import {saveField} from '../../api/profile';
 
     export default {

@@ -25,8 +25,8 @@ export default {
         transformString() {
             if (!this.interactAnimating || this.interactDragged) {
                 const { x, y, rotation } = this.interactPosition;
+
                 return `translate3D(${x}px, ${y}px, 0) rotate(${rotation}deg)`;
-                // return `translate3D(${x}px, 0, 0)`;
             }
 
             return null;

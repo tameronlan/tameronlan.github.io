@@ -46,22 +46,6 @@
         align-self: center;
         min-width: 220px;
     }
-
-    &.country_id {
-        background-image: url(~@/assets/lang/id/couple-id.jpg);
-    }
-
-    &.country_tr {
-        background-image: url(~@/assets/lang/tr/couple-tr.jpg);
-    }
-
-    &.country_br {
-        background-image: url(~@/assets/lang/br/couple-br.jpg);
-    }
-
-    &.country_in {
-        background-image: url(~@/assets/lang/in/couple-in.jpg);
-    }
 }
 
 .fade-opacity-enter-active, .fade-opacity-leave-active {

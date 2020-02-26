@@ -7,7 +7,7 @@ export const AVATAR_STATUS_APPROVED = 2;
 export const AVATAR_STATUS_ON_MODERATION = 3;
 
 export const GENDER_MAN = 'm';
-export const GENDER_WOMEN = 'w';
+export const GENDER_WOMEN = 'f';
 export const GENDER_MAN_ID = 1;
 export const GENDER_WOMEN_ID = 2;
 export const GENDER_FS_MAN = 109;
@@ -51,7 +51,7 @@ export const BILL_METHOD_IDS = {
 
 export const DEFAULT_LANGUAGE = 'ru_RU';
 export const FALLBACK_LANGUAGE = 'ru_RU';
-export const SUPPORTED_LANGUAGES = ['ru_RU', 'en_US', 'en_CA', 'en_GB', 'es_MX', 'de_DE', 'fr_FR', 'fr_CA', 'id_ID', 'pt_BR', 'tr_TR'];
+export const SUPPORTED_LANGUAGES = ['ru_RU'];
 
 export const VENDOR_IOS = 1;
 export const VENDOR_ANDROID = 2;

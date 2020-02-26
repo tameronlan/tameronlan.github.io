@@ -3,7 +3,7 @@ export const animationEndEvent = (() => {
     const animations = {
         'animation': 'animationend',
         'WebkitAnimation': 'webkitAnimationEnd'
-    }
+    };
 
     for (let t in animations) {
         if (el.style[t] !== undefined) {

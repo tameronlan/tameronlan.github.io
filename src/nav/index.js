@@ -8,7 +8,6 @@ import Incoming from '../components/sympathy/Incoming';
 import MyProfile from '../components/profile/MyProfile';
 import Start from '../components/Start';
 
-import Signup from '../components/signup/Signup';
 import SignupGender from '../components/signup/SignupGender';
 import SignupCity from '../components/signup/SignupCity';
 import SignupName from '../components/signup/SignupName';
@@ -18,7 +17,6 @@ import {TAB_FEED, TAB_INCOMING, TAB_MESSENGER, TAB_PROFILE, TAB_NONE} from '../c
 
 import Messenger from '@/components/messenger/Messenger';
 import Chat from '@/components/messenger/Chat';
-import SupportChat from '@/components/support/SupportChat';
 import Tutorial from '@/components/Tutorial';
 
 import ExtendHandler from './ExtendHandler';
@@ -92,14 +90,7 @@ const vueNav = new VueNav({baseURL: '/app/'}, [
         name: 'profile',
         path: '/profile',
         component: MyProfile,
-        didActivated: () => store.commit('setNavigationTab', TAB_PROFILE),
-        children: [
-            {
-                path: 'support',
-                construct: ExtendHandler,
-                component: SupportChat
-            }
-        ]
+        didActivated: () => store.commit('setNavigationTab', TAB_PROFILE)
     }
 ]);
 

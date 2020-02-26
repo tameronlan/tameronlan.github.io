@@ -37,7 +37,7 @@
     import CameraIcon from '@/assets/svg/messenger-camera.svg';
     import SendIcon from '@/assets/svg/messenger-send.svg';
     import SendDisabledIcon from '@/assets/svg/messenger-send-disabled.svg';
-    import Loader from '@/components/Loader';
+    import Loader from '@/components/common/Loader';
 
     export default {
         components: {CameraIcon, SendIcon, SendDisabledIcon, Loader},

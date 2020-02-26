@@ -8,9 +8,13 @@
                     :perPage="1"
                     :autoplay="true"
                     :autoplayTimeout="3000"
-                    :loop="true">
-                <slide v-for="slide in slides"
-                       :class="'signup-slide'">
+                    :loop="true"
+            >
+                <slide
+                        v-for="slide in slides"
+                        :class="'signup-slide'"
+                        :key="slide.icon"
+                >
                     <i :class="'signup-slide__ico ico ico_'+ slide.icon"></i>
                     <div class="signup-slide__text">
                         {{slide.text}}

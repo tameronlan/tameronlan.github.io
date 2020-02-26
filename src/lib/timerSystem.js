@@ -7,7 +7,7 @@ const TIMEOUT = 1000;
 
 export default {
     isActive(cb) {
-        return callbacks.indexOf(cb) != -1;
+        return callbacks.indexOf(cb) !== -1;
     },
     addCallback(cb) {
         if (this.isActive(cb)) {
@@ -27,13 +27,13 @@ export default {
         }
 
         for (var i = callbacks.length - 1; i >= 0; i--) {
-            if (callbacks[i] == cb) {
+            if (callbacks[i] === cb) {
                 callbacks.splice(i, 1);
                 break;
             }
         }
 
-        if (isRunning && callbacks.length == 0) {
+        if (isRunning && callbacks.length === 0) {
             this.stop();
         }
     },
@@ -48,7 +48,7 @@ export default {
     timerHandler() {
         let time = serverTime.getActualTime();
 
-        for (var i = callbacks.length - 1; i >= 0; i--) {
+        for (let i = callbacks.length - 1; i >= 0; i--) {
             callbacks[i](time);
         }
     }

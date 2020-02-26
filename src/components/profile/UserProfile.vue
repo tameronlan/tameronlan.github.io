@@ -105,9 +105,9 @@
 </template>
 
 <script>
-    import Loader from '@/components/Loader';
+    import Loader from '@/components/common/Loader';
     import ProfileActions from '@/components/profile/ProfileActions';
-    import InlineMessage from '@/components/InlineMessage';
+    import InlineMessage from '@/components/common/InlineMessage';
     import RequirePhoto from './RequirePhoto';
     import {getUser} from '@/api/meeting';
     import {postMessage} from '@/api/chat';

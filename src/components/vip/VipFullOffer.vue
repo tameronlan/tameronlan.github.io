@@ -60,7 +60,7 @@
 </template>
 
 <script>
-    import Loader from '@/components/Loader';
+    import Loader from '@/components/common/Loader';
     import ConfirmCloseDiscount from './ConfirmCloseDiscount';
     import serverTime from '@/lib/serverTime';
     import timerSystem from '@/lib/timerSystem';

@@ -48,7 +48,7 @@
 
 <script>
     import SignupStepBack from '@/components/signup/SignupStepBack';
-    import Loader from '@/components/Loader';
+    import Loader from '@/components/common/Loader';
     import {mapGetters} from 'vuex';
     import {VENDOR_IOS} from '@/consts';
     import geo from '@/lib/geo';

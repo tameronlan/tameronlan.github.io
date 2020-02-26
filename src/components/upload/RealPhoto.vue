@@ -22,7 +22,7 @@
 <script>
     import photoUploader from '@/popups/photoUploader';
     import feed from '@/feed/';
-    import Loader from '@/components/Loader';
+    import Loader from '@/components/common/Loader';
 
     export default {
         name: "RealPhoto",

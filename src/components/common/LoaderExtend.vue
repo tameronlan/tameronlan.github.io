@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import Loader from '@/components/Loader';
+    import Loader from '@/components/common/Loader';
 
     export default {
         name: 'LoaderExtend',

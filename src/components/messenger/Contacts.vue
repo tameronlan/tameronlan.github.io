@@ -25,7 +25,6 @@
 
 <script>
     import {mapState, mapActions} from 'vuex';
-    import Suggestions from './Suggestions';
     import Contact from './Contact';
     import ContactsLoader from './ContactsLoader';
 

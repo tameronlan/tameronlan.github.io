@@ -1,14 +1,14 @@
-var vendorPrefixesCache = {};
+let vendorPrefixesCache = {};
 
 export default function getVendorPrefix(prop) {
     if (vendorPrefixesCache[prop]) {
         return vendorPrefixesCache[prop];
     }
 
-    var vendorPrefixes = ['Moz','Webkit','Khtml','O','ms'];
-    var style          = document.createElement('div').style;
-    var upper          = prop.charAt(0).toUpperCase() + prop.slice(1);
-    var pref, len      = vendorPrefixes.length;
+    let vendorPrefixes = ['Moz','Webkit','Khtml','O','ms'];
+    let style          = document.createElement('div').style;
+    let upper          = prop.charAt(0).toUpperCase() + prop.slice(1);
+    let pref, len      = vendorPrefixes.length;
 
     if(prop in style) {
         return vendorPrefixesCache[prop] = '';

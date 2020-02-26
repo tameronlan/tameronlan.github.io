@@ -26,7 +26,7 @@
 <script>
     import {mapActions} from 'vuex';
     import feed from '@/feed';
-    import ActionsDialog from '../ActionsDialog';
+    import ActionsDialog from '../common/ActionsDialog';
 
     export default {
         name: 'contact-header',

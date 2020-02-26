@@ -54,7 +54,7 @@
     import {mapState, mapGetters, mapMutations} from 'vuex';
     import {getIncoming, read, hide} from '../../api/events';
     import {feedClick} from '../../api/meeting';
-    import Loader from '@/components/Loader';
+    import Loader from '@/components/common/Loader';
     import IncomingItem from '@/components/sympathy/IncomingItem';
     import feed from '@/feed';
     import {GENDER_MAN, SOURCE_VIP_LIKES, CLICK_TYPE_YES, PLACEMENT_INCOMING} from '../../consts';

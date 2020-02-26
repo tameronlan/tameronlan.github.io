@@ -10,7 +10,7 @@ export default class Eventer {
             this._handlers[event] = [];
         }
 
-        var handler = {
+        let handler = {
             callback: callback,
             ...extra
         };
@@ -23,7 +23,7 @@ export default class Eventer {
     }
 
     off(event, callback) {
-        for (var name in this._namespaces) {
+        for (let name in this._namespaces) {
             this._namespaces[name].off(event, callback);
         }
 
@@ -36,26 +36,26 @@ export default class Eventer {
             return;
         }
 
-        var handlers = this._handlers[event];
-        var idxToDel = [];
+        let handlers = this._handlers[event];
+        let idxToDel = [];
 
-        for (var i = 0; i < handlers.length; i++) {
+        for (let i = 0; i < handlers.length; i++) {
             if (handlers[i].callback === callback) {
                 idxToDel.push(i);
             }
         }
 
-        for (var i = 0; i < idxToDel.length; i++) {
+        for (let i = 0; i < idxToDel.length; i++) {
             handlers.splice(idxToDel[i] - i, 1);
         }
     }
 
     emit(event, data) {
         if (this._handlers[event]) {
-            var handlers = this._handlers[event];
-            var idxToDel = [];
+            let handlers = this._handlers[event];
+            let idxToDel = [];
 
-            for (var i = handlers.length - 1; i >= 0; i--) {
+            for (let i = handlers.length - 1; i >= 0; i--) {
                 handlers[i].callback(data);
 
                 if (handlers[i] && handlers[i].one) {
@@ -63,12 +63,12 @@ export default class Eventer {
                 }
             }
 
-            for (var i = 0; i < idxToDel.length; i++) {
+            for (let i = 0; i < idxToDel.length; i++) {
                 handlers.splice(idxToDel[i] - i, 1);
             }
         }
 
-        for (var name in this._namespaces) {
+        for (let name in this._namespaces) {
             this._namespaces[name].emit(event, data);
         }
     }

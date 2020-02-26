@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import Loader from './../components/Loader';
+    import Loader from './common/Loader';
     import Popups from './popups/Popups';
     import Push from './../components/push/Push';
     import feed from './../feed/';

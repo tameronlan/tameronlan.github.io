@@ -1,21 +1,22 @@
 export default function scrollTo(element, to, duration) {
-    var start = element.scrollTop
-    var target;
+    let start = element.scrollTop
+    let target;
 
     if (typeof to === 'string' && to.substr(0, 2) === '+=') {
-        var diff = parseInt(to.substr(2));
+        let diff = parseInt(to.substr(2));
         target = start + diff;
     } else {
         target = to;
     }
 
-    var change = target - start;
-    var currentTime = 0;
-    var increment = 20;
+    let change = target - start;
+    let currentTime = 0;
+    let increment = 20;
 
-    var animateScroll = function() {
+    let animateScroll = function() {
         currentTime += increment;
-        var val = easeInOutQuad(currentTime, start, change, duration);
+
+        let val = easeInOutQuad(currentTime, start, change, duration);
 
         requestAnimationFrame(() => {
             element.scrollTop = val;
@@ -37,4 +38,4 @@ function easeInOutQuad(t, b, c, d) {
     if (t < 1) return c/2*t*t + b;
     t--;
     return -c/2 * (t*(t-2) - 1) + b;
-};
+}

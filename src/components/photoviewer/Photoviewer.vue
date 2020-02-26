@@ -49,8 +49,8 @@
     import Slider from '@/lib/slider/Slider';
     import SliderDataSourceSet from '@/lib/slider/SliderDataSourceSet';
     import Photo from './Photo';
-    import Loader from '@/components/Loader';
-    import ActionDialog from '../ActionsDialog';
+    import Loader from '@/components/common/Loader';
+    import ActionDialog from '../common/ActionsDialog';
     import feed from '@/feed/';
     import {setAvatar, photoDelete} from '../../api/profile';
 

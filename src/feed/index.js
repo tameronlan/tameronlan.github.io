@@ -12,11 +12,8 @@ import VipFullOffer from '../components/vip/VipFullOffer';
 import ConfirmPopup from '../components/popups/ConfirmPopup';
 import MessageLimit from '../components/feed/MessageLimit';
 import Chat from '../components/messenger/Chat';
-import SupportChat from '../components/support/SupportChat';
 import Complaint from '../components/popups/Complaint';
 import StartPromo from '../components/feed/StartPromo';
-import Review from '../components/support/Review';
-import ReviewResult from '../components/support/ReviewResult';
 import PhotoRequest from '../components/upload/PhotoRequest';
 import AppSettings from '../components/profile/AppSettings';
 import UserProfile from '../components/profile/UserProfile';
@@ -326,14 +323,6 @@ const feed = {
                 myClass: 'popup_extend',
                 ignoreBottomBanner: true
             }
-        });
-
-        this.openPopup(popup);
-    },
-    openSupportChat() {
-        let popup = new Popup({
-            component: SupportChat,
-            options: {myClass: 'popup_extend'}
         });
 
         this.openPopup(popup);

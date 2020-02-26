@@ -28,7 +28,7 @@
     import {mapState, mapMutations} from 'vuex';
     import feed from '@/feed';
     import EventBus from "../../lib/EventBus";
-    import Loader from '@/components/Loader';
+    import Loader from '@/components/common/Loader';
 
     export default {
         name: "Mutual",

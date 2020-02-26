@@ -62,11 +62,7 @@
                 bridge.invokeNative('settings');
             },
             openSupport() {
-                if (this.isAdmin) {
-                    feed.openSupportChat();
-                } else {
-                    location.href = this.mailHref;
-                }
+                location.href = this.mailHref;
             }
         }
     }

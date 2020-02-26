@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import Loader from './components/Loader';
+    import Loader from './components/common/Loader';
     import Popups from './components/popups/Popups';
     import Push from './components/push/Push';
     import NavBar from './components/navigation/NavBar';

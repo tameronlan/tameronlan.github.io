@@ -18,8 +18,8 @@
 
 <script>
     import {GENDER_MAN} from '../../consts';
-    import Loader from '@/components/Loader';
-    import InlineMessage from '@/components/InlineMessage';
+    import Loader from '@/components/common/Loader';
+    import InlineMessage from '@/components/common/InlineMessage';
     import {postMessage} from '@/api/chat';
     import feed from '@/feed/';
 

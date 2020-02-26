@@ -15,7 +15,6 @@ export default {
                 incoming: 0,
                 mutual: 0
             },
-            usedesk_answers: 0
         },
         viewedCards: 0,
         viewedCardsAfterPhotoRequest: 0,
@@ -53,7 +52,7 @@ export default {
                 case TAB_MESSENGER:
                     return state.counters.events.mutual + state.counters.chat;
                 case TAB_PROFILE:
-                    return state.counters.usedesk_answers;
+                    return 0;
             }
 
             return 0;
@@ -65,7 +64,7 @@ export default {
             return state.dailyOpenLimit > 0;
         },
         hasSupportAnswer: (state) => {
-            return state.counters.usedesk_answers;
+            return 0;
         }
     },
     mutations: {
@@ -134,15 +133,6 @@ export default {
         unlockLikeAction: (state) => {
             state.likeActionLocked = false;
         },
-        setSuggestions: (state, payload) => {
-            state.suggestions = payload;
-        },
-        filterSuggestions: (state, excludeId) => {
-            state.suggestions = state.suggestions.filter(item => item.id !== excludeId);
-        },
-        resetSupportCounter: (state) => {
-            state.counters.usedesk_answers = 0;
-        }
     },
     actions: {
         init: ({commit}, payload) => {

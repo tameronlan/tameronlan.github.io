@@ -14,7 +14,7 @@ import ComponentView from './lib/ComponentView';
 
 import './scss/main.scss';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 // Components
 Vue.component('ComponentView', ComponentView);
