@@ -2,6 +2,7 @@
     <div class="messenger-sendbox">
         <restriction v-if="openedContact.restriction_message" :message="openedContact.restriction_message"/>
         <Form v-else
+              :user="openedContact.user"
               :isSending="isSending"
               :photoIsUploading="photoIsUploading"
               :placeholder="placeholder"

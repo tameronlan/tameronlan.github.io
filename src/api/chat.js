@@ -15,6 +15,8 @@ export function getContact(params) {
                     user: {
                         id: 1,
                         name: 'Name',
+                        age: 21,
+                        gender: 'f',
                         online: true,
                         avatars: {
                             s1: '//im0-tub-ru.yandex.net/i?id=ec20567ec262c7f41fe5232f2c538cff&n=13',

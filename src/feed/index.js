@@ -16,6 +16,7 @@ import Complaint from '../components/popups/Complaint';
 import StartPromo from '../components/feed/StartPromo';
 import PhotoRequest from '../components/upload/PhotoRequest';
 import AppSettings from '../components/profile/AppSettings';
+import SendGift from '../components/feed/SendGift';
 import UserProfile from '../components/profile/UserProfile';
 import ProfileEditor from '../components/profile/ProfileEditor';
 import FieldEditor from '../components/profile/FieldEditor';
@@ -233,14 +234,14 @@ const feed = {
 
         this.openPopup(popup, unloadOther);
     },
-    openSendGift(props, unloadOther = false) {
+    openSendGift(props) {
         let popup = new Popup({
             component: SendGift,
             props: props,
             options: {myClass: 'popup_extend'}
         });
 
-        this.openPopup(popup, unloadOther);
+        this.openPopup(popup, false);
     },
     editProfile() {
         let popup = new Popup({

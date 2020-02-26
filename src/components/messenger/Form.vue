@@ -1,7 +1,7 @@
 <template>
     <div class="messenger-form">
         <div class="messenger-form__left-side">
-            <div class="ico2 ico2_gift-mess"></div>
+            <div class="ico2 ico2_gift-mess" @click="openGiftPopup"></div>
         </div>
         <div class="messenger-form__input-wrapper">
             <div class="messenger-form__hidden-input" ref="hiddenInput" v-html="textHidden"></div>
@@ -38,10 +38,11 @@
     import SendIcon from '@/assets/svg/messenger-send.svg';
     import SendDisabledIcon from '@/assets/svg/messenger-send-disabled.svg';
     import Loader from '@/components/common/Loader';
+    import feed from '@/feed';
 
     export default {
         components: {CameraIcon, SendIcon, SendDisabledIcon, Loader},
-        props: ['isSending', 'photoIsUploading', 'placeholder'],
+        props: ['isSending', 'photoIsUploading', 'placeholder', 'user'],
         data() {
             return {
                 text: '',
@@ -58,6 +59,9 @@
             },
             onSelectPhoto() {
                 this.$emit('submitFile', this.$refs.file.files[0]);
+            },
+            openGiftPopup() {
+                feed.openSendGift({user: this.user});
             }
         },
         watch: {

@@ -46,12 +46,6 @@
             }
         },
         mounted() {
-            this.$nativeStat.trackFirebaseEvent('item_action', {screen: 'Photo Feed Add Photo', action: 'View'});
-            this.$nativeStat.trackMetricaEvent('item_action', {'Photo Feed Add Photo': 'View'});
-            this.$nativeStat.trackAppsFlyerEvent('fs_action', {
-                af_content_type: 'Photo Feed Add Photo',
-                ap_action: 'View'
-            });
         },
         methods: {
             onFileChange(fileInput) {
@@ -63,8 +57,6 @@
 
                 photoUploader.uploadPhoto(fileInput, true).then(response => {
                     this.isUploading = false;
-                    this.$nativeStat.trackCommonEvent('my_photo_upload', {source: 'Photo Feed'});
-                    this.$nativeStat.trackAppsFlyerEvent('ap_my_photo_upload', {ap_source: 'Photo Feed'});
                     this.$nav.back();
                 }).catch((error) => {
                     this.isUploading = false;

@@ -49,19 +49,12 @@
             <div class="vip-full-offer__back" @click="closeOffer">
                 <i class="ico ico_exit-gray"></i>
             </div>
-            <confirm-close-discount v-if="confirmShown"
-                                    class="vip-full-offer__close-confirm"
-                                    :discount="offer.discount_percent"
-                                    :countdown="discountCountdown"
-                                    @confirm="$nav.back({success: false})"
-                                    @reject="confirmShown = false"/>
         </template>
     </div>
 </template>
 
 <script>
     import Loader from '@/components/common/Loader';
-    import ConfirmCloseDiscount from './ConfirmCloseDiscount';
     import serverTime from '@/lib/serverTime';
     import timerSystem from '@/lib/timerSystem';
     import bridge from '@/bridge';
@@ -73,7 +66,7 @@
 
     export default {
         name: "VipFullOffer",
-        components: {Loader, ConfirmCloseDiscount},
+        components: {Loader},
         props: ['source'],
         data() {
             return {
@@ -151,20 +144,15 @@
                     bridge.invokeNative('get_prices', {type: 'subs', products: [this.offer.sku]}, (prices) => {
                         this.productPrice = prices[0];
                         this.isLoading = false;
-
-                        this.trackPromoEvent();
                     });
                 });
             },
             buyOffer(selectedMethod) {
                 this.isBuying = true;
 
-                this.trackBeginEvent();
-
                 buy(selectedMethod.id, this.offer, this.source).then(response => {
                     if (response.success) {
                         this.showSuccessNotify();
-                        this.trackCompleteEvent();
 
                         this.$store.commit('vip/setVip', true);
                         this.$nav.back({success: true});
@@ -212,76 +200,6 @@
                     this.stopTimer();
                 }
             },
-            trackPromoEvent() {
-                if (this.isOneTimeOffer) {
-                    this.$nativeStat.trackFirebaseEvent('item_action', {screen: 'VIP Discount Promo', action: 'View'});
-                    this.$nativeStat.trackMetricaEvent('item_action', {'VIP Discount Promo': 'View'});
-                    this.$nativeStat.trackAppsFlyerEvent('fs_action', {
-                        af_content_type: 'VIP Discount Promo',
-                        ap_action: 'View'
-                    });
-
-                    this.$nativeStat.trackCommonEvent('vip_discount_promo', {source: this.source});
-                } else if (this.trialIsAvailable) {
-                    this.$nativeStat.trackFirebaseEvent('item_action', {screen: 'VIP Trial Promo', action: 'View'});
-                    this.$nativeStat.trackMetricaEvent('item_action', {'VIP Trial Promo': 'View'});
-                    this.$nativeStat.trackAppsFlyerEvent('fs_action', {
-                        af_content_type: 'VIP Trial Promo',
-                        ap_action: 'View'
-                    });
-
-                    this.$nativeStat.trackCommonEvent('vip_trial_promo', {source: this.source});
-                } else {
-                    this.$nativeStat.trackFirebaseEvent('item_action', {screen: 'VIP Subscribe Promo', action: 'View'});
-                    this.$nativeStat.trackMetricaEvent('item_action', {'VIP Subscribe Promo': 'View'});
-                    this.$nativeStat.trackAppsFlyerEvent('fs_action', {
-                        af_content_type: 'VIP Subscribe Promo',
-                        ap_action: 'View'
-                    });
-
-                    this.$nativeStat.trackCommonEvent('vip_subscribe_promo', {source: this.source});
-                }
-
-                this.$nativeStat.trackAppsFlyerEvent('af_content_view', {
-                    af_price: this.productPrice.value,
-                    af_currency: this.productPrice.currency,
-                    af_content_id: this.productPrice.id,
-                    af_content_type: this.source
-                });
-            },
-            trackBeginEvent() {
-                this.$nativeStat.trackCommonEvent('vip_subscribe_begin', {
-                    source: this.source,
-                    subscription_id: this.offer.subscription_id,
-                    VALUE: this.productPrice.value,
-                    currency: this.productPrice.currency
-                });
-
-                this.$nativeStat.trackAppsFlyerEvent('af_initiated_checkout', {
-                    af_price: this.productPrice.value,
-                    af_currency: this.productPrice.currency,
-                    af_content_id: this.productPrice.id,
-                    af_content_type: this.source
-                });
-            },
-            trackCompleteEvent() {
-                this.$nativeStat.trackCommonEvent('vip_subscribe_complete', {
-                    source: this.source,
-                    subscription_id: this.offer.subscription_id,
-                    VALUE: this.productPrice.value,
-                    currency: this.productPrice.currency
-                });
-
-                this.$nativeStat.reportMetricaUserProperty([
-                    {key: 'is_paying', boolean: true},
-                    {key: 'has_vip', boolean: true}]
-                );
-                this.$nativeStat.reportFirebaseUserProperty([
-                    {key: 'is_paying', boolean: true},
-                    {key: 'has_vip', boolean: true}]
-                );
-                // reportAppsFlyerUserProperty - not required
-            }
         }
     }
 </script>

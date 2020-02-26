@@ -2,6 +2,8 @@ import interact from 'interactjs';
 
 export default {
     data() {
+        let windowWidth = window !== undefined ? window.outerWidth : 500;
+
         return {
             interactAnimating: true,
             interactDragged: null,
@@ -14,7 +16,7 @@ export default {
                 y: 0,
                 rotation: 0,
             },
-            interactOutOfSightXCoordinate: 500,
+            interactOutOfSightXCoordinate: windowWidth ,
             interactOutOfSightYCoordinate: 600,
             interactYThreshold: 150,
             interactXThreshold: 100,
