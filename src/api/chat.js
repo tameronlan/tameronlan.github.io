@@ -84,6 +84,19 @@ export function getMessages(params) {
                             ]
                         },
                         {
+                            author_id: 112,
+                            id: 115,
+                            text: 'gift',
+                            time: 12111,
+                            attaches: [
+                                {
+                                    type: 'gift',
+                                    url_min: "`https://st.fotocdn.net/images/gifts/146/14611/150.png`",
+                                    url_orig: "`https://st.fotocdn.net/images/gifts/146/14611/150.png`",
+                                }
+                            ]
+                        },
+                        {
                             author_id: 111,
                             id: 114,
                             text: 'sadsadsa dajkdh',
