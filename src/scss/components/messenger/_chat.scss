@@ -97,6 +97,15 @@
                 margin: 0;
             }
         }
+
+        &_gift{
+            background: url(~@/assets/light.png) no-repeat center, linear-gradient(174.83deg, #00D1FF 4.15%, #1D68CE 52.39%, #1F64CD 95.85%);
+            background-size: contain;
+
+            .messenger-message__date {
+                color: $color-white;
+            }
+        }
     }
 
     &__text {
@@ -120,11 +129,19 @@
     }
 
     &__attachments {
+
     }
 
     &__attachment-photo {
         width: 200px;
         height: 200px;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+
+    &__attachment-gift {
+        width: 150px;
+        height: 150px;
         background-size: cover;
         background-position: 50% 50%;
     }

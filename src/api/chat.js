@@ -91,8 +91,8 @@ export function getMessages(params) {
                             attaches: [
                                 {
                                     type: 'gift',
-                                    url_min: "`https://st.fotocdn.net/images/gifts/146/14611/150.png`",
-                                    url_orig: "`https://st.fotocdn.net/images/gifts/146/14611/150.png`",
+                                    url_min: "https://st.fotocdn.net/images/gifts/146/14611/150.png",
+                                    url_orig: "https://st.fotocdn.net/images/gifts/146/14611/150.png",
                                 }
                             ]
                         },

@@ -1,5 +1,10 @@
 <template>
-    <div class="messenger-contact" :class="classes" @click="$emit('click')">
+    <div
+            class="messenger-contact"
+            :style="{ transform: transformString }"
+            ref="interactElement"
+            :class="classes"
+    >
         <div class="messenger-contact__ava-wrapper">
             <div class="messenger-contact__ava" :style="{ backgroundImage: `url(${avaSrc})` }">
                 <div v-if="contact.user.online" class="online-status"></div>
@@ -13,7 +18,7 @@
                 </div>
             </div>
 
-            <contact-message v-if="contact.lastmess" :contact="contact"/>
+            <contact-message v-if="contact.lastmess" :contact="contact" />
         </div>
     </div>
 </template>
@@ -21,10 +26,16 @@
 <script>
     import ContactMessage from './ContactMessage';
     import {getSimpleHumanDate} from '@/lib/dateFunctions';
+    import interactMixin from '@/mixins/interact';
 
     export default {
         props: ['contact'],
         components: {ContactMessage},
+        mixins: [interactMixin],
+        data(){
+            return {
+            }
+        },
         computed: {
             classes() {
                 const classes = [];
@@ -46,7 +57,12 @@
             },
             date() {
                 return getSimpleHumanDate(this.contact.lastmess.time * 1000);
+            },
+            transformStyles(){
+                return {
+                    transform: `translateX(${this.translateX}px)`
+                }
             }
-        }
+        },
     };
 </script>

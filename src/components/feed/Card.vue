@@ -3,7 +3,8 @@
          class="card-item"
          :class="{'card-item__is-current': isCurrent, 'card-item__animated': interactAnimating}"
          :style="{ transform: transformString }"
-         ref="interactElement">
+         ref="interactElement"
+    >
         <div class="card-item__photo"
              :style="{backgroundImage: `url(${photoUrl})`}"
              @click="$emit('clickProfile')"></div>

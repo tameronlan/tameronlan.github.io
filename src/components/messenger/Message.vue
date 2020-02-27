@@ -2,7 +2,7 @@
     <div class="messenger-message" :class="classes">
         <div class="messenger-message__ava" :style="{ backgroundImage: `url(${avaSrc})` }" @click="openProfile"></div>
         <div class="messenger-message__bubble-wrapper">
-            <div v-if="isPhoto" class="messenger-message__bubble messenger-message__bubble_photo">
+            <div v-if="getAttachInfo" :class="attachClasses">
                 <div v-if="attachments && attachments.length" class="messenger-message__attachments">
                     <message-attachment
                             v-for="attachment in attachments"
@@ -35,7 +35,6 @@
         components: {MessageAttachment},
         props: ['contact', 'message', 'layout-props'],
         computed: {
-
             classes() {
                 const classes = [];
 
@@ -61,6 +60,17 @@
 
                 return classes;
             },
+            attachClasses(){
+                const classes = ['messenger-message__bubble'];
+
+                if (this.getAttachInfo.type === 'photo'){
+                    classes.push('messenger-message__bubble_photo');
+                } else if (this.getAttachInfo.type === 'gift') {
+                    classes.push('messenger-message__bubble_gift');
+                }
+
+                return classes;
+            },
             avaSrc() {
                 return this.contact.user.avatars.s1;
             },
@@ -73,14 +83,12 @@
             date() {
                 return getSimpleHumanDate(this.message.time * 1000);
             },
-            isPhoto(){
+            getAttachInfo(){
                 let res = false;
 
                 if (this.message.attaches !== undefined && this.message.attaches.length){
                     this.message.attaches.forEach(attach => {
-                        if (attach.type === 'photo') {
-                            res = true;
-                        }
+                        res = attach;
                     })
                 }
 

@@ -83,6 +83,7 @@
     padding: $s $m;
     align-items: stretch;
     width: 100%;
+    will-change: transform;
 
     &_unread-theirs{
         .messenger-contact__message-text{
