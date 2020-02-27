@@ -23,7 +23,14 @@ import ExtendHandler from './ExtendHandler';
 
 Vue.use(VueNav);
 
-const vueNav = new VueNav({baseURL: '/app/'}, [
+let checkAuthOnSignup = ({resolve, reject, navigation}) => {
+    resolve();
+};
+
+const vueNav = new VueNav({
+    baseURL: '/app/',
+    defaultHandlerConstructor: ExtendHandler
+}, [
     {
         name: 'root',
         path: '/',
@@ -32,26 +39,35 @@ const vueNav = new VueNav({baseURL: '/app/'}, [
     {
         path: '/signup',
         component: SignupGender,
+        construct: ExtendHandler,
+        willActivate: checkAuthOnSignup,
         didActivated: () => store.commit('setNavigationTab', TAB_NONE),
     },
     {
         path: '/signup_name',
         component: SignupName,
+        construct: ExtendHandler,
+        willActivate: checkAuthOnSignup,
         didActivated: () => store.commit('setNavigationTab', TAB_NONE),
     },
     {
         path: '/signup_age',
         component: SignupAge,
+        construct: ExtendHandler,
+        willActivate: checkAuthOnSignup,
         didActivated: () => store.commit('setNavigationTab', TAB_NONE),
     },
     {
         path: '/signup_city',
         component: SignupCity,
+        construct: ExtendHandler,
+        willActivate: checkAuthOnSignup,
         didActivated: () => store.commit('setNavigationTab', TAB_NONE),
     },
     {
         name: 'tutorial',
         path: '/tutorial',
+        construct: ExtendHandler,
         component: Tutorial,
     },
     {

@@ -1,9 +1,8 @@
 <template>
     <div
             class="messenger-contact"
-            :style="{ transform: transformString }"
-            ref="interactElement"
             :class="classes"
+            @click="$emit('click')"
     >
         <div class="messenger-contact__ava-wrapper">
             <div class="messenger-contact__ava" :style="{ backgroundImage: `url(${avaSrc})` }">
@@ -26,12 +25,10 @@
 <script>
     import ContactMessage from './ContactMessage';
     import {getSimpleHumanDate} from '@/lib/dateFunctions';
-    import interactMixin from '@/mixins/interact';
 
     export default {
         props: ['contact'],
         components: {ContactMessage},
-        mixins: [interactMixin],
         data(){
             return {
             }
@@ -58,11 +55,6 @@
             date() {
                 return getSimpleHumanDate(this.contact.lastmess.time * 1000);
             },
-            transformStyles(){
-                return {
-                    transform: `translateX(${this.translateX}px)`
-                }
-            }
         },
     };
 </script>
