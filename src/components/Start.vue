@@ -73,13 +73,13 @@
                 const lang = config.lang || Trans.defaultLanguage;
 
                 return new Promise(resolve => {
-                    Trans.changeLanguage(lang).then(response => {
-
-                    }).catch(error => {
-                        console.log('loadLocalization error', error);
-                    }).finally(() => {
-                        resolve(config);
-                    });
+                    Trans.changeLanguage(lang)
+                        .then(response => {})
+                        .catch(error => {
+                            console.log('loadLocalization error', error);
+                        }).finally(() => {
+                            resolve(config);
+                        });
                 });
             },
             init(config) {
@@ -101,26 +101,6 @@
                     this.$nav.redirect('/app/feed');
                 } else {
                     this.$nav.redirect('/app/signup');
-                }
-            },
-            initPlacements(advert) {
-                interstitials.init();
-
-                if (advert.feed_swipe) {
-                    interstitials.createPlacement({name: PLACEMENT_FEED, options: advert.feed_swipe});
-                }
-
-                if (advert.profile_close) {
-                    interstitials.createPlacement({name: PLACEMENT_PROFILE, options: advert.profile_close});
-                }
-
-                if (advert.incoming_open && advert.incoming_open.place_id > 0) {
-                    interstitials.createPlacement({name: PLACEMENT_INCOMING, options: advert.incoming_open});
-                }
-
-                if (advert.sticky && advert.sticky.place_id > 0) {
-                    bottomBanner.init(advert.sticky);
-                    bottomBanner.show();
                 }
             }
         },
