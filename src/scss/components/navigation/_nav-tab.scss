@@ -5,6 +5,8 @@
     justify-content: center;
     flex-grow: 1;
     height: 56px;
+    touch-action: none;
+    -webkit-touch-callout: none;
 
   	&__ico {
 	  	position: relative;

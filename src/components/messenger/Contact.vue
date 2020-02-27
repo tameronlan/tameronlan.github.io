@@ -57,11 +57,6 @@
             },
             date() {
                 return getSimpleHumanDate(this.contact.lastmess.time * 1000);
-            },
-            transformStyles(){
-                return {
-                    transform: `translateX(${this.translateX}px)`
-                }
             }
         },
     };

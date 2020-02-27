@@ -6,6 +6,16 @@ import vueNav from '../nav/';
 
 export default class ExtendHandler extends NavigationHandler {
     activate({ animated, intent }) {
+        let rand = Math.floor(Math.random());
+
+        redirect('/feed');
+
+        debugger;
+
+        if (rand === 0){
+            return;
+        }
+
         if (this.component) {
             throw new Error('ExtendHandler: Component already created');
         }

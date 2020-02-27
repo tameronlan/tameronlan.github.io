@@ -32,26 +32,31 @@ const vueNav = new VueNav({baseURL: '/app/'}, [
     {
         path: '/signup',
         component: SignupGender,
+        construct: ExtendHandler,
         didActivated: () => store.commit('setNavigationTab', TAB_NONE),
     },
     {
         path: '/signup_name',
         component: SignupName,
+        construct: ExtendHandler,
         didActivated: () => store.commit('setNavigationTab', TAB_NONE),
     },
     {
         path: '/signup_age',
         component: SignupAge,
+        construct: ExtendHandler,
         didActivated: () => store.commit('setNavigationTab', TAB_NONE),
     },
     {
         path: '/signup_city',
         component: SignupCity,
+        construct: ExtendHandler,
         didActivated: () => store.commit('setNavigationTab', TAB_NONE),
     },
     {
         name: 'tutorial',
         path: '/tutorial',
+        construct: ExtendHandler,
         component: Tutorial,
     },
     {
