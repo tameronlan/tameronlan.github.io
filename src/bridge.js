@@ -59,7 +59,7 @@ export default {
     }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (true || process.env.NODE_ENV === 'development') {
     let callJsMethod = (methodName, params, uniqId) => {
         switch (methodName) {
             case 'get_api_host':
