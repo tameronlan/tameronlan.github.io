@@ -7,8 +7,8 @@
             <div class="messenger-form__hidden-input" ref="hiddenInput" v-html="textHidden"></div>
             <textarea class="messenger-form__input"
                       :value="text"
-                      @input="text = $event.target.value"
                       :placeholder="placeholder"
+                      @input="text = $event.target.value"
             ></textarea>
         </div>
         <div class="messenger-form__right-side">

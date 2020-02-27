@@ -17,7 +17,7 @@
             <div class="send-gift__content">
                 <div class="send-gift__list">
                     <div v-for="gift in gifts" class="send-gift__item" @click="choiceGift(gift)">
-                        <img :src="gift.urls[150]" class="send-gift__img"/>
+                        <div :style="{backgroundImage: `url(${gift.urls[150]})`}" class="send-gift__img"></div>
                     </div>
                 </div>
             </div>
@@ -39,15 +39,12 @@
                 </div>
 
                 <div class="send-gift-subscribe__field">
-                    <div class="send-gift-subscribe__text">
-                        <div class="input-field">
-                            <textarea
-                                    class="text-field"
-                                    type="text"
-                                    placeholder="Подпишите подарок"
-                            ></textarea>
-                        </div>
-                    </div>
+                    <div class="send-gift-subscribe__hidden-text" v-html="textHidden"></div>
+                    <textarea
+                            class="send-gift-subscribe__text text-field"
+                            placeholder="Подпишите подарок"
+                            @input="text = $event.target.value"
+                    ></textarea>
                 </div>
 
                 <button class="send-gift-subscribe__btn ripple ripple_white btn btn_orange" v-touch>Отправить подарок</button>
@@ -82,11 +79,12 @@
             return {
                 gifts,
                 giftChoiced: null,
-                step: 'choice'
+                step: 'choice',
+                textHidden: '',
+                text: ''
             }
         },
         mounted(){
-            console.log(this.user);
         },
         methods: {
             choiceGift(gift){
@@ -97,6 +95,12 @@
                 this.step = 'choice';
                 this.giftChoiced = null;
             }
+        },
+        watch: {
+            text(val){
+                console.log(val);
+                this.textHidden = val.replace(new RegExp('\n', 'g'), '<br/>&nbsp;');
+            },
         }
     }
 </script>
