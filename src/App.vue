@@ -1,5 +1,10 @@
 <template>
     <div class="app">
+        <div>
+            <br><br><br>
+            {{cookie}}
+            <br><br><br>
+        </div>
         <nav-view/>
         <nav-bar v-if="currentTabId !== 0"/>
         <popups/>
@@ -21,6 +26,11 @@
     export default {
         name: 'app',
         components: {Loader, NavBar, Popups, Push},
+        data(){
+            return {
+                cookie: ""
+            }
+        },
         computed: {
             ...mapState(['currentTabId', 'bannerIsShown']),
             ...mapState('feed', ['moderationStatus']),
@@ -29,7 +39,7 @@
         created(){
             messengerSocket.init({});
 
-            alert(document.cookie);
+            this.cookie = document.cookie;
 
             messenger.userId = 111;
             messenger.dataSource = messengerDataSource;
