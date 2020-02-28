@@ -1,11 +1,9 @@
 <template>
     <div class="app">
-        <div>
-            <br><br><br>
-            {{cookie}}
-            <br><br><br>
-        </div>
         <nav-view/>
+        <textarea>
+            {{cookie}}
+        </textarea>
         <nav-bar v-if="currentTabId !== 0"/>
         <popups/>
         <push/>
