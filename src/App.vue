@@ -28,6 +28,9 @@
         },
         created(){
             messengerSocket.init({});
+
+            alert(document.cookie);
+
             messenger.userId = 111;
             messenger.dataSource = messengerDataSource;
         },
