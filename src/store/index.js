@@ -7,25 +7,30 @@ import vip from './vip';
 import interstitials from './interstitials';
 import messenger from './messenger';
 import signup from './signup';
+import common from './common';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
         config: null,
+        currentUser: {},
         currentTabId: 0,
         bannerIsShown: true,
     },
     getters: {},
     mutations: {
-        updateUserAvatar: (state, payload) => {
-            state.config.user.avatars = payload;
-        },
         setNavigationTab: (state, id) => {
             state.currentTabId = id;
         },
         setBannerVisible: (state, payload) => {
             state.bannerIsShown = payload;
+        },
+        setCurrentUser: (state, payload) => {
+            state.currentUser = payload;
+        },
+        updateUserAvatar: (state, payload) => {
+            state.currentUser.avatars = payload;
         },
     },
     actions: {},
@@ -35,6 +40,7 @@ export default new Vuex.Store({
         vip,
         interstitials,
         messenger,
-        signup
+        signup,
+        common
     }
 });

@@ -32,23 +32,7 @@
             }
         },
         created() {
-            this.getApiHost()
-                .then(response => {
-                    this.$api.init({api_url: response.api_url});
-
-                    let curDate = new Date();
-
-                    return getConfig({
-                        timezone_offset: curDate.getTimezoneOffset() * -1
-                    });
-                })
-                .then(response => {
-                    if (response.user === undefined) {
-                        bridge.invokeNative('update_access_token');
-                    }
-
-                    return this.loadLocalization({});
-                })
+            this.loadLocalization({})
                 .then(response => {
                     this.init(response);
                     this.isLoading = false;
@@ -58,17 +42,6 @@
                 });
         },
         methods: {
-            getApiHost() {
-                return new Promise((resolve, reject) => {
-                    if (bridge.isSupported()) {
-                        bridge.invokeNative('get_api_host', {}, response => {
-                            resolve(response);
-                        });
-                    } else {
-                        reject({message: 'get_api_host failed'});
-                    }
-                });
-            },
             loadLocalization(config) {
                 const lang = config.lang || Trans.defaultLanguage;
 
@@ -92,10 +65,6 @@
                 bridge.invokeNative('set_badge', {value: this.numNotify.toString()});
 
                 serverTime.init(config.server_time || parseInt(new Date().getTime() / 1000));
-
-                // if (config.adv) {
-                //     this.initPlacements(config.adv);
-                // }
 
                 if (true || config.user){
                     this.$nav.redirect('/app/feed');

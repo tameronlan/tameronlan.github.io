@@ -5,6 +5,10 @@ import serialize from '@/lib/serialize';
 import bridge from '../bridge';
 
 let provider;
+let token;
+let vendor;
+let appVersionName;
+let appVersionCode;
 
 const api = {
     install(Vue) {
@@ -14,12 +18,22 @@ const api = {
             }
         });
     },
-    init({api_url}) {
+    init(props) {
+        let {
+            apiUrl,
+        } = props;
+
+        token = props.token;
+        vendor = props.vendor;
+        appVersionName = props.appVersionName;
+        appVersionCode = Number(props.appVersionCode);
+
         const options = {
             method: 'POST',
-            baseURL: `${api_url}/`,
+            baseURL: `${apiUrl}/`,
             timeout: 60000,
-            params: {}
+            params: {
+            }
         };
 
         options.withCredentials = true;
@@ -28,6 +42,14 @@ const api = {
     },
     get(method, params) {
         let str = method;
+
+        params = {
+            access_token: token,
+            vendor,
+            appVersionName,
+            appVersionCode,
+            ...params
+        };
 
         if (params) {
             if (str.indexOf('?') === -1) {
@@ -39,36 +61,47 @@ const api = {
 
         return provider.get(str).then(parseResponse).catch(catchError);
     },
-    post(method, data, noParse = false) {
+    post(method, params, noParse = false) {
+        params = {
+            access_token: token,
+            vendor,
+            appVersionName,
+            appVersionCode,
+            ...params
+        };
+
         if (noParse) {
-            return provider.post(method, data);
+            return provider.post(method, params);
         }
-        return provider.post(method, data).then(parseResponse).catch(catchError);
+
+        return provider.post(method, params).then(parseResponse).catch(catchError);
     }
 };
 
 function parseResponse(response) {
-    if (response.data) {
-        return new JSONAPIResponse(response.data);
-    }
-
-    if (response.result === true) {
-        return {result: true};
-    }
-
-    throw new Error('API: bad response');
+    // if (response.data) {
+    //     return new JSONAPIResponse(response.data);
+    // }
+    //
+    // if (response.result === true) {
+    //     return {result: true};
+    // }
+    //
+    // throw new Error('API: bad response');
 }
 
 function catchError(error) {
     let response = error.response;
 
-    if (response.data && response.data.errors) {
-        response.data.errors.forEach(item => {
-            if (item.code === '401') {
-                bridge.invokeNative('update_access_token');
-            }
-        })
-    }
+    console.log(error);
+
+    // if (response.data && response.data.errors) {
+    //     response.data.errors.forEach(item => {
+    //         if (item.code === '401') {
+    //             bridge.invokeNative('update_access_token');
+    //         }
+    //     })
+    // }
 }
 
 export default api;
