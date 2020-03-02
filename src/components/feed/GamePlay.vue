@@ -180,8 +180,6 @@
                     return;
                 }
 
-                console.log('shoot');
-
                 this.pauseGame();
 
                 this.animatePoints().then(()=>{
