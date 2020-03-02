@@ -91,7 +91,6 @@
         },
         watch: {
             viewedCards(count){
-                console.log(count);
             }
         },
         methods: {

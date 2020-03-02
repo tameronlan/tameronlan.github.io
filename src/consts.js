@@ -56,3 +56,8 @@ export const SUPPORTED_LANGUAGES = ['ru_RU'];
 export const VENDOR_IOS = 1;
 export const VENDOR_ANDROID = 2;
 export const VENDOR_WEB = 3;
+
+export const GAME_STATE_START = 1;
+export const GAME_STATE_PLAY = 2;
+export const GAME_STATE_WIN = 3;
+export const GAME_STATE_LOSE = 4;

@@ -111,6 +111,11 @@
                 });
 
                 this.$emit('likeAction');
+
+                feed.showGame({
+                    card: this.card
+                });
+
                 this.hideCard();
             },
             dislikeAction() {

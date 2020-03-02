@@ -1,0 +1,248 @@
+.game-popup{
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+
+  &__top{
+    background: radial-gradient(111.67% 171.78% at -14.03% -32.17%, #00D1FF 0%, #0090FF 45.08%, #0118E4 100%);
+  }
+}
+
+.game-popup-circle{
+  width: 206px;
+  height: 206px;
+  border: 12px solid #C9D9F9;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 50%;
+
+  &__inline{
+    @include absolute($left: 15px, $top: -12px);
+  }
+
+  &__ava{
+    width: 54px;
+    height: 54px;
+    z-index: 1;
+    @include absolute($left: 50%, $top: -12px);
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 50%;
+    border: 1px solid $color-white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    background: no-repeat center #fff;
+    background-size: cover;
+  }
+
+  &__timer{
+    @include absolute($top: 50%, $left: 12px, $right: 12px);
+    text-align: center;
+    transform: translateY(-50%);
+    color: #7E97C9;
+    font-weight: 700;
+    font-family: $font-family-montserrat;
+    line-height: 40px;
+    font-size: 34px;
+  }
+
+  &__heart{
+    position: absolute;
+    width: 42px;
+    height: 36px;
+    left: 50%;
+    top: -12px;
+    transform: translateY(-50%) translateX(-50%);
+    z-index: 2;
+    svg{
+      width: 42px;
+      height: 36px;
+      filter: drop-shadow( 2px 0 10px rgba(#FF1600, .5));
+    }
+  }
+
+  &-points{
+    position: absolute;
+    top: 20px;
+    left: 12px;
+    right: 12px;
+    line-height: 64px;
+    font-size: 36px;
+    font-weight: 700;
+    font-family: $font-family-montserrat;
+    text-align: center;
+
+    &__new{
+      position: absolute;
+      top: 0;
+      -webkit-text-stroke-width: 2px;
+      width: 100%;
+    }
+
+    &__new_positive{
+      color: #BE00FA;
+      -webkit-text-stroke-color: #F3CBFF;
+    }
+
+    &__new_negative{
+      -webkit-text-stroke-color: #F3CBFF;
+      color: #FA3C00;
+    }
+  }
+}
+
+.game-popup-header{
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &__back{
+    padding: 16px 10px 16px 16px;
+  }
+
+  &__name{
+    font-size: 22px;
+    font-family: $font-family-montserrat;
+    color: $color-white;
+    font-weight: 700;
+  }
+}
+
+.game-popup-start{
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+
+  &__btn_start{
+    position: absolute;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 144px;
+    height: 144px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__info{
+    padding: 16px 24px 32px;
+    color: $color-white;
+    text-align: center;
+  }
+
+  &__btn{
+    height: 56px;
+    padding: 8px 0;
+    display: block;
+    line-height: 20px;
+    max-width: 480px;
+
+    span{
+      font-size: 12px;
+      color: #E3E0EF;
+      display: block;
+    }
+  }
+
+  &__middle{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__bottom{
+    margin: 0 40px 36px;
+    text-align: center;
+  }
+}
+
+.game-popup-play{
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+
+  &__middle{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__bottom{
+    margin: 0 40px 36px;
+    text-align: center;
+  }
+
+  &__sides{
+    display: flex;
+    padding: 12px 16px 24px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__btn{
+    display: block;
+    width: 100%;
+  }
+}
+
+.game-popup-play-side{
+  display: flex;
+  flex-direction: row;
+
+  &__ava{
+    width: 56px;
+    height: 56px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background: no-repeat center #fff;
+    background-size: cover;
+  }
+
+  &__content{
+    padding: 0 12px;
+    font-size: 14px;
+    color: $color-white;
+  }
+
+  &__score{
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 700;
+    font-family: $font-family-montserrat;
+
+    &_more{
+      color: #FDE464;
+    }
+  }
+
+  &_my{
+    text-align: left;
+  }
+
+  &_enemy{
+    text-align: right;
+    flex-direction: row-reverse;
+  }
+}
+
+.game-popup-end{
+
+}

@@ -1,5 +1,5 @@
 .ico {
-  background-image: url(~@/assets/generated-sprite-ico-7effb.png);
+  background-image: url(~@/assets/generated-sprite-ico-80d7d.png);
   display: inline-block;
   vertical-align: middle;
 }
@@ -7,8 +7,8 @@
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   .ico {
-    background-image: url(~@/assets/generated-sprite-ico-b4c57-2x.png);
-    background-size: 327px 312px;
+    background-image: url(~@/assets/generated-sprite-ico-db5a7-2x.png);
+    background-size: 327px 317px;
   }
 }
 
@@ -23,7 +23,7 @@
   height: 24px;
 }
 .ico_cards-blue {
-  background-position: 0px -254px;
+  background-position: 0px -259px;
   width: 56px;
   height: 58px;
 }
@@ -38,14 +38,19 @@
   height: 24px;
 }
 .ico_coins {
-  background-position: -185px -193px;
+  background-position: -265px -193px;
   width: 59px;
   height: 55px;
 }
 .ico_crown {
-  background-position: -61px -193px;
+  background-position: -141px -193px;
   width: 62px;
   height: 56px;
+}
+.ico_crown-w80 {
+  background-position: 0px -193px;
+  width: 80px;
+  height: 66px;
 }
 .ico_dating {
   background-position: 0px -93px;
@@ -53,7 +58,7 @@
   height: 100px;
 }
 .ico_feed-dislike {
-  background-position: 0px -193px;
+  background-position: -80px -193px;
   width: 61px;
   height: 61px;
 }
@@ -68,12 +73,12 @@
   height: 100px;
 }
 .ico_heart {
-  background-position: -123px -193px;
+  background-position: -203px -193px;
   width: 62px;
   height: 55px;
 }
 .ico_location {
-  background-position: -303px -217px;
+  background-position: -208px -259px;
   width: 16px;
   height: 16px;
 }
@@ -88,12 +93,12 @@
   height: 24px;
 }
 .ico_photo-add-big {
-  background-position: -56px -254px;
+  background-position: -115px -259px;
   width: 47px;
   height: 44px;
 }
 .ico_photo-add-small {
-  background-position: -103px -254px;
+  background-position: -162px -259px;
   width: 32px;
   height: 32px;
 }
@@ -108,7 +113,7 @@
   height: 20px;
 }
 .ico_question-blue {
-  background-position: -303px -193px;
+  background-position: -194px -259px;
   width: 14px;
   height: 24px;
 }
@@ -118,14 +123,14 @@
   height: 24px;
 }
 .ico_views {
-  background-position: -244px -193px;
+  background-position: -56px -259px;
   width: 59px;
   height: 55px;
 }
 
 
 %ico {
-  background-image: url(~@/assets/generated-sprite-ico-7effb.png);
+  background-image: url(~@/assets/generated-sprite-ico-80d7d.png);
   display: inline-block;
   vertical-align: middle;
 }
@@ -133,8 +138,8 @@
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   %ico {
-    background-image: url(~@/assets/generated-sprite-ico-b4c57-2x.png);
-    background-size: 327px 312px;
+    background-image: url(~@/assets/generated-sprite-ico-db5a7-2x.png);
+    background-size: 327px 317px;
   }
 }
 
@@ -149,7 +154,7 @@
   height: 24px;
 }
 %ico_cards-blue {
-  background-position: 0px -254px;
+  background-position: 0px -259px;
   width: 56px;
   height: 58px;
 }
@@ -164,14 +169,19 @@
   height: 24px;
 }
 %ico_coins {
-  background-position: -185px -193px;
+  background-position: -265px -193px;
   width: 59px;
   height: 55px;
 }
 %ico_crown {
-  background-position: -61px -193px;
+  background-position: -141px -193px;
   width: 62px;
   height: 56px;
+}
+%ico_crown-w80 {
+  background-position: 0px -193px;
+  width: 80px;
+  height: 66px;
 }
 %ico_dating {
   background-position: 0px -93px;
@@ -179,7 +189,7 @@
   height: 100px;
 }
 %ico_feed-dislike {
-  background-position: 0px -193px;
+  background-position: -80px -193px;
   width: 61px;
   height: 61px;
 }
@@ -194,12 +204,12 @@
   height: 100px;
 }
 %ico_heart {
-  background-position: -123px -193px;
+  background-position: -203px -193px;
   width: 62px;
   height: 55px;
 }
 %ico_location {
-  background-position: -303px -217px;
+  background-position: -208px -259px;
   width: 16px;
   height: 16px;
 }
@@ -214,12 +224,12 @@
   height: 24px;
 }
 %ico_photo-add-big {
-  background-position: -56px -254px;
+  background-position: -115px -259px;
   width: 47px;
   height: 44px;
 }
 %ico_photo-add-small {
-  background-position: -103px -254px;
+  background-position: -162px -259px;
   width: 32px;
   height: 32px;
 }
@@ -234,7 +244,7 @@
   height: 20px;
 }
 %ico_question-blue {
-  background-position: -303px -193px;
+  background-position: -194px -259px;
   width: 14px;
   height: 24px;
 }
@@ -244,7 +254,7 @@
   height: 24px;
 }
 %ico_views {
-  background-position: -244px -193px;
+  background-position: -56px -259px;
   width: 59px;
   height: 55px;
 }

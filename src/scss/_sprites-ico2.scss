@@ -1,5 +1,5 @@
 .ico2 {
-  background-image: url(~@/assets/generated-sprite-ico2-ddebd.png);
+  background-image: url(~@/assets/generated-sprite-ico2-9c669.png);
   display: inline-block;
   vertical-align: middle;
 }
@@ -7,7 +7,7 @@
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   .ico2 {
-    background-image: url(~@/assets/generated-sprite-ico2-46836-2x.png);
+    background-image: url(~@/assets/generated-sprite-ico2-c6049-2x.png);
     background-size: 86px 70px;
   }
 }
@@ -27,8 +27,13 @@
   width: 16px;
   height: 24px;
 }
-.ico2_photo-black-16 {
+.ico2_ok-white {
   background-position: -40px -46px;
+  width: 20px;
+  height: 16px;
+}
+.ico2_photo-black-16 {
+  background-position: -60px -46px;
   width: 16px;
   height: 14px;
 }
@@ -40,7 +45,7 @@
 
 
 %ico2 {
-  background-image: url(~@/assets/generated-sprite-ico2-ddebd.png);
+  background-image: url(~@/assets/generated-sprite-ico2-9c669.png);
   display: inline-block;
   vertical-align: middle;
 }
@@ -48,7 +53,7 @@
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   %ico2 {
-    background-image: url(~@/assets/generated-sprite-ico2-46836-2x.png);
+    background-image: url(~@/assets/generated-sprite-ico2-c6049-2x.png);
     background-size: 86px 70px;
   }
 }
@@ -68,8 +73,13 @@
   width: 16px;
   height: 24px;
 }
-%ico2_photo-black-16 {
+%ico2_ok-white {
   background-position: -40px -46px;
+  width: 20px;
+  height: 16px;
+}
+%ico2_photo-black-16 {
+  background-position: -60px -46px;
   width: 16px;
   height: 14px;
 }
