@@ -1,6 +1,12 @@
 <template>
     <div class="game-popup-start">
         <div class="game-popup__top">
+            <game-decor
+                    :width="windowWidth"
+                    :height="26"
+                    :fillColor="'#fff'"
+            />
+
             <div class="game-popup-header">
                 <div class="game-popup-header__back" @click="$nav.back()">
                     <div class="ico ico_arrow-left-white-24"></div>
@@ -18,9 +24,9 @@
 
         <div class="game-popup-start__middle">
             <div class="game-popup-circle">
-                <div class="game-popup-circle__ava" :style="{backgroundImage: `url(${aim.avatars.s5})`}"></div>
+                <div class="game-popup-circle__ava" :style="{backgroundImage: `url(${aim.avatars.s5})`, transform: `translateY(-102px)`}"></div>
                 <div class="game-popup-circle__inline"><placeholder-game/></div>
-                <div class="game-popup-start__btn_start btn btn_turquoise" @click="$emit('playGame')">
+                <div class="game-popup-start__btn_start btn btn_turquoise" @click="$emit('playGame')" v-touch>
                     Начать
                 </div>
             </div>
@@ -37,14 +43,21 @@
 
 <script>
     import PlaceholderGame from '@/assets/svg/placeholder-game.svg';
+    import DecorationTop from '@/assets/svg/decoration-top.svg';
     import feed from '@/feed/';
+    import GameDecor from '@/components/feed/GameDecor';
 
     export default {
         name: "GameStart",
-        components: {PlaceholderGame},
+        components: {PlaceholderGame, DecorationTop, GameDecor},
         props: ['states', 'changeState', 'aim'],
         created() {
             // console.log(this.aim);
+        },
+        computed: {
+            windowWidth(){
+                return window.outerWidth;
+            },
         },
         methods: {
             openVipPopup(){

@@ -14,7 +14,19 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         config: null,
-        currentUser: {},
+        currentUser: {
+            id: 100,
+            name: 'me',
+            gender: 'm',
+            age: '31',
+            avatars: {
+                s1: 'https://sun9-10.userapi.com/c851320/v851320058/1386fd/Zrp4BcCGR8U.jpg',
+                s2: 'https://sun9-10.userapi.com/c851320/v851320058/1386fd/Zrp4BcCGR8U.jpg',
+                s3: 'https://sun9-10.userapi.com/c851320/v851320058/1386fd/Zrp4BcCGR8U.jpg',
+                s4: 'https://sun9-10.userapi.com/c851320/v851320058/1386fd/Zrp4BcCGR8U.jpg',
+                s5: 'https://sun9-10.userapi.com/c851320/v851320058/1386fd/Zrp4BcCGR8U.jpg',
+            }
+        },
         currentTabId: 0,
         bannerIsShown: true,
     },
