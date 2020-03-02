@@ -10,6 +10,7 @@
     "core-js": "^3.4.3",
     "gestures": "git+https://gitlab.vs58.net/npm/gestures.git#1.0.1",
     "interactjs": "^1.6.2",
+    "js-cookie": "^2.2.1",
     "navigation": "git+https://gitlab.vs58.net/npm/navigation.git#1.0.0",
     "vue": "^2.6.10",
     "vue-carousel": "^0.18.0",

@@ -1,13 +1,8 @@
-import {getVendor} from '@/lib/browser';
-import {VENDOR_IOS} from '@/consts';
-
-const vendor = getVendor();
-
 let methods = {};
 let callbacks = {};
 let uniqId = 0;
 
-window.webviewBridgeJs = window.webViewBridgeJs = {
+window.webviewBridgeJs = {
     invokeMethod(methodName, paramsObj) {
         if (typeof methods[methodName] == "function") {
             methods[methodName].call(this, paramsObj);
@@ -16,6 +11,7 @@ window.webviewBridgeJs = window.webViewBridgeJs = {
     callback(callbackId, paramsObj) {
         if (typeof callbacks[callbackId] == "function") {
             callbacks[callbackId].call(this, paramsObj);
+
             delete callbacks[callbackId];
         }
     },
@@ -33,20 +29,7 @@ export default {
             callbacks[++uniqId] = callbackFn;
         }
 
-        if (vendor === VENDOR_IOS) {
-            const touple = {
-                name: methodName,
-                params
-            };
-
-            if (callbackFn) {
-                touple.callback_id = uniqId + "";
-            }
-
-            window.webkit.messageHandlers.bridge.postMessage(JSON.stringify({
-                invoke_method: touple
-            }));
-        } else if (window.webviewBridgeNative && typeof window.webviewBridgeNative.invokeMethod == "function") {
+        if (window.webviewBridgeNative && typeof window.webviewBridgeNative.invokeMethod == "function") {
             window.webviewBridgeNative.invokeMethod(
                 methodName,
                 JSON.stringify(params),
@@ -55,11 +38,11 @@ export default {
         }
     },
     isSupported: function () {
-        return (vendor === VENDOR_IOS) || !!window.webviewBridgeNative;
+        return !!window.webviewBridgeNative;
     }
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (true || process.env.NODE_ENV === 'development') {
     let callJsMethod = (methodName, params, uniqId) => {
         switch (methodName) {
             case 'get_api_host':
@@ -94,31 +77,15 @@ if (process.env.NODE_ENV === 'development') {
                 });
                 break;
         }
-    }
+    };
 
     window.webviewBridgeNative = {
         invokeMethod: function (methodName, params, uniqId) {
             console.log('invokeMethod', methodName, params, uniqId);
+
             params = JSON.parse(params);
 
             callJsMethod(methodName, params, uniqId);
         }
     };
-
-    if (vendor === VENDOR_IOS) {
-        window.webkit = {
-            messageHandlers: {
-                bridge: {
-                    postMessage: (jsonData) => {
-                        let data = JSON.parse(jsonData);
-                        console.log('messageHandlers.bridge', data);
-                        let invoke_method = data.invoke_method;
-                        if (invoke_method) {
-                            callJsMethod(invoke_method.name, invoke_method.params, invoke_method.callback_id);
-                        }
-                    }
-                }
-            }
-        }
-    }
 }

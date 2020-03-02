@@ -5,22 +5,26 @@ import Vue from 'vue';
 import vueNav from '../nav/';
 
 export default class ExtendHandler extends NavigationHandler {
-    activate({ animated, intent }) {
-        let rand = Math.floor(Math.random());
+    beforeActive({intent, next}) {
+        return new Promise((resolve, reject) => {
+            if (this.config.willActivate !== undefined){
+                this.config.willActivate({
+                    resolve,
+                    reject,
+                    navigation: this.nav
+                });
+            } else {
+                resolve();
+            }
+        });
+    }
 
-        redirect('/feed');
-
-        debugger;
-
-        if (rand === 0){
-            return;
-        }
-
+    doActivate(props){
         if (this.component) {
             throw new Error('ExtendHandler: Component already created');
         }
 
-        var _this = this;
+        let { animated } = props;
 
         this.component = Object.assign(
             {},
@@ -29,7 +33,7 @@ export default class ExtendHandler extends NavigationHandler {
                 nav: vueNav,
                 mixins: [{
                     beforeCreate() {
-                        _this.component = this;
+                        this.component = this;
                     }
                 }]
             }
@@ -47,10 +51,22 @@ export default class ExtendHandler extends NavigationHandler {
 
         store.dispatch('popups/openPopup', { popup: this.extend, animated });
 
+        this.afterActivate(props);
+    }
+
+    afterActivate({ intent }){
         if (this.config.didActivated) {
             this.config.didActivated(intent);
         }
     }
+
+    activate(props) {
+        this.beforeActive(props).then(()=> {
+            this.doActivate(props);
+            this.afterActivate(props);
+        });
+    }
+
     unload({ animated, intent }) {
         if (!this.extend) {
             return;
