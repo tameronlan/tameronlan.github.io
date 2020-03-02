@@ -61,9 +61,7 @@
 
             this.$api.init({ apiUrl, token, vendor, deviceId, appVersionCode, appVersionName });
 
-            getMyInfo();
-
-            messengerSocket.init({});
+            // messengerSocket.init({});
 
             messenger.userId = 111;
             messenger.dataSource = messengerDataSource;

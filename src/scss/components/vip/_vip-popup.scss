@@ -1,0 +1,231 @@
+.vip-popup {
+    padding: 40px 36px;
+    background: radial-gradient(103.47% 154.75% at -14.03% -32.17%, #00D1FF 0%, #0090FF 45.08%, #0118E4 88.54%, #0400C2 100%);;
+    background-size: cover;
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    &:before{
+        content: '';
+        @include absolute($left: 0, $top: 0, $right: 0, $bottom: 0);
+        background: url(~@/assets/vip-heart.png) no-repeat center top;
+        background-size: 100% auto;
+    }
+
+    &__title {
+        font-weight: 300;
+        text-align: center;
+        margin: 0 0 28px;
+        color: $color-yellow;
+        font-size: 28px;
+        line-height: 28px;
+
+        span{
+            font-weight: 700;
+            color: $color-white;
+        }
+    }
+
+    &__btn{
+        display: block;
+        font-weight: 600;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    &__btn_profit{
+        padding-left: 0;
+        padding-right: 0;
+        background: linear-gradient(270deg, #FFC960 0%, #FF7817 100%);
+    }
+
+    &__back {
+        @include absolute($top: 0, $left: 0);
+        padding: 16px;
+    }
+}
+
+.vip-popup-user{
+    position: relative;
+    margin: 0 auto 42px;
+    padding: 4px;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #FFC960 0%, #FF7817 100%);
+    box-shadow: 0 4px 12px rgba(31, 0, 113, 0.2), 0 0 6px 5px #FFC960;
+
+    .ico{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 96px;
+    }
+
+    &__ava{
+        display: block;
+        border-radius: 50%;
+        background: no-repeat center #fff;
+
+        &:before{
+            content: '';
+            display: block;
+            padding-bottom: 100%;
+        }
+    }
+}
+
+.vip-popup-profit {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+
+    &__list {
+        color: $color-white;
+        list-style: none;
+        padding-left: 20px;
+        counter-reset: profit-counter;
+    }
+
+    &__item {
+        font-size: 16px;
+        margin-bottom: 16px;
+        counter-increment: profit-counter;
+        position: relative;
+
+        span{
+            color: $color-yellow;
+        }
+
+        &::before {
+            content: counter(profit-counter) ". ";
+            color: $color-gray2;
+            position: absolute;
+            right: 100%;
+            margin-right: 8px;
+        }
+    }
+}
+
+.vip-popup-prices{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+
+    .vip-popup-user{
+        width: 92px;
+        height: 92px;
+        margin-bottom: 36px;
+
+        .ico_crown{
+            top: 68px;
+        }
+
+    }
+
+    &-list{
+        padding: 24px 8px 40px;
+        display: flex;
+        flex-direction: row;
+        margin: 0 -40px;
+        align-items: center;
+    }
+
+    &-item{
+        margin: 0 2px;
+        width: 100%;
+        flex-grow: 1;
+        background: $color-white;
+        border-radius: 6px;
+        position: relative;
+        padding: 16px 10px 12px;
+        text-align: center;
+        transition: all .1s linear;
+
+        &_active{
+            padding-top: 24px;
+            padding-bottom: 24px;
+            box-shadow: 0 0 0 4px $color-orange-1 inset;
+            border-radius: 10px;
+
+            .vip-popup-prices-item__period{
+                font-size: 20px;
+            }
+
+            .vip-popup-prices-item__period b{
+                font-size: 28px;
+            }
+
+            .vip-popup-prices-item__ok{
+                opacity: 1;
+            }
+        }
+
+        &__label{
+            @include absolute($top: -12px, $left: 0, $right: 0);
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 18px;
+            padding: 4px 0;
+            color: $color-white;
+            background: linear-gradient(270deg, #FFC960 0%, #FF7817 100%);
+            box-shadow: 0px 4px 12px rgba(31, 0, 113, 0.2);
+        }
+
+        &__ico_0{
+            transform: scale(.5);
+        }
+
+        &__ico_1{
+            transform: scale(.75);
+        }
+
+        &__ico_2{
+            transform: scale(1);
+        }
+
+        &__period{
+            color: $color-gray4;
+            font-size: 16px;
+            line-height: 20px;
+            margin: 0 0 8px;
+            font-family: $font-family-montserrat;
+
+            b{
+                font-size: 26px;
+            }
+        }
+
+        &__price{
+            color: #84AAE4;
+            font-size: 16px;
+        }
+
+        &__ok{
+            position: absolute;
+            width: 38px;
+            height: 38px;
+            background: $color-orange-1;
+            border-radius: 50%;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%) translateY(-50%);
+            opacity: 0;
+            border: 3px solid #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

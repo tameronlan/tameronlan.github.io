@@ -6,8 +6,6 @@
         <template v-if="hasMainPhoto">
             <waiters/>
         </template>
-        <!--<settings @filterMode="showFilter"></settings>-->
-        <!--<feed-limit v-if="hasLimit" :limitData="feedLimit"/>-->
         <empty-feed v-if="isEmpty" @filterMode="showFilter"/>
         <template v-else>
             <cards
@@ -42,7 +40,7 @@
         data() {
             return {
                 filterMode: false,
-                hasMainPhoto: false
+                hasMainPhoto: true
             }
         },
         computed: {

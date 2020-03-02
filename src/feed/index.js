@@ -23,6 +23,7 @@ import FieldEditor from '../components/profile/FieldEditor';
 import UploadErrorPopup from '../components/upload/UploadErrorPopup';
 import WaitersPopup from '../components/feed/WaitersPopup';
 import GetWaiterPopup from '../components/feed/GetWaiterPopup';
+import Game from '../components/feed/Game';
 
 import Popup from '../popups/Popup';
 import Queue from '@/lib/Queue';
@@ -77,7 +78,6 @@ const feed = {
     },
     likeAction(card) {
         feedClick({to_user_id: card.id, type: CLICK_TYPE_YES}).then((response) => {
-            console.log(`Handler click`);
             // let user = response.objects[0];
 
             // if (user.is_mutual) {
@@ -340,6 +340,15 @@ const feed = {
         let popup = new Popup({
             component: GetWaiterPopup,
             options: {myClass: 'popup_extend popup_waiter'}
+        });
+
+        this.openPopup(popup);
+    },
+    showGame(card) {
+        let popup = new Popup({
+            component: Game,
+            props: {card},
+            options: {myClass: 'popup_extend popup_game'}
         });
 
         this.openPopup(popup);
