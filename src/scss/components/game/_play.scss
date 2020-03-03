@@ -1,4 +1,3 @@
-
 .game-popup-countdown{
     @include absolute($left: 0, $top: 0, $right: 0, $bottom: 0);
     background: rgba(#fff, .7);
@@ -9,7 +8,7 @@
     font-size: 28px;
     font-family: $font-family-montserrat;
     font-weight: 700;
-    color: $color-blue-1;
+    color: #C202E9;
     flex-direction: column;
     z-index: 5;
 
@@ -106,19 +105,24 @@
         line-height: 28px;
         font-weight: 700;
         font-family: $font-family-montserrat;
-
-        &_more{
-            color: #FDE464;
-        }
+        transition: color,transform .1s linear;
     }
 
     &_my{
         text-align: left;
+
+        .game-popup-play-side__score{
+            transform-origin: 0 0;
+        }
     }
 
     &_enemy{
         text-align: right;
         flex-direction: row-reverse;
+
+        .game-popup-play-side__score{
+            transform-origin: 100% 0;
+        }
     }
 
     &_lose{

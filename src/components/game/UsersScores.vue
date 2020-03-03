@@ -7,7 +7,7 @@
             <div class="game-popup-play-side__ava" :style="{backgroundImage: `url(${currentUser.avatars.s5})`}"></div>
             <div class="game-popup-play-side__content">
                 <div class="game-popup-play-side__name">{{currentUser.name}}</div>
-                <div class="game-popup-play-side__score">
+                <div class="game-popup-play-side__score" ref="myScore">
                     {{myScore}}
                 </div>
             </div>
@@ -20,7 +20,7 @@
             <div class="game-popup-play-side__ava" :style="{backgroundImage: `url(${enemy.user.avatars.s5})`}"></div>
             <div class="game-popup-play-side__content">
                 <div class="game-popup-play-side__name">{{enemy.user.name}}</div>
-                <div class="game-popup-play-side__score">
+                <div class="game-popup-play-side__score" ref="enemyScore">
                     {{enemyScore}}
                 </div>
             </div>
@@ -52,10 +52,34 @@
         },
         watch: {
             myScore(newVal, oldVal){
-                // console.log(newVal, oldVal);
+                let color = "#2CFFB3";
+
+                if (newVal < oldVal){
+                    color = "#FF689E";
+                }
+
+                this.$refs.myScore.style.color=color;
+                this.$refs.myScore.style.transform="scale(1.5)";
+
+                setTimeout(()=>{
+                    this.$refs.myScore.style.color="#fff";
+                    this.$refs.myScore.style.transform="scale(1)";
+                }, 700);
             },
             enemyScore(newVal, oldVal){
-                // console.log(newVal, oldVal);
+                let color = "#2CFFB3";
+
+                if (newVal < oldVal){
+                    color = "#FF689E";
+                }
+
+                this.$refs.enemyScore.style.color=color;
+                this.$refs.enemyScore.style.transform="scale(1.5)";
+
+                setTimeout(()=>{
+                    this.$refs.enemyScore.style.color="#fff";
+                    this.$refs.enemyScore.style.transform="scale(1)";
+                }, 700);
             }
         }
     }
