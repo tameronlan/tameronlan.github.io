@@ -1,5 +1,5 @@
 .ico2 {
-  background-image: url(~@/assets/generated-sprite-ico2-9c669.png);
+  background-image: url(~@/assets/generated-sprite-ico2-270e6.png);
   display: inline-block;
   vertical-align: middle;
 }
@@ -7,45 +7,50 @@
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   .ico2 {
-    background-image: url(~@/assets/generated-sprite-ico2-c6049-2x.png);
-    background-size: 86px 70px;
+    background-image: url(~@/assets/generated-sprite-ico2-2b60c-2x.png);
+    background-size: 114px 93px;
   }
 }
 
+.ico2_booster-heart {
+  background-position: 0px 0px;
+  width: 64px;
+  height: 57px;
+}
 .ico2_check-read {
-  background-position: 0px -46px;
+  background-position: -36px -57px;
   width: 24px;
   height: 24px;
 }
 .ico2_gift-mess {
-  background-position: 0px 0px;
+  background-position: -64px 0px;
   width: 50px;
   height: 46px;
 }
 .ico2_menu {
-  background-position: -24px -46px;
+  background-position: -60px -57px;
   width: 16px;
   height: 24px;
 }
 .ico2_ok-white {
-  background-position: -40px -46px;
+  background-position: -76px -57px;
   width: 20px;
   height: 16px;
 }
 .ico2_photo-black-16 {
-  background-position: -60px -46px;
+  background-position: -96px -57px;
   width: 16px;
   height: 14px;
 }
 .ico2_photo-messenger {
-  background-position: -50px 0px;
+  background-position: 0px -57px;
   width: 36px;
   height: 36px;
 }
 
 
 %ico2 {
-  background-image: url(~@/assets/generated-sprite-ico2-9c669.png);
+  background-image: url(~@/assets/generated-sprite-ico2-270e6.png);
   display: inline-block;
   vertical-align: middle;
 }
@@ -53,38 +58,43 @@
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   %ico2 {
-    background-image: url(~@/assets/generated-sprite-ico2-c6049-2x.png);
-    background-size: 86px 70px;
+    background-image: url(~@/assets/generated-sprite-ico2-2b60c-2x.png);
+    background-size: 114px 93px;
   }
 }
 
+%ico2_booster-heart {
+  background-position: 0px 0px;
+  width: 64px;
+  height: 57px;
+}
 %ico2_check-read {
-  background-position: 0px -46px;
+  background-position: -36px -57px;
   width: 24px;
   height: 24px;
 }
 %ico2_gift-mess {
-  background-position: 0px 0px;
+  background-position: -64px 0px;
   width: 50px;
   height: 46px;
 }
 %ico2_menu {
-  background-position: -24px -46px;
+  background-position: -60px -57px;
   width: 16px;
   height: 24px;
 }
 %ico2_ok-white {
-  background-position: -40px -46px;
+  background-position: -76px -57px;
   width: 20px;
   height: 16px;
 }
 %ico2_photo-black-16 {
-  background-position: -60px -46px;
+  background-position: -96px -57px;
   width: 16px;
   height: 14px;
 }
 %ico2_photo-messenger {
-  background-position: -50px 0px;
+  background-position: 0px -57px;
   width: 36px;
   height: 36px;
 }

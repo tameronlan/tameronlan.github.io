@@ -9,7 +9,7 @@
     overflow-y: auto;
 
     &__top{
-        background: radial-gradient(111.67% 171.78% at -14.03% -32.17%, #00D1FF 0%, #0090FF 45.08%, #0118E4 100%);
+        background: radial-gradient(111.67% 171.78% at -14.03% -32.17%, #00D1FF 0%, #0090FF 45.08%, #0118E4 90%, #0118E4 100%);
         position: relative;
 
         &-decoration{
@@ -285,8 +285,7 @@
     }
 
     &__btn{
-        height: 56px;
-        padding: 8px 0;
+        padding: 8px 12px;
         display: block;
         line-height: 20px;
         max-width: 480px;
@@ -331,8 +330,17 @@
         flex-direction: column;
     }
 
+    &__circle{
+        flex-direction: column;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+    }
+
     &__bottom{
-        margin: 0 40px 36px;
+        padding: 0 90px 52px;
+        width: 100%;
         text-align: center;
     }
 
@@ -348,6 +356,14 @@
         width: 100%;
         margin: 0 auto;
         max-width: 400px;
+        border-radius: 8px;
+
+        &_disabled{
+            opacity: .7;
+            transform: translateY(4px);
+            box-shadow: 0 0 0 #E4531D, 0 0 0 #CD3D07;
+            pointer-events: none;
+        }
     }
 }
 
@@ -358,7 +374,7 @@
     &__ava{
         width: 56px;
         height: 56px;
-        border: 1px solid #fff;
+        border: 3px solid #2CFFB3;
         border-radius: 50%;
         background: no-repeat center #fff;
         background-size: cover;
@@ -389,29 +405,83 @@
         text-align: right;
         flex-direction: row-reverse;
     }
-}
 
-.game-popup-play-progress{
-    @include absolute($top: -10px, $right: 36px, $bottom: 66px);
-    width: 8px;
-    background: linear-gradient(180deg, #0027E8 0%, #A9B7FF 100%);
-    border-radius: 0 0 4px 4px;
-
-    &:before{
-        width: 48px;
-        height: 24px;
-        background: url(~@/assets/game-progress-top.png) no-repeat center;
-        background-size: contain;
-
-        left: -20px;
-        top: -24px;
-        content: '';
-        position: absolute;
+    &_lose{
+        .game-popup-play-side__ava{
+            border-color: #FF689E;
+        }
     }
 }
 
-.game-popup-end{
+.game-popup-play-progress{
+    @include absolute($top: -20px, $right: 41px, $bottom: 52px);
+    width: 8px;
+    background: linear-gradient(180deg, #0118E4 0%, #A9B7FF 100%);
+    border-radius: 4px;
 
+    &__line{
+        @include absolute($top: 40px, $right: 0, $bottom: 0, $left: 0);
+    }
+
+    &__ava{
+        width: 40px;
+        height: 40px;
+        top: 100%;
+        left: 0;
+        margin: -36px 0 0 -16px;
+        border: 3px solid $color-white;
+        background: no-repeat center;
+        background-size: cover;
+        border-radius: 50%;
+        position: absolute;
+        transition: top .5s linear;
+        will-change: top;
+    }
+}
+
+.game-popup-play-booster{
+    position: absolute;
+    left: 12px;
+    bottom: 42px;
+
+    &_disabled{
+        opacity: .7;
+
+        .game-popup-play-booster__title{
+            color: #7E97C9;
+        }
+    }
+
+    &__circle{
+        width: 72px;
+        height: 72px;
+    }
+
+    &__btn{
+        border-radius: 50%;
+        background: #BD00FF;
+        color: #6D0092;
+        box-shadow: inset 0px -4px 0px #9E00D6;
+        @include absolute($top: 8px, $bottom: 8px, $left: 8px, $right: 8px);
+
+        .ico2_booster-heart{
+            @include absolute($left: 50%, $top: 2px);
+            transform: translateX(-50%) ;
+        }
+    }
+
+    &__title{
+        top: 100%;
+        margin: 6px 0 0;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        color: #C202E9;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+    }
 }
 
 @keyframes heartbit {

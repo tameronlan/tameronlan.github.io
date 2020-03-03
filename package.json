@@ -18,9 +18,9 @@
     "vue-navigation": "git+https://gitlab.vs58.net/npm/vue-navigation.git#1.0.0",
     "vue-slider-component": "^3.0.16",
     "vue-smooth-picker": "^0.4.2",
+    "vue2-circle-progress": "^1.2.3",
     "vuex": "^3.1.2"
   },
-
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-service": "^4.1.0",

@@ -56,7 +56,7 @@
         },
         computed: {
             windowWidth(){
-                return window.outerWidth;
+                return window.innerWidth;
             },
         },
         methods: {

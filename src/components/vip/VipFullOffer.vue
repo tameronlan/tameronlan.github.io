@@ -1,5 +1,5 @@
 <template>
-    <div class="vip-popup extend">
+    <div class="vip-popup">
         <div class="vip-popup__back" @click="closeOffer">
             <i class="ico ico_arrow-left-white-24"></i>
         </div>
