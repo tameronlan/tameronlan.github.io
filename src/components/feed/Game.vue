@@ -57,11 +57,13 @@
                         }
                     },
                     timeLine: {
-                        5: 90,
-                        10: 100,
-                        12: 110,
-                        25: 2000,
-                        55: 2100
+                        2: 25,
+                        6: 50,
+                        10: 40,
+                        13: 30,
+                        17: 55,
+                        21: 80,
+                        27: 70,
                     }
                 },
                 states: {
@@ -76,8 +78,6 @@
         created() {
             this.state = GAME_STATE_START;
             this.aim = this.card.card;
-        },
-        mounted() {
         },
         methods:{
             playGame(){

@@ -53,7 +53,7 @@
 .game-popup-circle{
     width: 206px;
     height: 206px;
-    margin: 0 auto;
+    margin: 0 auto 24px;
     position: relative;
     border-radius: 50%;
     border: 12px solid transparent;
@@ -325,8 +325,10 @@
     &__middle{
         flex-grow: 1;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+        position: relative;
+        flex-direction: column;
     }
 
     &__bottom{
@@ -386,6 +388,25 @@
     &_enemy{
         text-align: right;
         flex-direction: row-reverse;
+    }
+}
+
+.game-popup-play-progress{
+    @include absolute($top: -10px, $right: 36px, $bottom: 66px);
+    width: 8px;
+    background: linear-gradient(180deg, #0027E8 0%, #A9B7FF 100%);
+    border-radius: 0 0 4px 4px;
+
+    &:before{
+        width: 48px;
+        height: 24px;
+        background: url(~@/assets/game-progress-top.png) no-repeat center;
+        background-size: contain;
+
+        left: -20px;
+        top: -24px;
+        content: '';
+        position: absolute;
     }
 }
 

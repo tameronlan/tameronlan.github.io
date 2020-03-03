@@ -1,11 +1,15 @@
 <template>
     <div class="game-popup-play">
-        <div class="game-popup-countdown" :class="{'game-popup-countdown_hidden': timeToStart <= 0}">
+        <div
+                class="game-popup-countdown"
+                :class="{'game-popup-countdown_hidden': timeToStart <= 0}"
+        >
             До старта игры:
             <div class="game-popup-countdown__digit">
                 {{timeToStart}}
             </div>
         </div>
+
         <div class="game-popup__top">
             <game-decor
                     :width="windowWidth"
@@ -75,23 +79,31 @@
                     <!--<div class="game-popup-circle-points__new game-popup-circle-points__new_negative">-10</div>-->
                 </div>
             </div>
+
             <div class="game-popup-play-progress">
-                <div class="game-popup-play-progress__line game-popup-play-progress__line_my">
-                    <div class="game-popup-play-progress__ava"></div>
+                <div
+                        class="game-popup-play-progress__line game-popup-play-progress__line_my"
+                        :class="{'game-popup-play-progress__line_start' : true}"
+                >
+                    <div class="game-popup-play-progress__ava" :style="{backgroundImage: `url(${currentUser.avatars.s5})`}"></div>
                 </div>
-                <div class="game-popup-play-progress__line game-popup-play-progress__line_my">
-                    <div class="game-popup-play-progress__ava"></div>
+
+                <div
+                        class="game-popup-play-progress__line game-popup-play-progress__line_enemy"
+                        :class="{'game-popup-play-progress__line_start' : true}"
+                >
+                    <div class="game-popup-play-progress__ava" :style="{backgroundImage: `url(${enemy.user.avatars.s5})`}"></div>
                 </div>
             </div>
-        </div>
 
-        <div class="game-popup-play__bottom">
-            <div
-                    class="game-popup-play__btn btn btn_orange ripple ripple_white"
-                    @mousedown="shoot"
-                    @touchstart="shoot"
-                    v-touch
-            >Попасть</div>
+            <div class="game-popup-play__bottom">
+                <div
+                        class="game-popup-play__btn btn btn_orange ripple ripple_white"
+                        @mousedown="shoot"
+                        @touchstart="shoot"
+                        v-touch
+                >Попасть</div>
+            </div>
         </div>
     </div>
 </template>
@@ -268,9 +280,17 @@
                 this.myScore = this.myScore + pointsAdded < 0 ? 0 : this.myScore + pointsAdded;
 
                 return new Promise((resolve) => {
+                    if (this === undefined){
+                        return;
+                    }
+
                     this.pointsForAnimation.push(pointsAdded);
 
-                    setTimeout(resolve, 1000);
+                    setTimeout(()=>{
+                        resolve();
+
+                        this.pointsForAnimation.shift();
+                    }, 1000);
                 });
             }
         }

@@ -1,5 +1,5 @@
 .ico {
-  background-image: url(~@/assets/generated-sprite-ico-dc09c.png);
+  background-image: url(~@/assets/generated-sprite-ico-80d7d.png);
   display: inline-block;
   vertical-align: middle;
 }
@@ -7,18 +7,18 @@
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   .ico {
-    background-image: url(~@/assets/generated-sprite-ico-84a67-2x.png);
+    background-image: url(~@/assets/generated-sprite-ico-db5a7-2x.png);
     background-size: 327px 317px;
   }
 }
 
 .ico_arrow-left-blue-24 {
-  background-position: -219px -141px;
+  background-position: -250px -166px;
   width: 24px;
   height: 24px;
 }
 .ico_arrow-left-white-24 {
-  background-position: -298px -166px;
+  background-position: -274px -166px;
   width: 24px;
   height: 24px;
 }
@@ -33,12 +33,12 @@
   height: 100px;
 }
 .ico_close-gray {
-  background-position: -250px -166px;
+  background-position: -298px -166px;
   width: 24px;
   height: 24px;
 }
 .ico_coins {
-  background-position: -56px -259px;
+  background-position: -265px -193px;
   width: 59px;
   height: 55px;
 }
@@ -88,7 +88,7 @@
   height: 93px;
 }
 .ico_menu-blue-24 {
-  background-position: -274px -166px;
+  background-position: -219px -93px;
   width: 24px;
   height: 24px;
 }
@@ -118,19 +118,19 @@
   height: 24px;
 }
 .ico_setting {
-  background-position: -219px -93px;
+  background-position: -219px -141px;
   width: 24px;
   height: 24px;
 }
 .ico_views {
-  background-position: -265px -193px;
+  background-position: -56px -259px;
   width: 59px;
   height: 55px;
 }
 
 
 %ico {
-  background-image: url(~@/assets/generated-sprite-ico-dc09c.png);
+  background-image: url(~@/assets/generated-sprite-ico-80d7d.png);
   display: inline-block;
   vertical-align: middle;
 }
@@ -138,18 +138,18 @@
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   %ico {
-    background-image: url(~@/assets/generated-sprite-ico-84a67-2x.png);
+    background-image: url(~@/assets/generated-sprite-ico-db5a7-2x.png);
     background-size: 327px 317px;
   }
 }
 
 %ico_arrow-left-blue-24 {
-  background-position: -219px -141px;
+  background-position: -250px -166px;
   width: 24px;
   height: 24px;
 }
 %ico_arrow-left-white-24 {
-  background-position: -298px -166px;
+  background-position: -274px -166px;
   width: 24px;
   height: 24px;
 }
@@ -164,12 +164,12 @@
   height: 100px;
 }
 %ico_close-gray {
-  background-position: -250px -166px;
+  background-position: -298px -166px;
   width: 24px;
   height: 24px;
 }
 %ico_coins {
-  background-position: -56px -259px;
+  background-position: -265px -193px;
   width: 59px;
   height: 55px;
 }
@@ -219,7 +219,7 @@
   height: 93px;
 }
 %ico_menu-blue-24 {
-  background-position: -274px -166px;
+  background-position: -219px -93px;
   width: 24px;
   height: 24px;
 }
@@ -249,12 +249,12 @@
   height: 24px;
 }
 %ico_setting {
-  background-position: -219px -93px;
+  background-position: -219px -141px;
   width: 24px;
   height: 24px;
 }
 %ico_views {
-  background-position: -265px -193px;
+  background-position: -56px -259px;
   width: 59px;
   height: 55px;
 }
