@@ -99,8 +99,7 @@
                 </div>
             </div>
 
-            <div
-                    class="game-popup-play-booster"
+            <div class="game-popup-play-booster"
                     :class="{'game-popup-play-booster_disabled': (boosterSecondsFromLastUsedTime < boosterRecoveryTime)}"
             >
                 <div class="game-popup-play-booster__circle" v-touch @click="activeBooster">
