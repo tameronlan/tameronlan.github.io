@@ -11,6 +11,7 @@
         background: url(~@/assets/profile-top-bg.jpg) no-repeat center bottom;
         background-size: cover;
         margin: 0 0 56px;
+        max-height: 160px;
 
         &:before{
             padding-bottom: 35%;

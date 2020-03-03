@@ -1,0 +1,102 @@
+.game-popup-start{
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    background: url(~@/assets/bg_start.jpg) center no-repeat, radial-gradient(111.67% 177.7% at -14.03% -36.72%, #0066FF 0%, #8000FF 45.08%, #4D0071 100%) center no-repeat;
+    background-size: cover;
+
+    &__info{
+        color: $color-white;
+        font-size: 16px;
+        line-height: 22px;
+        margin: 2px 0 0 4px;
+    }
+
+    &__btn{
+        border-radius: 8px;
+        max-width: 480px;
+        display: block;
+        font-family: $font-family-montserrat;
+        font-size: 22px;
+        line-height: 28px;
+        font-weight: 700;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        margin: 0 auto;
+    }
+
+    &-booster{
+
+        &__info{
+            font-size: 16px;
+            color: #E3E0EF;
+            margin: 0 0 12px;
+            width: 100%;
+            text-align: center;
+
+            span{
+                color: #C202E9;
+            }
+        }
+
+        &__title{
+            font-size: 20px;
+        }
+        
+        &__btn{
+            line-height: 20px;
+            font-size: 18px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            width: 100%;
+            display: block;
+            max-width: 480px;
+            margin: 0 auto;
+
+            span{
+                display: block;
+                font-size: 12px;
+                color: #E3E0EF;
+            }
+        }
+
+        &__ico{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4C0171;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: $font-family-montserrat;
+            line-height: 72px;
+            text-align: center;
+            margin: 0 0 4px;
+        }
+    }
+
+    &__top{
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 24px 32px 64px;
+    }
+
+    &__middle{
+        padding: 0 28px;
+    }
+
+    &__bottom{
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 36px 32px;
+        flex-direction: column;
+    }
+}

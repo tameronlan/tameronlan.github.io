@@ -60,7 +60,7 @@
             containerClasses(){
                 let classes = ['waiters'];
 
-                if(this.waiters.length === 2){
+                if(this.waiters.length === 0){
                     classes.push('waiters_empty');
                 }
 

@@ -1,0 +1,56 @@
+.game-popup-play-booster{
+    position: absolute;
+    left: 12px;
+    bottom: 42px;
+
+    &_disabled{
+        opacity: .7;
+
+        .game-popup-play-booster__title{
+            color: #7E97C9;
+        }
+    }
+
+    &__circle{
+        width: 72px;
+        height: 72px;
+    }
+
+    &__points{
+        position: relative;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: $font-family-montserrat;
+        color: #6D0092;
+        margin: -4px 0 0;
+    }
+
+    &__btn{
+        border-radius: 50%;
+        background: #BD00FF;
+        color: #6D0092;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: inset 0px -4px 0px #9E00D6;
+        @include absolute($top: 8px, $bottom: 8px, $left: 8px, $right: 8px);
+
+        .ico2_booster-heart{
+            @include absolute($left: 50%, $top: 2px);
+            transform: translateX(-50%);
+        }
+    }
+
+    &__title{
+        top: 100%;
+        margin: 6px 0 0;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        color: #C202E9;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+    }
+}

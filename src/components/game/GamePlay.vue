@@ -1,21 +1,9 @@
 <template>
     <div class="game-popup-play">
-        <div
-                class="game-popup-countdown"
-                :class="{'game-popup-countdown_hidden': timeToStart <= 0}"
-        >
-            До старта игры:
-            <div class="game-popup-countdown__digit">
-                {{timeToStart}}
-            </div>
-        </div>
+        <game-countdown :timeToStart="timeToStart"/>
 
         <div class="game-popup__top">
-            <game-decor
-                    :width="windowWidth"
-                    :height="26"
-                    :fillColor="'#fff'"
-            />
+            <game-decor :width="windowWidth" :height="26" :fillColor="'#fff'"/>
 
             <div class="game-popup-header">
                 <div class="game-popup-header__back" @click="$nav.back()">
@@ -27,33 +15,7 @@
                 </div>
             </div>
 
-            <div class="game-popup-play__sides">
-                <div
-                        class="game-popup-play-side game-popup-play-side_my"
-                        :class="{'game-popup-play-side_lose': myScore < enemyScore}"
-                >
-                    <div class="game-popup-play-side__ava" :style="{backgroundImage: `url(${currentUser.avatars.s5})`}"></div>
-                    <div class="game-popup-play-side__content">
-                        <div class="game-popup-play-side__name">{{currentUser.name}}</div>
-                        <div class="game-popup-play-side__score">
-                            {{myScore}}
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                        class="game-popup-play-side game-popup-play-side_enemy"
-                        :class="{'game-popup-play-side_lose': myScore > enemyScore}"
-                >
-                    <div class="game-popup-play-side__ava" :style="{backgroundImage: `url(${enemy.user.avatars.s5})`}"></div>
-                    <div class="game-popup-play-side__content">
-                        <div class="game-popup-play-side__name">{{enemy.user.name}}</div>
-                        <div class="game-popup-play-side__score">
-                            {{enemyScore}}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <users-scores :enemy="enemy" :myScore="myScore" :enemyScore="enemyScore" />
         </div>
 
         <div class="game-popup-play__middle">
@@ -92,38 +54,16 @@
                 </div>
             </div>
 
-            <div class="game-popup-play-progress">
-                <div class="game-popup-play-progress__line">
-                    <div class="game-popup-play-progress__ava" :style="progressStyles.my"></div>
-                    <div class="game-popup-play-progress__ava" :style="progressStyles.enemy"></div>
-                </div>
-            </div>
+            <users-progresses
+                    :enemy="enemy"
+                    :myScore="myScore"
+                    :enemyScore="enemyScore"
+            />
 
-            <div class="game-popup-play-booster"
-                    :class="{'game-popup-play-booster_disabled': (boosterSecondsFromLastUsedTime < boosterRecoveryTime)}"
-            >
-                <div class="game-popup-play-booster__circle" v-touch @click="activeBooster">
-                    <circle-progress
-                            ref="boosterCircleProgress"
-                            :diameter="72"
-                            :percent="100"
-                            :strokeWidth="8"
-                            :strokeFill="`#FFC960`"
-                            :strokeFillBg="`#CA68EC`"
-                    />
-
-                    <div class="game-popup-play-booster__btn">
-                        <div class="ico2 ico2_booster-heart"></div>
-                        <div class="game-popup-play-booster__points"></div>
-                    </div>
-                </div>
-
-                <div v-if="boosterSecondsFromLastUsedTime < boosterRecoveryTime" class="game-popup-play-booster__title">
-                    {{boosterRecoveryTime - boosterSecondsFromLastUsedTime}} сек
-                </div>
-
-                <div v-else class="game-popup-play-booster__title">Бустер</div>
-            </div>
+            <game-booster
+                    @activeBooster="activeBooster"
+                    :boosterSecondsFromLastUsedTime="boosterSecondsFromLastUsedTime"
+            />
 
             <div class="game-popup-play__bottom">
                 <div
@@ -143,14 +83,24 @@
     import Heart from '@/assets/svg/heart.svg';
     import DecorationTop from '@/assets/svg/decoration-top.svg';
     import {mapState} from 'vuex';
-    import GameDecor from '@/components/feed/GameDecor';
-    import CircleProgress from '@/components/common/CircleProgress';
+    import GameDecor from '@/components/game/GameDecor';
+    import UsersScores from '@/components/game/UsersScores';
+    import UsersProgresses from '@/components/game/UsersProgresses';
+    import GameBooster from "@/components/game/GameBooster";
+    import GameCountdown from "@/components/game/GameCountdown";
 
     export default {
         name: "GamePlay",
         components: {
-            CircleProgress,
-            PlaceholderGame, Heart, DecorationTop, GameDecor},
+            GameBooster,
+            PlaceholderGame,
+            Heart,
+            DecorationTop,
+            GameDecor,
+            UsersProgresses,
+            UsersScores,
+            GameCountdown
+        },
         data(){
             return {
                 gameIsRun: false,
@@ -169,10 +119,9 @@
                 myScore: 0,
                 enemyScore: 0,
                 pointsForAnimation: [],
-                boosterAvailable: true,
-                boosterPoints: 25,
-                boosterRecoveryTime: 25,
                 boosterSecondsFromLastUsedTime: 25,
+                boosterRecoveryTime: 25,
+                boosterPoints: 25
             }
         },
         props: ['enemy'],
@@ -280,7 +229,8 @@
                 }
 
                 this.pauseGame();
-                this.animateShoowPoints().then(()=>{
+                
+                this.animateShootPoints().then(()=>{
                     this.updateAngleIn();
                     this.resumeGame();
                 });
@@ -350,7 +300,7 @@
 
                 this.enemyScore = maxKey ? this.enemy.timeLine[maxKey] : 0;
             },
-            animateShoowPoints(){
+            animateShootPoints(){
                 let circleRadian = 2 * Math.PI;
                 let circles = Math.floor(this.currentAvaRadian / circleRadian);
                 let normalizeRadian = this.currentAvaRadian - circles * circleRadian;
@@ -384,19 +334,7 @@
                     }, 1000);
                 });
             }
-        },
-        watch: {
-            boosterSecondsFromLastUsedTime(newVal){
-                let percent = newVal * 100/ this.boosterRecoveryTime;
-
-                percent = percent >= 100 ? 100 : percent;
-
-                this.$refs.boosterCircleProgress.updatePercent(percent);
-            }
         }
     }
 </script>
 
-<style scoped>
-
-</style>

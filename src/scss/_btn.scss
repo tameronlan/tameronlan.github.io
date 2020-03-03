@@ -59,7 +59,6 @@
 
     &_white {
         background: #fff;
-        border-color: #fff;
         color: $color-blue-1;
 
         @extend %ripple_white;
@@ -75,7 +74,6 @@
 
     &_orange {
         background: $color-orange-1;
-        border-color: $color-orange-1;
         color: #ffffff;
         box-shadow: 0 4px 6px #E4531D, 0 4px 0 #CD3D07;
 
@@ -84,7 +82,6 @@
 
     &_blue {
         background: $color-blue-2;
-        border-color: $color-blue-2;
         color: #ffffff;
         box-shadow: 0 4px 0 #1338BC, 0 4px 12px rgba(31, 0, 113, 0.2);
 
@@ -93,9 +90,16 @@
 
     &_turquoise {
         background: $color-turquoise-1;
-        border-color: $color-turquoise-1;
         color: #ffffff;
         box-shadow:  0 4px 6px rgba(31, 0, 113, 0.2), 0 4px 0 #02CBBF;
+
+        @extend %ripple_white;
+    }
+
+    &_yellow {
+        background: $color-yellow;
+        color: $color-black;
+        box-shadow: 0px 4px 0px #D87400;
 
         @extend %ripple_white;
     }
@@ -223,20 +227,6 @@ button {
     font-weight: bold;
 }
 
-.btn_size-m {
-    font-size: 16px;
-    font-weight: bold;
-    padding: 18px 38px 16px;
-}
-
-.btn_mw220 {
-    min-width: 220px;
-}
-
-.btn_mw240 {
-    min-width: 240px;
-}
-
 .touch{
     &.btn_orange{
         transform: translateY(4px);
@@ -256,5 +246,10 @@ button {
     &.btn_turquoise{
         transform: translateY(4px);
         box-shadow:  0 0 0 rgba(31, 0, 113, 0.2), 0 0 0 #02CBBF;
+    }
+
+    &.btn_yellow{
+        transform: translateY(4px);
+        box-shadow: 0px 0 0px #D87400;
     }
 }

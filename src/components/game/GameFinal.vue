@@ -1,12 +1,10 @@
 <template>
-    <div>
-        final win
-    </div>
+    
 </template>
 
 <script>
     export default {
-        name: "GameWin"
+        name: "final"
     }
 </script>
 

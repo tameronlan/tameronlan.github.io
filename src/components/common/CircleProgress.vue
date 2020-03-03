@@ -21,8 +21,8 @@
                 :cy="center"
                 fill="rgba(0,0,0,0)"
                 :style="{
-                    strokeDasharray: dashsData.array,
-                    strokeDashoffset: dashsData.offset
+                    strokeDasharray: dashData.array,
+                    strokeDashoffset: dashData.offset
                 }"
         ></circle>
     </svg>
@@ -78,7 +78,7 @@
             }
         },
         computed: {
-            dashsData(){
+            dashData(){
                 this.dashArray = 2 * this.r * Math.PI;
                 this.dashOffset = this.dashArray - ( this.dashArray * this.currentPercent / 100 );
 
@@ -96,8 +96,6 @@
         },
         methods: {
             updatePercent(percent){
-                console.log(percent);
-
                 if(
                     percent !== undefined
                     && percent >= 0

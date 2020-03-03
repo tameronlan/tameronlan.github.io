@@ -23,7 +23,7 @@ import FieldEditor from '../components/profile/FieldEditor';
 import UploadErrorPopup from '../components/upload/UploadErrorPopup';
 import WaitersPopup from '../components/feed/WaitersPopup';
 import GetWaiterPopup from '../components/feed/GetWaiterPopup';
-import Game from '../components/feed/Game';
+import GameWrapper from '../components/game/GameWrapper';
 
 import Popup from '../popups/Popup';
 import Queue from '@/lib/Queue';
@@ -346,7 +346,7 @@ const feed = {
     },
     showGame(card) {
         let popup = new Popup({
-            component: Game,
+            component: GameWrapper,
             props: {card},
             options: {myClass: 'popup_extend popup_game'}
         });

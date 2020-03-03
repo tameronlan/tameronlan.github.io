@@ -15,12 +15,7 @@
             />
         </template>
         <template v-if="state===states.GAME_STATE_WIN">
-            <game-win
-                    :states="states"
-            />
-        </template>
-        <template v-if="state===states.GAME_STATE_LOSE">
-            <game-lose
+            <game-final
                     :states="states"
             />
         </template>
@@ -30,13 +25,12 @@
 <script>
     import GameStart from './GameStart';
     import GamePlay from './GamePlay';
-    import GameWin from './GameWin';
-    import GameLose from './GameLose';
-    import {GAME_STATE_START, GAME_STATE_PLAY, GAME_STATE_WIN, GAME_STATE_LOSE} from '../../consts';
+    import GameFinal from './GameFinal';
+    import {GAME_STATE_START, GAME_STATE_PLAY, GAME_STATE_FINAL} from '../../consts';
 
     export default {
-        name: "Game",
-        components: {GameStart, GamePlay, GameWin, GameLose},
+        name: "game-wrapper",
+        components: {GameStart, GamePlay, GameFinal},
         props: ['card'],
         data(){
             return {
@@ -69,8 +63,7 @@
                 states: {
                     GAME_STATE_START: GAME_STATE_START,
                     GAME_STATE_PLAY: GAME_STATE_PLAY,
-                    GAME_STATE_WIN: GAME_STATE_WIN,
-                    GAME_STATE_LOSE: GAME_STATE_LOSE
+                    GAME_STATE_FINAL: GAME_STATE_FINAL,
                 },
                 scaleDecorTop: 1
             }
@@ -83,8 +76,8 @@
             playGame(){
                 this.state = GAME_STATE_PLAY;
             },
-            gameFinal({isWin}){
-                this.state = isWin ? GAME_STATE_WIN : GAME_STATE_LOSE;
+            gameFinal(){
+                this.state = GAME_STATE_FINAL;
             }
         }
     }
