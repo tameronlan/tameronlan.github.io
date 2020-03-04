@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="game-popup-header__user">
-                    <div class="game-popup-header__name">Aleksandr</div>
+                    <div class="game-popup-header__name">{{aim.name}}</div>
                 </div>
             </div>
 
@@ -33,20 +33,20 @@
                     </div>
                     <div
                             class="game-popup-circle__timer"
-                            :class="{'game-popup-circle__timer': gameEndIsNear}"
+                            :class="{'game-popup-circle__timer_alarm': gameEndIsNear}"
                     >
                         {{timeEndString}}
                     </div>
                     <div class="game-popup-circle-points">
-                        <template v-for="point in pointsForAnimation">
+                        <template v-for="points in pointsForAnimation">
                             <div
                                     class="game-popup-circle-points__count"
-                                    :class="point > 0 ? 'game-popup-circle-points__count_positive' : 'game-popup-circle-points__count_negative'"
+                                    :class="getClassForPoints(points)"
                             >
                                 <div class="game-popup-circle-points__layer_1"></div>
                                 <div class="game-popup-circle-points__layer_2"></div>
                                 <div class="game-popup-circle-points__layer_3">
-                                    {{point}}
+                                    {{points}}
                                 </div>
                             </div>
                         </template>
@@ -61,8 +61,15 @@
             />
 
             <game-booster
+                    v-if="boosterAvailable"
                     @activeBooster="activeBooster"
                     :boosterSecondsFromLastUsedTime="boosterSecondsFromLastUsedTime"
+            />
+
+            <game-booster-promo
+                    v-if="!boosterAvailable"
+                    :boosterPoints="boosterPoints"
+                    :boosterRecoveryTime="boosterRecoveryTime"
             />
 
             <div class="game-popup-play__bottom">
@@ -87,6 +94,7 @@
     import UsersScores from '@/components/game/UsersScores';
     import UsersProgresses from '@/components/game/UsersProgresses';
     import GameBooster from "@/components/game/GameBooster";
+    import GameBoosterPromo from "@/components/game/GameBoosterPromo";
     import GameCountdown from "@/components/game/GameCountdown";
 
     export default {
@@ -99,32 +107,54 @@
             GameDecor,
             UsersProgresses,
             UsersScores,
-            GameCountdown
+            GameCountdown,
+            GameBoosterPromo
         },
         data(){
             return {
                 gameIsRun: false,
                 requestId: null,
+                intervalUpdater: null,
                 currentAvaRadian: 0,
                 deltaStartAngle: 90, // угол сдвига координат, так как системы отсчёта для аватарки и сектора разные
                 currentAimAngle: 360, // на такой угол повёрнут сектор
                 angleIn: 56, // угол действия сектора
-                timeEndGame: 600,
-                timeToStart: 3,
-                timeInGame: 0,
-                lastDrawTimestamp: 0,
-                deltaRadian: 0.04,
-                speedMultiple: 1.1,
+                timeEndGame: 600, //время до завершения игры
+                timeToStart: 3, // время обратного отсчёта в игре
+                timeInGame: 0, // время человека в игре
+                lastDrawTimestamp: 0, // время последней отрисовки позиции аватарки
+                deltaRadian: 0.04, // шаг изменения позиции аватарки цели
+                speedMultiple: 1.1, // множитель для изменения скорости перемещения аватарки
                 radius: 100,
                 myScore: 0,
                 enemyScore: 0,
-                pointsForAnimation: [],
+                pointsForAnimation: [], // анимация очков в игре
                 boosterSecondsFromLastUsedTime: 25,
-                boosterRecoveryTime: 25,
-                boosterPoints: 25
             }
         },
-        props: ['enemy'],
+        props: {
+            aim: {
+                type: Object,
+                default: {
+                    avatars: {}
+                }
+            },
+            enemy: {
+                type: Object,
+                default: {
+                    avatars: {}
+                }
+            },
+            boosterAvailable: {
+                type: Boolean
+            },
+            boosterPoints: {
+                type: Number
+            },
+            boosterRecoveryTime: {
+                type: Number
+            }
+        },
         computed: {
             windowWidth(){
                 return window.innerWidth;
@@ -192,7 +222,7 @@
             ...mapState(['currentUser'])
         },
         mounted(){
-            setInterval(()=> {
+            this.intervalUpdater = setInterval(()=> {
                 if (this.timeToStart > 0){
                     this.decrementTimeForStart();
                 } else {
@@ -203,6 +233,10 @@
         destroyed(){
             if (this.requestId){
                 window.cancelAnimationFrame(this.requestId);
+            }
+
+            if (this.intervalUpdater){
+                clearInterval(this.intervalUpdater)
             }
         },
         methods: {
@@ -260,7 +294,11 @@
             },
             checkEndGame(){
                 if(this.timeEndGame < 0){
-                    this.$emit('gameFinal', { isWin: this.myScore >= this.enemyScore });
+                    this.$emit('gameFinal', {
+                        myScore: this.myScore,
+                        enemyScore: this.enemyScore,
+                        isWin: this.myScore >= this.enemyScore
+                    });
                 }
             },
             draw(){
@@ -333,6 +371,9 @@
                         this.pointsForAnimation.shift();
                     }, 1000);
                 });
+            },
+            getClassForPoints(points){
+                return points > 0 ? 'game-popup-circle-points__count_positive' : 'game-popup-circle-points__count_negative'
             }
         }
     }

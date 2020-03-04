@@ -6,7 +6,7 @@
                     <div class="ico ico_arrow-left-white-24"></div>
                 </div>
 
-                <div class="game-popup-header__name">name</div>
+                <div class="game-popup-header__name">{{aim.name}}</div>
             </div>
         </div>
 
@@ -23,21 +23,35 @@
         </div>
 
         <div class="game-popup-start__bottom">
-            <div class="game-popup-start-booster">
-                <div class="game-popup-start-booster__info">
-                    <div class="game-popup-start-booster__title">Получи преимущество</div>
-                    во время игры с <span>Premium</span>
+            <template v-if="boosterAvailable">
+                <div class="game-popup-start-booster">
+                    <div class="game-popup-start-booster__info">
+                        <div class="game-popup-start-booster__title">Получи преимущество</div>
+                        во время игры с <span>Premium</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="game-popup-start-booster__ico ico2 ico2_booster-promo-heart">
-                +25
-            </div>
+                <div class="game-popup-start-booster__ico ico2 ico2_booster-promo-heart">
+                    +{{boosterPoints}}
+                </div>
 
-            <div class="game-popup-start-booster__btn btn btn_purple" @click="openVipPopup">
-                Получить бустер
-                <span>+25 очков раз в 15 секунд</span>
-            </div>
+                <div class="game-popup-start-booster__btn btn btn_purple" @click="openVipPopup">
+                    Получить бустер
+                    <span>+{{boosterPoints}} очков раз в {{boosterRecoveryTime}} секунд</span>
+                </div>
+            </template>
+            <template v-else>
+                <div class="game-popup-start-booster">
+                    <div class="game-popup-start-booster__info">
+                        <div class="game-popup-start-booster__title">У вас преимущество!</div>
+                        Вы <span>Premium</span> пользователь! Во время игры вы сможете активировать +{{boosterPoints}} очков раз в {{boosterRecoveryTime}} секунд
+                    </div>
+                </div>
+
+                <div class="game-popup-start-booster__ico ico2 ico2_booster-promo-heart">
+                    +{{boosterPoints}}
+                </div>
+            </template>
         </div>
     </div>
 </template>
@@ -51,7 +65,26 @@
     export default {
         name: "game-start",
         components: {PlaceholderGame, DecorationTop, GameDecor},
-        props: ['states', 'changeState', 'aim'],
+        props: {
+            states: {
+                type: Object
+            },
+            changeState: {
+                type: Function
+            },
+            aim: {
+                type: Object
+            },
+            boosterAvailable: {
+                type: Boolean
+            },
+            boosterPoints: {
+                type: Number
+            },
+            boosterRecoveryTime: {
+                type: Number
+            }
+        },
         created() {},
         computed: {
             windowWidth(){

@@ -4,6 +4,9 @@
             <game-start
                     :states="states"
                     :aim="aim"
+                    :boosterAvailable="boosterAvailable"
+                    :boosterPoints="boosterPoints"
+                    :boosterRecoveryTime="boosterRecoveryTime"
                     @playGame="playGame"
             />
         </template>
@@ -11,12 +14,20 @@
             <game-play
                     :states="states"
                     :enemy="enemy"
+                    :aim="aim"
+                    :boosterAvailable="boosterAvailable"
+                    :boosterRecoveryTime="boosterRecoveryTime"
+                    :boosterPoints="boosterPoints"
                     @gameFinal="gameFinal"
             />
         </template>
         <template v-if="state===states.GAME_STATE_WIN">
             <game-final
                     :states="states"
+                    :enemy="enemy"
+                    :aim="aim"
+                    :myScore="myScore"
+                    :enemyScore="enemyScore"
             />
         </template>
     </div>
@@ -31,10 +42,15 @@
     export default {
         name: "game-wrapper",
         components: {GameStart, GamePlay, GameFinal},
-        props: ['card'],
+        props: {
+            card: {
+                type: Object,
+                default: {}
+            }
+        },
         data(){
             return {
-                state: null,
+                state: GAME_STATE_START,
                 aim: {},
                 enemy: {
                     user: {
@@ -60,23 +76,31 @@
                         36: 40,
                     }
                 },
+                boosterAvailable: false,
+                boosterRecoveryTime: 25,
+                boosterPoints: 25,
                 states: {
                     GAME_STATE_START: GAME_STATE_START,
                     GAME_STATE_PLAY: GAME_STATE_PLAY,
                     GAME_STATE_FINAL: GAME_STATE_FINAL,
                 },
-                scaleDecorTop: 1
+                myScore: 0,
+                enemyScore: 0
             }
         },
         created() {
-            this.state = GAME_STATE_START;
             this.aim = this.card.card;
         },
         methods:{
             playGame(){
                 this.state = GAME_STATE_PLAY;
             },
-            gameFinal(){
+            gameFinal(params = {}){
+                debugger;
+
+                this.myScore = params.myScore;
+                this.enemyScore = params.enemyScore;
+
                 this.state = GAME_STATE_FINAL;
             }
         }
