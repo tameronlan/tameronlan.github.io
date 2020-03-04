@@ -2,8 +2,6 @@ import api from './instance';
 import store from '@/store/';
 
 export function getContacts(params) {
-    console.log('getContacts==');
-
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve({

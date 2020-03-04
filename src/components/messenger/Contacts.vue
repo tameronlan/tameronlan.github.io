@@ -8,7 +8,7 @@
             <div class="messenger-contacts-empty__desc">
                 Листайте карточки, чтобы найти собеседника
             </div>
-            <div class="messenger-contacts-empty__btn btn btn_orange ripple ripple_white">
+            <div class="messenger-contacts-empty__btn btn btn_orange ripple ripple_white" @click="$nav.push('/app/feed')" v-touch>
                 Листать карточки
             </div>
         </div>
@@ -16,8 +16,7 @@
                 v-else
                 v-for="contact in contacts"
                 :key="contact.id"
-                :contact="contact"
-                @click="$emit('select', contact)"/>
+                :contact="contact"/>
 
         <contacts-loader v-if="isLoading"/>
     </div>

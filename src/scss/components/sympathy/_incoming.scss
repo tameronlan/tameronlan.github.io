@@ -1,18 +1,39 @@
 .incoming {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    flex: 1;
+    flex-grow: 1;
+    background: #fff;
     overflow: hidden;
 
-    &__notify {
-        flex-shrink: 0;
-        background-color: $color-yellow-disabled;
-        color: $color-yellow-tapped;
-        text-align: center;
-        padding: 10px 8px;
+    &__top{
+        padding: 24px 20px 28px;
+        background: url(~@/assets/contacts-header.png) left bottom no-repeat;
+        line-height: 28px;
+        height: 80px;
+        font-size: $font-m;
+        color: #fff;
+        background-size: auto 100%;
+        position: relative;
+        z-index: 1;
     }
 
+    &__counter{
+        display: inline-block;
+        background: linear-gradient(40.21deg, #CF68FF 21.48%, #D92C9E 78.52%, #6E2CD9 100%);
+        box-shadow: 0px 4px 24px #00109B;
+        font-weight: 700;
+        font-size: $font-xm;
+        line-height: 22px;
+        padding: 3px 5px;
+        min-width: 18px;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 15px;
+        margin: -2px 0 0 12px;
+    }
+}
+
+.incoming {
     &__content {
         position: relative;
         flex-grow: 1;
@@ -28,11 +49,6 @@
         overflow: hidden;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
-    }
-
-    &__list-item {
-        padding: 4px;
-        width: 50%;
     }
 
     &__empty {
@@ -58,6 +74,6 @@
     }
 
     &__empty-text {
-        margin-bottom: 40px;
+        padding: 10px 0 20px;
     }
 }

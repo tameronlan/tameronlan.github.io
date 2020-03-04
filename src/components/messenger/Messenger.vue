@@ -4,7 +4,7 @@
             Сообщения <div class="messenger__counter">+1</div>
         </div>
 
-        <contacts @select="openContact($event)"/>
+        <contacts/>
     </div>
 </template>
 
@@ -23,9 +23,6 @@
         computed: {},
         mounted() {},
         methods: {
-            openContact(contact) {
-                this.$nav.push('/app/messenger/' + contact.user.id);
-            }
         }
     };
 </script>

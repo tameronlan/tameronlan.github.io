@@ -2,7 +2,7 @@
     <div
             class="messenger-contact ripple ripple_lightblue"
             :class="classes"
-            @click="$emit('click')"
+            @click="openChat"
             v-longclick="longClickHandler"
             v-touch
     >
@@ -61,6 +61,9 @@
         methods: {
             longClickHandler(){
                 this.$toasted.show('LONGCLICK')
+            },
+            openChat() {
+                this.$nav.push('/app/messenger/' + this.contact.user.id);
             }
         }
     };

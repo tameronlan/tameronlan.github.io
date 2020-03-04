@@ -11,23 +11,9 @@ export function getIncoming(params) {
             resolve({
                 status: 1,
                 data: {
-                    has_my_messages: true,
-                    user: {
-                        id: 1,
-                        name: 'Name',
-                        age: 21,
-                        gender: 'f',
-                        online: true,
-                        avatars: {
-                            s1: '//im0-tub-ru.yandex.net/i?id=ec20567ec262c7f41fe5232f2c538cff&n=13',
-                            s2: '//im0-tub-ru.yandex.net/i?id=ec20567ec262c7f41fe5232f2c538cff&n=13',
-                            s5: '//im0-tub-ru.yandex.net/i?id=ec20567ec262c7f41fe5232f2c538cff&n=13',
-                        }
-                    },
-                    lastmess: {
-                        time: 100,
-                        text: 'sdasdkajs dhsad hjksajhdsk '
-                    },
+                    list:[
+
+                    ]
                 }
             })
         }, 200);
