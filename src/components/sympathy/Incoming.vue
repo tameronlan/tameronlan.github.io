@@ -10,15 +10,11 @@
             </div>
 
             <template v-else-if="list.length > 0">
-                <div class="incoming__list">
-                    <div class="incoming__list-item" v-for="(item, index) in list">
-                        <incoming-item
-                                :key="item.id"
-                                :item="item"
-                                @click.native="clickItem(item)"
-                        />
-                    </div>
-                </div>
+                <incoming-item
+                        v-for="(item, index) in list"
+                        :key="item.id"
+                        :item="item"
+                />
             </template>
 
             <div v-else class="incoming__empty">
@@ -66,11 +62,8 @@
             isMan() {
                 return this.currentUser.gender === GENDER_MAN;
             },
-            ...mapState('vip', ['hasVip']),
             ...mapState(['currentUser']),
-            ...mapState('feed', ['counters']),
-            ...mapGetters('vip', ['trialIsAvailable']),
-            ...mapGetters('feed', ['needUploadPhoto'])
+            ...mapState('feed', ['counters'])
         },
         created() {
             this.loadNotifications();
@@ -87,17 +80,6 @@
                     this.list = response.data.list;
                     this.isLoading = false;
                 });
-            },
-            clickItem(item) {
-                this.markAsRead(item);
-
-                if (this.hasVip || item.open) {
-                    feed.openProfile({id: item.user.id});
-                } else if (this.isAutoOpen) {
-                    feed.openProfile({id: item.user.id});
-                } else {
-                    feed.showLockedUser(item);
-                }
             },
             markAsRead(item) {
 

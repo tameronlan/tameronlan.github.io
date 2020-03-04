@@ -12,7 +12,96 @@ export function getIncoming(params) {
                 status: 1,
                 data: {
                     list:[
-
+                        {
+                            new: 10,
+                            user: {
+                                id: 1,
+                                name: 'Name',
+                                online: true,
+                                avatars: {
+                                    s2: 'https://sun9-45.userapi.com/c856520/v856520560/953a6/Z8U-GqMOI7s.jpg?ava=1'
+                                }
+                            },
+                            lastEvent: {
+                                time: 100,
+                                type: 1,
+                            },
+                        },
+                        {
+                            new: 0,
+                            user: {
+                                id: 2,
+                                name: 'Name 2',
+                                online: true,
+                                avatars: {
+                                    s2: 'https://sun9-45.userapi.com/c856520/v856520560/953a6/Z8U-GqMOI7s.jpg?ava=1'
+                                }
+                            },
+                            lastEvent: {
+                                time: 120,
+                                type: 2,
+                            },
+                        },
+                        {
+                            new: 0,
+                            user: {
+                                id: 2,
+                                name: 'Name 2',
+                                online: true,
+                                avatars: {
+                                    s2: 'https://sun9-45.userapi.com/c856520/v856520560/953a6/Z8U-GqMOI7s.jpg?ava=1'
+                                }
+                            },
+                            lastEvent: {
+                                time: 120,
+                                type: 3,
+                            },
+                        },
+                        {
+                            new: 0,
+                            user: {
+                                id: 2,
+                                name: 'Name 2',
+                                online: true,
+                                avatars: {
+                                    s2: 'https://sun9-45.userapi.com/c856520/v856520560/953a6/Z8U-GqMOI7s.jpg?ava=1'
+                                }
+                            },
+                            lastEvent: {
+                                time: 120,
+                                type: 4,
+                            },
+                        },
+                        {
+                            new: 0,
+                            user: {
+                                id: 2,
+                                name: 'Name 2',
+                                online: true,
+                                avatars: {
+                                    s2: 'https://sun9-45.userapi.com/c856520/v856520560/953a6/Z8U-GqMOI7s.jpg?ava=1'
+                                }
+                            },
+                            lastEvent: {
+                                time: 120,
+                                type: 5,
+                            },
+                        },
+                        {
+                            new: 0,
+                            user: {
+                                id: 2,
+                                name: 'Name 2',
+                                online: true,
+                                avatars: {
+                                    s2: 'https://sun9-45.userapi.com/c856520/v856520560/953a6/Z8U-GqMOI7s.jpg?ava=1'
+                                }
+                            },
+                            lastEvent: {
+                                time: 120,
+                                type: 6,
+                            },
+                        },
                     ]
                 }
             })

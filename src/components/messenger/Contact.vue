@@ -1,6 +1,6 @@
 <template>
     <div
-            class="messenger-contact ripple ripple_lightblue"
+            class="messenger-contact"
             :class="classes"
             @click="openChat"
             v-longclick="longClickHandler"

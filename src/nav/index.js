@@ -5,6 +5,7 @@ import store from '../store';
 import MeetingFeed from '../components/feed/Feed';
 import UserProfile from '../components/profile/UserProfile';
 import Incoming from '../components/sympathy/Incoming';
+import IncomingUser from '../components/sympathy/IncomingUser';
 import MyProfile from '../components/profile/MyProfile';
 import Start from '../components/Start';
 
@@ -100,7 +101,14 @@ const vueNav = new VueNav({
         name: 'incoming',
         path: '/incoming',
         component: Incoming,
-        didActivated: () => store.commit('setNavigationTab', TAB_INCOMING)
+        didActivated: () => store.commit('setNavigationTab', TAB_INCOMING),
+        children: [
+            {
+                path: ':id',
+                construct: ExtendHandler,
+                component: IncomingUser
+            }
+        ]
     },
     {
         name: 'profile',

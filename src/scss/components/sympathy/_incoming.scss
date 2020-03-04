@@ -7,7 +7,7 @@
 
     &__top{
         padding: 24px 20px 28px;
-        background: url(~@/assets/contacts-header.png) left bottom no-repeat;
+        background: url(~@/assets/incoming-header.png) left bottom no-repeat;
         line-height: 28px;
         height: 80px;
         font-size: $font-m;
@@ -31,21 +31,10 @@
         border-radius: 15px;
         margin: -2px 0 0 12px;
     }
-}
 
-.incoming {
     &__content {
         position: relative;
         flex-grow: 1;
-        overflow: hidden;
-    }
-
-    &__list {
-        display: flex;
-        flex-wrap: wrap;
-        align-content: flex-start;
-        padding: 10px 8px;
-        height: 100%;
         overflow: hidden;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
@@ -62,15 +51,6 @@
         font-size: 16px;
         font-weight: bold;
         padding: 0 40px;
-
-        .ico {
-            margin-bottom: 40px;
-        }
-    }
-
-    &__empty-photo {
-        font-size: 20px;
-        margin-bottom: 50px;
     }
 
     &__empty-text {

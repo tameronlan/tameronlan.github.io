@@ -85,7 +85,12 @@
     padding: $s $m;
     align-items: stretch;
     width: 100%;
-    will-change: transform;
+    will-change: background;
+    transition: background .1s;
+
+    &.touch{
+        background: $color-gray1;
+    }
 
     &_unread-theirs{
         .messenger-contact__message-text{

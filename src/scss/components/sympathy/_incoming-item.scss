@@ -1,121 +1,101 @@
-.incoming-item {
-    position: relative;
-    background-color: $color-gray2;
-    border-radius: 2px;
-    overflow: hidden;
 
-    &__photo-wrap {
-        padding-top: 100%;
+.incoming-item {
+    display: flex;
+    padding: $s $m;
+    align-items: stretch;
+    width: 100%;
+    will-change: transform;
+
+    &_unread-theirs{
+        .messenger-contact__message-text{
+            color: $color-text-primary;
+        }
+
+        .ico2_photo-black-16{
+            opacity: 1;
+        }
     }
 
-    &__photo {
+    &__ava-wrapper {
+        flex-shrink: 0;
+        margin-right: $m;
+        position: relative;
+    }
+
+    &__right-side {
+        flex-grow: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__ava {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background-color: $color-gray2;
         background-position: center;
         background-size: cover;
-        @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
-    }
 
-    &__lock {
-        background-color: rgba(0, 0, 0, .5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
-    }
-
-    &__new {
-        font-size: 11px;
-        background-color: $color-darkblue;
-        border-radius: 2px;
-        color: #fff;
-        padding: 5px 6px;
-        @include absolute($top: 0, $left: 0);
-    }
-
-    &__extra {
-        @include absolute($right: 0, $bottom: 0, $left: 0);
-
-        &:before {
-            content: '';
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-            opacity: 0.75;
-            height: 72px;
-            @include absolute($right: 0, $bottom: 0, $left: 0);
+        .online-status{
+            @include absolute($bottom: 2px, $right: 2px);
+            width: 12px;
+            height: 12px;
+            background: $color-green-1;
+            border: 2px solid $color-white;
         }
     }
 
     &__title {
         display: flex;
         align-items: center;
-        position: relative;
-        margin: 0 18px 8px 8px;
-
-        .online-status {
-            flex-shrink: 0;
-        }
     }
 
-    &__name-wrap {
-        display: flex;
-        color: #fff;
-        max-width: 100%;
-    }
-
-    &__age {
+    &__name {
+        flex-grow: 1;
+        font-weight: bold;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: $font-m;
     }
 
-    &__actions {
-        position: relative;
+    &__date {
+        flex-shrink: 0;
+        color: $color-text-secondary;
+        font-size: 12px;
+        margin-left: 8px;
+    }
+
+    &__message {
+        margin-top: $s;
         display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        margin-bottom: 6px;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
-    &__action {
-        padding: 2px 14px;
-    }
+    &__message-text {
+        color: #4E545E;
+        font-size: 14px;
+        max-width: 70%;
 
-    &__action-liked {
-        path {
-            fill: $color-yellow;
+        .ico2_photo-black-16{
+            margin: -2px 0 0;
+            opacity: .7;
         }
     }
 
-    &__action-separator {
-        background-color: $color-gray2;
-        border-radius: 2px;
-        width: 1px;
-        height: 24px;
-    }
-
-    &__new-couple {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(255, 255, 255, .75);
-        @include absolute($top: 0, $right: 0, $bottom: 0, $left: 0);
-
-        div {
-            font-size: 20px;
-            font-weight: bold;
-            color: $color-yellow;
-            background: linear-gradient(90deg, #f6ad1e, #f65f1e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    }
-}
-
-.incoming-item_locked {
-    .incoming-item__photo {
-        filter: blur(10px);
-        @include absolute($top: -10px, $right: -10px, $bottom: -10px, $left: -10px);
-    }
-
-    .incoming-item__extra {
-        &:before {
-            content: none;
-        }
+    &__count {
+        font-size: 14px;
+        height: 20px;
+        font-weight: bold;
+        color: #fff;
+        background-color: $color-orange-1;
+        border-radius: 10px;
+        padding: 3px 6px 4px;
+        line-height: 14px;
+        min-width: 8px;
+        text-align: center;
     }
 }

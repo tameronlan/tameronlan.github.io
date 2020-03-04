@@ -1,78 +1,95 @@
 <template>
-    <div class="incoming-item" :class="{'incoming-item_locked': !isOpen}">
-        <div class="incoming-item__photo-wrap">
-            <div class="incoming-item__photo" :style="{backgroundImage: `url(${photoUrl})`}"></div>
+    <div
+            class="incoming-item ripple ripple_lightblue"
+            :class="classes"
+            @click="openIncomingForUser"
+            v-touch
+    >
+        <div class="incoming-item__ava-wrapper">
+            <div class="incoming-item__ava" :style="{ backgroundImage: `url(${photoUrl})` }">
+                <div v-if="item.user.online" class="online-status"></div>
+            </div>
         </div>
-        <div v-if="!isOpen" class="incoming-item__lock"><i class="ico ico_lock"></i></div>
-        <div v-if="!item.is_read" class="incoming-item__new">{{$t('incoming.new')}}</div>
-        <div class="incoming-item__extra">
+
+        <div class="incoming-item__right-side">
             <div class="incoming-item__title">
-                <div class="incoming-item__name-wrap">
-                    <div class="ellipsis">{{userName}}</div>
-                    <div class="incoming-item__age" v-if="item.user.age">, {{item.user.age}}</div>
-                </div>
-                <span v-if="item.user.online" class="online-status"></span>
-            </div>
-            <div v-if="isOpen" class="incoming-item__actions">
-                <template v-if="!isLiked">
-                    <div class="incoming-item__action" @click.stop.prevent="dislike">
-                        <dislike-icon/>
-                    </div>
-                    <div class="incoming-item__action-separator"></div>
-                </template>
-                <div class="incoming-item__action" :class="{'incoming-item__action-liked': isLiked}"
-                     @click.stop.prevent="like">
-                    <like-icon/>
+                <div class="incoming-item__name" v-html="item.user.name"></div>
+                <div v-if="item.lastEvent" class="incoming-item__date">
+                    {{ date }}
                 </div>
             </div>
-        </div>
-        <div v-if="isLiked" class="incoming-item__new-couple">
-            <div>Новая пара!</div>
+
+            <div class="incoming-item__message">
+                <div class="incoming-item__message-text ellipsis" v-html="message"></div>
+                <div v-if="item.new > 0" class="incoming-item__count">+{{item.new}}</div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import {mapState} from 'vuex';
-    import LikeIcon from '@/assets/svg/small_like.svg';
-    import DislikeIcon from '@/assets/svg/small_dislike.svg';
+    import {getSimpleHumanDate} from '@/lib/dateFunctions';
 
     export default {
         name: "IncomingItem",
-        components: {LikeIcon, DislikeIcon},
-        data() {
-            return {
-                isLiked: false
+        props: {
+            item: {
+                type: Object
             }
         },
-        props: ['item', 'autoOpen'],
         computed: {
-            userName() {
-                return this.isOpen ? this.item.user.name : this.item.user.name.substr(0, 1) + '•••';
-            },
             photoUrl() {
-                return this.item.user.avatars.s4;
+                return this.item.user.avatars.s2;
             },
-            isOpen() {
-                if (this.autoOpen && this.item.is_read) {
-                    return true;
+            date(){
+                return getSimpleHumanDate(this.item.lastEvent.time * 1000);
+            },
+            classes() {
+                const classes = [];
+
+                if (this.item.new > 0) {
+                    classes.push('incoming-item_unread-theirs');
+                } else if (this.item.unread) {
+                    classes.push('incoming-item_unread-mine');
                 }
 
-                return this.hasVip || this.item.open;
+                if (this.item.user.online) {
+                    classes.push('incoming-item_online');
+                }
+
+                return classes;
             },
-            ...mapState('vip', ['hasVip'])
+            message(){
+                let message = "";
+
+                switch(this.item.lastEvent.type){
+                    case 1:
+                        message = "Увидел вас";
+                        break;
+                    case 2:
+                        message = "Посмотрел ваши фотографии";
+                        break;
+                    case 3:
+                        message = "Зашёл в гости";
+                        break;
+                    case 4:
+                        message = "Не захотел добавиться вас";
+                        break;
+                    case 5:
+                        message = "Выйграл вас";
+                        break;
+                    case 6:
+                        message = "Попросил дать ещё шанс ему";
+                        break;
+                }
+
+                return message;
+            }
         },
         methods: {
-            like() {
-                if (this.isLiked) {
-                    return;
-                }
-
-                this.isLiked = true;
-                this.$emit('like');
-            },
-            dislike() {
-                this.$emit('dislike');
+            openIncomingForUser(){
+                this.$nav.push('/app/incoming/' + this.item.user.id);
             }
         }
     }

@@ -6,8 +6,6 @@ import MainPhoto from '../components/upload/MainPhoto';
 import RealPhoto from '../components/upload/RealPhoto';
 import SwipeTutor from '../components/feed/SwipeTutor';
 import PushPermissions from '../components/feed/PushPermissions';
-import MutualSympathy from '../components/sympathy/MutualSympathy';
-import LockedUser from '../components/sympathy/LockedUser';
 import VipFullOffer from '../components/vip/VipFullOffer';
 import ConfirmPopup from '../components/popups/ConfirmPopup';
 import MessageLimit from '../components/feed/MessageLimit';
@@ -120,15 +118,6 @@ const feed = {
             });
         });
     },
-    showMutualSympathy(user) {
-        let popup = new Popup({
-            component: MutualSympathy,
-            props: {user: user},
-            options: {myClass: 'popup_extend'}
-        });
-
-        this.openPopup(popup);
-    },
     showPhotoUpload(card) {
         let component;
         let options = {};
@@ -163,15 +152,6 @@ const feed = {
 
             localStorage.setItem(key, '1');
         }
-    },
-    showLockedUser(item) {
-        let popup = new Popup({
-            component: LockedUser,
-            props: {item},
-            options: {myClass: 'popup_extend'}
-        });
-
-        this.openPopup(popup);
     },
     complain(user) {
         let popup = new Popup({

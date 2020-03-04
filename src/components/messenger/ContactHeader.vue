@@ -3,6 +3,7 @@
         <div class="messenger-chat-head__button" @click="$nav.back()">
             <div class="ico ico_arrow-left-blue-24"></div>
         </div>
+
         <div class="messenger-chat-user">
             <div class="messenger-chat-user__ava-wrapper" @click="openProfile">
                 <div class="messenger-chat-user__ava" :style="{ backgroundImage: `url(${avaSrc})` }"></div>
@@ -10,6 +11,7 @@
             </div>
             <div class="messenger-chat-user__name">{{contact.user.name}}</div>
         </div>
+
         <div class="messenger-chat-head__controls">
             <div class="messenger-chat-head__button" @click="openMenu">
                 <div class="ico ico_menu-blue-24"></div>
@@ -34,15 +36,8 @@
         props: ['contact'],
         data() {
             return {
-                isOpeningDialog: false
-            }
-        },
-        computed: {
-            avaSrc() {
-                return this.contact.user.avatars.s1;
-            },
-            actions() {
-                return  [
+                isOpeningDialog: false,
+                actions: [
                     {
                         label: 'Пожаловаться',
                         id: 1,
@@ -51,7 +46,12 @@
                         label: 'Удалить',
                         id: 2,
                     },
-                ];
+                ]
+            }
+        },
+        computed: {
+            avaSrc() {
+                return this.contact.user.avatars.s1;
             },
         },
         methods: {
