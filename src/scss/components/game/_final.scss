@@ -1,0 +1,231 @@
+.game-popup-final{
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+
+    &:before{
+        content: '';
+        @include absolute($left: 0, $top: 0, $right: 0, $bottom: 48%);
+    }
+
+    &__lightning{
+        @include absolute($top: 0);
+    }
+
+    &_lose{
+        background: #C1343C;
+
+        .game-popup-final__or{
+            color: #FF6125;
+        }
+
+        .game-popup-final__lightning{
+            background: url(~@/assets/lightning-lose.png) no-repeat center;
+            width: 151px;
+            height: 300px;
+            background-size: cover;
+            right: 20px;
+        }
+
+        .game-popup-final-scores__side_my{
+            color: #FF6125;
+        }
+
+        .game-popup-final__avatar_my{
+            border-color: #FF6125;
+        }
+
+        .game-popup-final-scores__side_enemy{
+            color: #FFD600;
+
+            .game-popup-final-scores__score{
+                font-size: 34px;
+            }
+        }
+
+        &:before{
+            background: linear-gradient(175.69deg, #FF5C00 4.15%, rgba(255, 255, 255, 0) 95.85%);
+        }
+    }
+
+    &_win{
+        background: #3C64F3;
+
+        .game-popup-final-scores__side_my{
+            color: #08DED1;
+
+            .game-popup-final-scores__score{
+                font-size: 34px;
+            }
+        }
+
+        .game-popup-final-scores__side_enemy{
+            color: #84AAE4;
+        }
+
+        .game-popup-final__avatar_enemy{
+            border-color: #84AAE4
+        }
+
+        .game-popup-final__pairs:before{
+            content: "";
+            @include absolute($left: 50%, $top: 50%);
+            margin: -147px 0 0 -130px;
+            width: 294px;
+            height: 294px;
+            background: url(~@/assets/final-lights.png) no-repeat center;
+            background-size: cover;
+            pointer-events: none;
+        }
+        
+        .game-popup-final__lightning{
+            background: url(~@/assets/lightning-win.png) no-repeat center;
+            width: 173px;
+            height: 344px;
+            background-size: cover;
+            left: 20px;
+        }
+
+        .game-popup-final__or{
+            color: #84AAE4;
+        }
+
+        &:before{
+            background: linear-gradient(175.69deg, #00D1FF 4.15%, rgba(0, 138, 245, 0.616595) 47.02%, rgba(1, 24, 228, 0) 95.85%);
+        }
+    }
+
+    &__top{
+        position: relative;
+        padding: 40px 24px;
+    }
+
+    &__middle{
+        padding: 0 24px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__back{
+        right: 0;
+        left: auto;
+    }
+
+    &__title{
+        font-size: 40px;
+        font-weight: 700;
+        font-family: $font-family-montserrat;
+        color: $color-white;
+        margin: 0 auto 40px;
+        max-width: 420px;
+    }
+
+    &__pairs{
+        display: flex;
+        position: relative;
+
+        .game-popup-final__avatar{
+            width: 108px;
+            height: 108px;
+            border: 3px solid #fff;
+        }
+
+        .game-popup-final__avatar:first-child{
+            margin: 0 -16px 0 0;
+        }
+
+        .ico_feed-like{
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%) scale(.5);
+        }
+    }
+
+    &__avatars{
+        width: 100%;
+        margin: 0 auto 8px;
+        max-width: 420px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    &__avatar{
+        border: 2px solid #fff;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: no-repeat center;
+        background-size: cover;
+        position: relative;
+    }
+
+    &__bottom{
+        position: relative;
+        margin: 0 24px 34px;
+        text-align: center;
+
+        .btn{
+            font-family: $font-family-montserrat;
+            border-radius: 8px;
+            margin: 0 auto 20px;
+            display: block;
+            max-width: 420px;
+            font-size: 22px;
+            line-height: 28px;
+            font-weight: 700;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+    }
+
+    &__or{
+        font-size: 14px;
+        margin: 0 0 8px;
+    }
+
+    &__refuse{
+        font-size: 20px;
+        line-height: 26px;
+        color: $color-white;
+    }
+}
+
+.game-popup-final-scores{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 14px;
+    margin: 0 auto 32px;
+    max-width: 420px;
+    width: 100%;
+
+    &__side{
+        &_my{
+            margin: 0 24px 0 0;
+        }
+
+        &_enemy{
+            text-align: right;
+        }
+    }
+
+    &__name{
+
+    }
+
+    &__score{
+        font-family: $font-family-montserrat;
+        font-weight: bold;
+        font-size: 22px;
+    }
+}

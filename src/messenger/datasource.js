@@ -4,8 +4,8 @@ export default {
     getContacts(params) {
         return getContacts(params).then(response => {
             return {
-                contacts: response.objects,
-                hasNext: response.meta.has_next
+                contacts: response.data.list,
+                hasNext: response.data.has_next
             }
         });
     },

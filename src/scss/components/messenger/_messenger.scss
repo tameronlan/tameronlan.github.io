@@ -13,6 +13,8 @@
         font-size: $font-m;
         color: #fff;
         background-size: auto 100%;
+        position: relative;
+        z-index: 1;
     }
 
     &__counter{
@@ -84,7 +86,6 @@
     align-items: stretch;
     width: 100%;
     will-change: transform;
-    touch-action: none;
 
     &_unread-theirs{
         .messenger-contact__message-text{

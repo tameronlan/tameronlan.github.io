@@ -62,8 +62,10 @@
                 this.$refs.myScore.style.transform="scale(1.5)";
 
                 setTimeout(()=>{
-                    this.$refs.myScore.style.color="#fff";
-                    this.$refs.myScore.style.transform="scale(1)";
+                    if (this && this.$refs && this.$refs.myScore) {
+                        this.$refs.myScore.style.color="#fff";
+                        this.$refs.myScore.style.transform="scale(1)";
+                    }
                 }, 700);
             },
             enemyScore(newVal, oldVal){
@@ -77,8 +79,10 @@
                 this.$refs.enemyScore.style.transform="scale(1.5)";
 
                 setTimeout(()=>{
-                    this.$refs.enemyScore.style.color="#fff";
-                    this.$refs.enemyScore.style.transform="scale(1)";
+                    if (this && this.$refs && this.$refs.enemyScore){
+                        this.$refs.enemyScore.style.color="#fff";
+                        this.$refs.enemyScore.style.transform="scale(1)";
+                    }
                 }, 700);
             }
         }

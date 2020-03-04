@@ -31,9 +31,9 @@
     }
 
     &-booster{
-
         &__info{
             font-size: 16px;
+            line-height: 22px;
             color: #E3E0EF;
             margin: 0 0 12px;
             width: 100%;
@@ -46,6 +46,7 @@
 
         &__title{
             font-size: 20px;
+            margin: 0 0 4px;
         }
         
         &__btn{

@@ -1,8 +1,10 @@
 <template>
     <div
-            class="messenger-contact"
+            class="messenger-contact ripple ripple_lightblue"
             :class="classes"
             @click="$emit('click')"
+            v-longclick="longClickHandler"
+            v-touch
     >
         <div class="messenger-contact__ava-wrapper">
             <div class="messenger-contact__ava" :style="{ backgroundImage: `url(${avaSrc})` }">
@@ -56,5 +58,10 @@
                 return getSimpleHumanDate(this.contact.lastmess.time * 1000);
             }
         },
+        methods: {
+            longClickHandler(){
+                this.$toasted.show('LONGCLICK')
+            }
+        }
     };
 </script>

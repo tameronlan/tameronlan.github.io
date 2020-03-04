@@ -119,7 +119,7 @@
                 deltaStartAngle: 90, // угол сдвига координат, так как системы отсчёта для аватарки и сектора разные
                 currentAimAngle: 360, // на такой угол повёрнут сектор
                 angleIn: 56, // угол действия сектора
-                timeEndGame: 600, //время до завершения игры
+                timeEndGame: 10, //время до завершения игры
                 timeToStart: 3, // время обратного отсчёта в игре
                 timeInGame: 0, // время человека в игре
                 lastDrawTimestamp: 0, // время последней отрисовки позиции аватарки
@@ -366,9 +366,9 @@
                     this.pointsForAnimation.push(pointsAdded);
 
                     setTimeout(()=>{
-                        resolve();
+                        this && this.pointsForAnimation && this.pointsForAnimation.shift();
 
-                        this.pointsForAnimation.shift();
+                        resolve();
                     }, 1000);
                 });
             },

@@ -21,13 +21,14 @@
                     @gameFinal="gameFinal"
             />
         </template>
-        <template v-if="state===states.GAME_STATE_WIN">
+        <template v-if="state===states.GAME_STATE_FINAL">
             <game-final
                     :states="states"
                     :enemy="enemy"
                     :aim="aim"
                     :myScore="myScore"
                     :enemyScore="enemyScore"
+                    :boosterAvailable="boosterAvailable"
             />
         </template>
     </div>
@@ -76,7 +77,7 @@
                         36: 40,
                     }
                 },
-                boosterAvailable: false,
+                boosterAvailable: true,
                 boosterRecoveryTime: 25,
                 boosterPoints: 25,
                 states: {
@@ -96,8 +97,6 @@
                 this.state = GAME_STATE_PLAY;
             },
             gameFinal(params = {}){
-                debugger;
-
                 this.myScore = params.myScore;
                 this.enemyScore = params.enemyScore;
 

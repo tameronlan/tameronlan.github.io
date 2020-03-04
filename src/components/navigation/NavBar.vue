@@ -23,7 +23,7 @@
                 tabs: [
                     {link: '/app/messenger', id: TAB_MESSENGER, ico: 'ico-nav ico-nav_message'},
                     {link: '/app/feed', id: TAB_FEED, ico: 'ico-nav ico-nav_meet'},
-                    // {link: '/app/incoming', id: TAB_INCOMING, ico: 'ico-nav ico-nav_symp'},
+                    {link: '/app/incoming', id: TAB_INCOMING, ico: 'ico-nav ico-nav_symp'},
                     {link: '/app/profile', id: TAB_PROFILE, ico: 'ico-nav ico-nav_profile'}
                 ]
             }

@@ -1,14 +1,10 @@
 <template>
     <div class="incoming">
-        <div class="incoming__tabs">
-            <div class="incoming__tab">{{$t('incoming.tab')}} <span v-if="counters.events.incoming > 0">+{{counters.events.incoming}}</span>
-            </div>
-        </div>
-        <div v-if="hasVip" class="incoming__notify">{{$t('incoming.notify')}}</div>
         <div class="incoming__content">
             <div v-if="isLoading" class="loader-wrap loader-wrap-inside">
-                <loader></loader>
+                <loader/>
             </div>
+
             <template v-else-if="list.length > 0">
                 <div class="incoming__list">
                     <div class="incoming__list-item" v-for="(item, index) in list">
@@ -22,29 +18,14 @@
                         />
                     </div>
                 </div>
-                <div v-if="!hasVip && !isAutoOpen" class="incoming__offer">
-                    <div class="incoming__offer-message">{{$t('incoming.offer.msg')}}</div>
-                    <button class="incoming__offer-btn btn_white btn_size-m" :disabled="isBuying" @click="showVipOffer"
-                            v-touch>
-                        {{trialIsAvailable ? $t('incoming.offer.btn_activate') : $t('incoming.offer.btn_become')}}
-                    </button>
-                </div>
             </template>
+
             <div v-else class="incoming__empty">
-                <template v-if="needUploadPhoto">
-                    <div class="incoming__empty-photo">{{$t('incoming.empty.photo_title')}}</div>
-                    <div class="incoming__empty-text">{{emptyStateTextPhoto}}</div>
-                    <button class="btn_primary btn_size-m" :disabled="isUploading" v-file-upload="onFileChange" v-touch>
-                        {{$t('incoming.empty.bnt_add')}}
-                    </button>
-                </template>
-                <template v-else>
-                    <i class="ico ico_black-heart"></i>
-                    <div class="incoming__empty-text" v-html="emptyStateText"></div>
-                    <div class="btn_primary btn_size-m" @click="$nav.push('/app/feed')" v-touch>
-                        {{$t('incoming.empty.btn_view')}}
-                    </div>
-                </template>
+                <i class="ico ico_black-heart"></i>
+                <div class="incoming__empty-text" v-html="emptyStateText"></div>
+                <div class="btn_primary btn_size-m" @click="$nav.push('/app/feed')" v-touch>
+                    {{$t('incoming.empty.btn_view')}}
+                </div>
             </div>
         </div>
     </div>
@@ -77,10 +58,12 @@
         computed: {
             emptyStateText() {
                 let gender = this.isMan ? this.$t('incoming.empty.first_m') : this.$t('incoming.empty.first_w');
+
                 return this.$t('incoming.empty.like', {gender: gender});
             },
             emptyStateTextPhoto() {
                 let gender = this.isMan ? this.$t('incoming.empty.female') : this.$t('incoming.empty.male');
+
                 return this.$t('incoming.empty.photo_msg', {gender: gender});
             },
             hasPhoto() {
@@ -108,52 +91,8 @@
                     limit: 100
                 }).then(response => {
                     this.list = response.objects;
-                    this.isAutoOpen = response.meta.auto_open;
                     this.isLoading = false;
-                    this.trackStatEvents();
                 });
-            },
-            loadPlacement() {
-                let placement = interstitials.getPlacement(PLACEMENT_INCOMING);
-
-                if (placement) {
-                    interstitials.load(PLACEMENT_INCOMING);
-                }
-            },
-            trackStatEvents() {
-                this.$nativeStat.trackFirebaseEvent('item_action', {screen: 'Likes', action: 'View'});
-                this.$nativeStat.trackMetricaEvent('item_action', {'Likes': 'View'});
-                this.$nativeStat.trackAppsFlyerEvent('fs_action', {af_content_type: 'Likes', ap_action: 'View'});
-
-                let hasLikes = this.list.length > 0;
-                let hasNewLikes = this.list.some(item => !item.is_read);
-
-                if (hasLikes) {
-                    this.$nativeStat.trackFirebaseEvent('item_action', {screen: 'Likes', action: 'Has Likes'});
-                    this.$nativeStat.trackMetricaEvent('item_action', {'Likes': 'Has Likes'});
-                    this.$nativeStat.trackAppsFlyerEvent('fs_action', {
-                        af_content_type: 'Likes',
-                        ap_action: 'Has Likes'
-                    });
-                } else {
-                    if (this.needUploadPhoto) {
-                        this.$nativeStat.trackFirebaseEvent('item_action', {screen: 'Likes', action: 'Has No Photo'});
-                        this.$nativeStat.trackMetricaEvent('item_action', {'Likes': 'Has No Photo'});
-                        this.$nativeStat.trackAppsFlyerEvent('fs_action', {
-                            af_content_type: 'Likes',
-                            ap_action: 'Has No Photo'
-                        });
-                    }
-                }
-
-                if (hasNewLikes) {
-                    this.$nativeStat.trackFirebaseEvent('item_action', {screen: 'Likes', action: 'Has New Likes'});
-                    this.$nativeStat.trackMetricaEvent('item_action', {'Likes': 'Has New Likes'});
-                    this.$nativeStat.trackAppsFlyerEvent('fs_action', {
-                        af_content_type: 'Likes',
-                        ap_action: 'Has New Likes'
-                    });
-                }
             },
             clickItem(item) {
                 this.markAsRead(item);
@@ -161,10 +100,6 @@
                 if (this.hasVip || item.open) {
                     feed.openProfile({id: item.user.id});
                 } else if (this.isAutoOpen) {
-                    interstitials.present(PLACEMENT_INCOMING).then(() => {
-                        this.loadPlacement();
-                    });
-
                     feed.openProfile({id: item.user.id});
                 } else {
                     feed.showLockedUser(item);

@@ -20,11 +20,11 @@ export default new Vuex.Store({
             gender: 'm',
             age: '31',
             avatars: {
-                s1: 'https://sun9-10.userapi.com/c851320/v851320058/1386fd/Zrp4BcCGR8U.jpg',
-                s2: 'https://sun9-10.userapi.com/c851320/v851320058/1386fd/Zrp4BcCGR8U.jpg',
-                s3: 'https://sun9-10.userapi.com/c851320/v851320058/1386fd/Zrp4BcCGR8U.jpg',
-                s4: 'https://sun9-10.userapi.com/c851320/v851320058/1386fd/Zrp4BcCGR8U.jpg',
-                s5: 'https://sun9-10.userapi.com/c851320/v851320058/1386fd/Zrp4BcCGR8U.jpg',
+                s1: 'https://sun9-21.userapi.com/c847220/v847220850/ad672/5Luku6GutMw.jpg',
+                s2: 'https://sun9-21.userapi.com/c847220/v847220850/ad672/5Luku6GutMw.jpg',
+                s3: 'https://sun9-21.userapi.com/c847220/v847220850/ad672/5Luku6GutMw.jpg',
+                s4: 'https://sun9-21.userapi.com/c847220/v847220850/ad672/5Luku6GutMw.jpg',
+                s5: 'https://sun9-21.userapi.com/c847220/v847220850/ad672/5Luku6GutMw.jpg',
             }
         },
         currentTabId: 0,

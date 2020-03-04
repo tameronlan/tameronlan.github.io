@@ -23,7 +23,7 @@
         </div>
 
         <div class="game-popup-start__bottom">
-            <template v-if="boosterAvailable">
+            <template v-if="!boosterAvailable">
                 <div class="game-popup-start-booster">
                     <div class="game-popup-start-booster__info">
                         <div class="game-popup-start-booster__title">Получи преимущество</div>
@@ -85,7 +85,8 @@
                 type: Number
             }
         },
-        created() {},
+        created() {
+        },
         computed: {
             windowWidth(){
                 return window.innerWidth;

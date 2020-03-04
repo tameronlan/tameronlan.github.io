@@ -14,7 +14,7 @@
         </div>
         <contact
                 v-else
-                v-for="contact in contactsList"
+                v-for="contact in contacts"
                 :key="contact.id"
                 :contact="contact"
                 @click="$emit('select', contact)"/>
@@ -49,73 +49,11 @@
         watch: {
 
         },
+        created(){
+            this.loadContactsBatch();
+        },
         mounted() {
-            this.contactsList = [
-                {
-                    new: 10,
-                    user: {
-                        id: 1,
-                        name: 'Name',
-                        online: true,
-                        avatars: {
-                            s2: '//im0-tub-ru.yandex.net/i?id=ec20567ec262c7f41fe5232f2c538cff&n=13'
-                        }
-                    },
-                    lastmess: {
-                        time: 100,
-                        text: 'sdasdkajs dhsad hjksajhdsk '
-                    },
-                },
-                {
-                    user: {
-                        id: 2,
-                        name: 'Name 2',
-                        online: true,
-                        avatars: {
-                            s2: '//im0-tub-ru.yandex.net/i?id=ec20567ec262c7f41fe5232f2c538cff&n=13'
-                        }
-                    },
-                    lastmess: {
-                        attaches: [
-                            {type: 'image'}
-                        ],
-                        time: 100,
-                        text: 'ksdhasjkd jdhadk jahd kjsahdajs dhasdkh sdasdkajs dhsad hjksajhdsk '
-                    },
-                },
-                {
-                    user: {
-                        id: 3,
-                        name: 'Name 3',
-                        online: false,
-                        avatars: {
-                            s2: 'https://im0-tub-ru.yandex.net/i?id=aaa0c700a686125e286e3d2aac86fd91&n=33&w=225&h=150'
-                        }
-                    },
-                    lastmess: {
-                        fromId: 111,
-                        time: 100,
-                        text: 'hi'
-                    },
-                },
-                {
-                    new: 3,
-                    user: {
-                        id: 3,
-                        name: 'Name 3',
-                        online: false,
-                        avatars: {
-                            s2: 'https://im0-tub-ru.yandex.net/i?id=aaa0c700a686125e286e3d2aac86fd91&n=33&w=225&h=150'
-                        }
-                    },
-                    lastmess: {
-                        fromId: 111,
-                        time: 100,
-                        text: 'hi'
-                    },
-                }
-            ]
-            // this.$refs.scrollWrapper.addEventListener('scroll', this.onScroll);
+            this.$refs.scrollWrapper.addEventListener('scroll', this.onScroll);
         },
         methods: {
             ...mapActions('messenger', ['loadContactsBatch', 'loadContactsWithNewExtraParams']),
@@ -129,7 +67,7 @@
                 const scrollValue = this.$refs.scrollWrapper.scrollTop;
 
                 if (scrollHeight - wrapperHeight - scrollValue < 20) {
-                    // this.loadContactsBatch();
+                    this.loadContactsBatch();
                 }
             }
         }
