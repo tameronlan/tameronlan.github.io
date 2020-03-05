@@ -10,6 +10,7 @@ let vendor;
 let locale;
 let appVersionName;
 let appVersionCode;
+let deviceId;
 
 const api = {
     install(Vue) {
@@ -29,6 +30,7 @@ const api = {
         vendor = props.vendor;
         appVersionName = props.appVersionName;
         appVersionCode = Number(props.appVersionCode);
+        deviceId = props.deviceId;
 
         const options = {
             method: 'POST',
@@ -50,6 +52,7 @@ const api = {
             appVersionName,
             appVersionCode,
             locale,
+            deviceId,
             ...params
         };
 
@@ -77,6 +80,7 @@ const api = {
             appVersionName,
             appVersionCode,
             locale,
+            deviceId,
             ...params
         };
 

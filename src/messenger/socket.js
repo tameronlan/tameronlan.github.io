@@ -13,7 +13,11 @@ let socket;
 
 export default {
     init(config) {
-        url = config.chat_ws;
+        if (config.wsChatUrl === undefined){
+            return;
+        }
+
+        url = config.wsChatUrl;
 
         connect();
     },

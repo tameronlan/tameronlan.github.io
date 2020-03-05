@@ -17,7 +17,7 @@
         components: {Loader},
         computed: {
             ...mapGetters('feed', ['numNotify']),
-            ...mapState('common', ['token']),
+            ...mapGetters('common', ['config']),
             ...mapState(['currentUser'])
         },
         data() {
@@ -27,7 +27,7 @@
         },
         created() {
             console.log("Start::created");
-            console.log(this.token);
+            console.log(this.config);
 
             this.$nav.push('/app/feed');
         },

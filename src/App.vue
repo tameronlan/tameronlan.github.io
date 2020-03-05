@@ -29,6 +29,7 @@
     import messenger from './messenger';
     import Cookie from 'js-cookie';
     import {getConfig} from '@/api/meeting';
+    import {getMyInfo} from '@/api/profile';
     import {Trans} from './plugins/Translation';
     import serverTime from './lib/serverTime';
 
@@ -43,9 +44,9 @@
         },
         computed: {
             ...mapState(['currentTabId', 'bannerIsShown']),
-            ...mapState('common', ['token']),
             ...mapState('feed', ['moderationStatus']),
             ...mapGetters('feed', ['numNotify']),
+            ...mapGetters('common', ['config']),
             ...mapGetters(['currentUser']),
         },
         created(){
@@ -58,6 +59,7 @@
             let locale = Cookie.get('locale');
             let vendor = Cookie.get('vendor');
             let deviceId = Cookie.get('deviceId');
+            let wsChatUrl = Cookie.get('wsChatUrl');
 
             console.log("App::created");
 
@@ -75,6 +77,7 @@
                 appVersionCode,
                 locale,
                 vendor,
+                wsChatUrl,
                 deviceId
             });
 
@@ -92,6 +95,7 @@
 
             this.loadLocalization(locale)
                 .then(getConfig)
+                .then(this.getMyInfo)
                 .then(() => {
                     this.init();
                     this.isLoading = false;
@@ -109,17 +113,20 @@
 
                 return new Promise(resolve => {
                     Trans.changeLanguage(lang)
-                        .then(response => {})
                         .catch(error => {
                             console.log('loadLocalization error', error);
-                        }).finally(() => {
-
-                        resolve();
-                    });
+                        }).finally(resolve);
                 });
             },
+            getMyInfo() {
+                if (this.config.token === undefined){
+                    return new Promise(resolve => resolve());
+                } else {
+                    return getMyInfo();
+                }
+            },
             init (config={}) {
-                messengerSocket.init(config);
+                messengerSocket.init(this.config);
 
                 messenger.userId = 111;
                 messenger.dataSource = messengerDataSource;

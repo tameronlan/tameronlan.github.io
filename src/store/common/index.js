@@ -9,10 +9,24 @@ export default {
         appVersionCode: "",
         appVersionName: "",
         locale: "",
-        vendor: ""
+        vendor: "",
+        wsChatUrl: ""
     },
     getters: {
-
+        config(state) {
+            return {
+                apiUrl: state.apiUrl,
+                token: state.token,
+                deviceId: state.deviceId,
+                assistId: state.assistId,
+                supportId: state.supportId,
+                appVersionCode: state.appVersionCode,
+                appVersionName: state.appVersionName,
+                locale: state.locale,
+                vendor: state.vendor,
+                wsChatUrl: state.wsChatUrl
+            };
+        }
     },
     mutations: {
         setApiUrl: (state, apiUrl) => {
@@ -41,6 +55,9 @@ export default {
         },
         setVendor: (state, vendor) => {
             state.vendor = vendor;
+        },
+        setWSChatUrl: (state, wsChatUrl) => {
+            state.wsChatUrl = wsChatUrl;
         }
     },
     actions: {
@@ -54,6 +71,7 @@ export default {
             commit('setLocale', payload.locale);
             commit('setVendor', payload.vendor);
             commit('setDeviceId', payload.deviceId);
+            commit('setWSChatUrl', payload.wsChatUrl);
         }
     }
 }
