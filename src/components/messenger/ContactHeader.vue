@@ -83,6 +83,12 @@
 
                         break;
                     case 2:
+                        this.$toasted.show('ACTION FOR DELETE');
+
+                        break;
+                    case 3:
+                        this.$toasted.show('ACTION FOR BLOCK');
+
                         break;
                 }
             },

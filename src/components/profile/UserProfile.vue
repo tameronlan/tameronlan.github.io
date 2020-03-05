@@ -7,7 +7,7 @@
         <template v-else>
             <div class="user-profile__sticky">
                 <div class="user-profile__exit" @click="$nav.back()"><i class="ico ico_arrow-left-white-24"></i></div>
-                <div class="user-profile__menu" @click="complain"><i class="ico2 ico2_menu"></i></div>
+                <div class="user-profile__menu" @click="isOpeningActionsTooltip = true"><i class="ico2 ico2_menu"></i></div>
             </div>
 
             <div class="user-profile__content" ref="content">
@@ -101,6 +101,11 @@
                 <profile-actions @like="likeAction" @dislike="dislikeAction"/>
             </div>
         </template>
+
+        <actions-tooltip v-if="isOpeningActionsTooltip"
+                         :actions="actions"
+                         @close="isOpeningActionsTooltip = false"
+                         @select="onSelectAction"/>
     </div>
 </template>
 
@@ -116,12 +121,13 @@
     import {GENDER_MAN, SOURCE_VIP_CHAT_REQUEST_LIMIT} from '../../consts';
     import photoviewer from '@/popups/photoviewer';
     import profileInterstitial from '../../advert/profileInterstitial';
+    import ActionsTooltip from '../common/ActionsTooltip';
 
     let _selfVM = '';
 
     export default {
         name: "UserProfile",
-        components: {Loader, ProfileActions, InlineMessage, RequirePhoto},
+        components: {Loader, ProfileActions, InlineMessage, RequirePhoto, ActionsTooltip},
         props: ['id', 'card'],
         data() {
             return {
@@ -129,7 +135,18 @@
                 user: null,
                 focused: false,
                 isLoading: false,
-                actionCollapsed: false
+                actionCollapsed: false,
+                isOpeningActionsTooltip: false,
+                actions: [
+                    {
+                        label: 'Пожаловаться',
+                        id: 1,
+                    },
+                    {
+                        label: 'Заблокировать пользователя',
+                        id: 2,
+                    },
+                ]
             }
         },
         computed: {
@@ -281,6 +298,20 @@
             },
             showOffer() {
                 feed.showVipFullOffer({source: SOURCE_VIP_CHAT_REQUEST_LIMIT});
+            },
+            onSelectAction(id){
+                this.isOpeningActionsTooltip = false;
+
+                switch (id) {
+                    case 1:
+                        this.complain();
+
+                        break;
+                    case 2:
+                        this.$toasted.show('ACTION FOR BLOCK');
+
+                        break;
+                }
             },
             ...mapMutations('feed', ['lockLikeAction', 'unlockLikeAction', 'resetPhotoRequestCounter'])
         }

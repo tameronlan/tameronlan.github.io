@@ -6,7 +6,7 @@
                 <div v-if="item.fileUpload != undefined" v-file-upload="item.fileUpload" class="actions-dialog__item" :key="index">
                     {{item.label}}
                 </div>
-                <div v-else class="actions-dialog__item" @click="$emit('select', item.id)" :key="index">
+                <div v-else class="actions-dialog__item" @click="$emit('select', item.id)" :key="index" v-touch>
                     {{item.label}}
                 </div>
             </template>
