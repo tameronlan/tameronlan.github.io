@@ -7,26 +7,12 @@
             <div class="debug-item">
                 <div class="debug-item__title">Cookie</div>
                 <div class="debug-item__content">
-                    <table class="cookies-table">
-                        <tr>
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Value
-                            </th>
-                            <th>
-                                Actions
-                            </th>
-                        </tr>
-                        <tr class="cookie-item" v-for="(value, label) in cookies" >
-                            <td class="cookie-item__label">{{label}}</td>
-                            <td class="cookie-item__value">{{value}}</td>
-                            <td class="cookie-item__actions">
-                                <button class="cookie-item__link" @click="deleteCookie(label)">delete</button>
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="cookie-item" v-for="(value, label) in cookies" >
+                        <div class="cookie-item__label"><b>{{label}}</b>: {{value}}</div>
+                        <div class="cookie-item__actions">
+                            <button class="cookie-item__link" @click="deleteCookie(label)">delete</button>
+                        </div>
+                    </div>
 
                     <div class="cookie__setter">
                         <input type="text" ref="cookieName" placeholder="name">

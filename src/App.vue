@@ -8,7 +8,7 @@
                 </div>
             </div>
         </template>
-        <template>
+        <template v-else>
             <nav-view/>
             <nav-bar v-if="currentTabId !== 0"/>
             <popups/>
@@ -28,7 +28,9 @@
     import messengerSocket from './messenger/socket';
     import messenger from './messenger';
     import Cookie from 'js-cookie';
-    import {getMyInfo} from '@/api/profile';
+    import {getConfig} from '@/api/meeting';
+    import {Trans} from './plugins/Translation';
+    import serverTime from './lib/serverTime';
 
     export default {
         name: 'app',
@@ -36,16 +38,15 @@
         data(){
             return {
                 cookie: "",
-                isLoading: true
+                isLoading: false
             }
         },
         computed: {
             ...mapState(['currentTabId', 'bannerIsShown']),
+            ...mapState('common', ['token']),
             ...mapState('feed', ['moderationStatus']),
             ...mapGetters('feed', ['numNotify']),
-        },
-        methods: {
-            ...mapActions('common', ['setConfig']),
+            ...mapGetters(['currentUser']),
         },
         created(){
             let apiUrl = Cookie.get('apiUrl');
@@ -57,6 +58,13 @@
             let locale = Cookie.get('locale');
             let vendor = Cookie.get('vendor');
             let deviceId = Cookie.get('deviceId');
+
+            console.log("App::created");
+
+            if (apiUrl === undefined){
+                apiUrl = "http://cloud.sweetmeet.me/oapi/method";
+                // apiUrl = location.origin + "/oapi/method";
+            }
 
             this.setConfig({
                 apiUrl,
@@ -70,7 +78,10 @@
                 deviceId
             });
 
+            serverTime.init(parseInt(new Date().getTime() / 1000));
+
             this.$api.init({
+                locale,
                 apiUrl,
                 token,
                 vendor,
@@ -79,20 +90,47 @@
                 appVersionName
             });
 
-            // messengerSocket.init({});
-            // messenger.userId = 111;
-
-            messenger.dataSource = messengerDataSource;
-
-            getMyInfo().then(() => {
-                this.isLoading = false;
-            });
+            this.loadLocalization(locale)
+                .then(getConfig)
+                .then(() => {
+                    this.init();
+                    this.isLoading = false;
+                });
         },
         watch: {
             moderationStatus(newStatus) {},
             numNotify(newValue) {
                 bridge.invokeNative('set_badge', {value: newValue.toString()});
             }
-        }
+        },
+        methods: {
+            loadLocalization(locale) {
+                const lang = locale || Trans.defaultLanguage;
+
+                return new Promise(resolve => {
+                    Trans.changeLanguage(lang)
+                        .then(response => {})
+                        .catch(error => {
+                            console.log('loadLocalization error', error);
+                        }).finally(() => {
+
+                        resolve();
+                    });
+                });
+            },
+            init (config={}) {
+                messengerSocket.init(config);
+
+                messenger.userId = 111;
+                messenger.dataSource = messengerDataSource;
+
+                this.$store.dispatch('feed/init', config);
+                this.$store.dispatch('vip/init', config);
+
+                bridge.invokeNative('set_photo_status', {fs_photo: config.avatar_status});
+                bridge.invokeNative('set_badge', {value: this.numNotify.toString()});
+            },
+            ...mapActions('common', ['setConfig']),
+        },
     }
 </script>

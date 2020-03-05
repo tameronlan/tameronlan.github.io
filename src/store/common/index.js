@@ -12,6 +12,7 @@ export default {
         vendor: ""
     },
     getters: {
+
     },
     mutations: {
         setApiUrl: (state, apiUrl) => {

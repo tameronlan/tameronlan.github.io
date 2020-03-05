@@ -7,6 +7,7 @@ import bridge from '../bridge';
 let provider;
 let token;
 let vendor;
+let locale;
 let appVersionName;
 let appVersionCode;
 
@@ -23,6 +24,7 @@ const api = {
             apiUrl,
         } = props;
 
+        locale = props.locale;
         token = props.token;
         vendor = props.vendor;
         appVersionName = props.appVersionName;
@@ -44,12 +46,20 @@ const api = {
         let str = method;
 
         params = {
-            access_token: token,
             vendor,
             appVersionName,
             appVersionCode,
+            locale,
             ...params
         };
+
+        if (token !== undefined ){
+            params.access_token = token;
+        }
+
+        if (appVersionCode !== undefined ){
+            params.build = appVersionCode;
+        }
 
         if (params) {
             if (str.indexOf('?') === -1) {
@@ -63,12 +73,20 @@ const api = {
     },
     post(method, params, noParse = false) {
         params = {
-            access_token: token,
             vendor,
             appVersionName,
             appVersionCode,
+            locale,
             ...params
         };
+
+        if (token !== undefined ){
+            params.access_token = token;
+        }
+
+        if (appVersionCode !== undefined ){
+            params.build = appVersionCode;
+        }
 
         if (noParse) {
             return provider.post(method, params);

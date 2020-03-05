@@ -2,16 +2,11 @@ import api from './instance';
 import store from '@/store/';
 
 export function getConfig(params) {
-    // return api.post('meeting.getConfig', {
-    //     ...params,
-    //     build: 361,
-    //     deviceId: '7f08bb6c4699fd67:1580387688841',
-    //     v: 1,
-    //     vendor: 2,
-    //     locale: "ru-RU"
-    // });
-
-    return {};
+    return api.get('meeting.getConfig', {
+        ...params,
+        build: 367,
+        v: 2
+    });
 }
 
 export function getFeed(params) {
