@@ -1,10 +1,11 @@
 <template>
     <div class="app-settings extend">
-        <div class="extend-header">
+        <div class="app-settings__header extend-header">
             <div class="extend-header__back" @click="$nav.back()"><i class="ico ico_close-gray"></i></div>
             <div class="extend-header__title">{{$t('app_settings.title')}}</div>
         </div>
-        <div class="extend-content">
+
+        <div class="app-settings__content extend-content">
             <div class="app-settings__fields">
                 <div class="app-settings__field">
                     <a href="//sites.google.com/view/evermatch/terms-of-use" target="_blank">{{$t('app_settings.field_terms')}}</a>
@@ -12,7 +13,7 @@
                 <div class="app-settings__field">
                     <a href="//sites.google.com/view/evermatch/privacy-policy" target="_blank">{{$t('app_settings.privacy_policy')}}</a>
                 </div>
-                <div class="app-settings__field">ID: {{me.id}}</div>
+                <div class="app-settings__field">ID: {{currentUser.id}}</div>
                 <div v-if="isAdmin" class="app-settings__field" @click="openSettings">Настройки</div>
             </div>
             <div class="app-settings__extra">
@@ -43,6 +44,7 @@
                 return `mailto:support@evermatch.me?subject=${this.me.name},%20ID:%20${this.me.id}`;
             },
             ...mapState('vip', ['hasVip', 'status']),
+            ...mapState(['currentUser']),
             ...mapGetters('feed', ['hasSupportAnswer'])
         },
         methods: {

@@ -17,12 +17,14 @@
                 type: Object
             },
             user: {
-
+                type: Object
             }
         },
         computed: {
             isMine(){
-                return this.currentUser.id === this.user.id;
+                console.log(this.currentUser.id);
+
+                return this.currentUser.id === this.item.userId;
             },
             classes(){
                 let classes = ['incoming-user-item'];

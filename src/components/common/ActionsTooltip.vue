@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        name: "actions-dialog",
+        name: "actions-tooltip",
         props: ['actions'],
     }
 </script>

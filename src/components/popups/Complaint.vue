@@ -1,17 +1,34 @@
 <template>
     <div class="complaint">
-        <template v-if="!complaintSent">
-            <div class="complaint__black-list">
-                <input type="checkbox" name="checkbox-field-group" id="complaint-checkbox" v-model="checked" checked>
-                <label for="complaint-checkbox">{{$t('complaint.check')}}</label>
+        <div class="complaint__title">
+            Отправка жалобы
+        </div>
+
+        <div class="complaint__helper" v-if="choiceObject !== null">
+            Выберите на что хотите пожаловаться
+        </div>
+
+        <div class="complaint__helper" v-else>
+            Выберите причину жалобы
+        </div>
+
+        <template v-if="choiceObject !== null">
+            <div class="complaint__list">
+                <div class="complaint__item" v-for="complaintSubtype in choiceObject.list" @click="choiceSubtype = complaintSubtype.id" v-touch>
+                    {{complaintSubtype.text}}
+                </div>
             </div>
-            <button class="btn btn_orange ripple ripple_white complaint__send-btn" @click="complaint" v-touch>{{$t('complaint.btn')}}</button>
         </template>
+
         <template v-else>
-            <div class="complaint__title" v-html="$t('complaint.result.title')"></div>
-            <div class="complaint__message" v-html="$t('complaint.result.msg')"></div>
+            <div class="complaint__list">
+                <div class="complaint__item" v-for="complaintType in complaintsByTypes" @click="choiceType = complaintType.id" v-touch>
+                    {{complaintType.text}}
+                </div>
+            </div>
         </template>
-        <div class="popup__close" @click="$nav.back({ignoreUpdate: true, success: complaintSent})">
+
+        <div class="popup__close" @click="$nav.back({ignoreUpdate: true})">
             <i class="ico ico_close-gray"></i>
         </div>
     </div>
@@ -22,17 +39,100 @@
 
     export default {
         name: "Complaint",
-        props: ['user'],
+        props: {
+            user: {
+                type: Object
+            },
+            type: {
+                type: Number
+            },
+            contentId: {
+                type: Number
+            },
+            popup: {
+                type: Object
+            }
+        },
         data() {
             return {
-                complaintSent: false,
-                checked: true
+                complaintsByTypes: {
+                    1: {
+                        text: 'Photo',
+                        id: 1,
+                        list: [
+                            {
+                                id: 1,
+                                text: 'Erotic'
+                            },
+                            {
+                                id: 2,
+                                text: 'Spam'
+                            },
+                            {
+                                id: 3,
+                                text: 'Drug'
+                            },
+
+                        ]
+                    },
+                    2: {
+                        text: 'Status',
+                        id: 2,
+                        list: [
+                            {
+                                id: 1,
+                                text: 'Erotic'
+                            },
+                            {
+                                id: 1,
+                                text: 'Erotic'
+                            },
+
+                        ]
+                    }
+                },
+                choiceType: 0,
+                choiceSubtype: 0,
+            }
+        },
+        created(){
+            console.log('popup', this.popup)
+        },
+        computed: {
+            choiceObject(){
+                let obj = null;
+
+                if (
+                    this.choiceType !== 0
+                    && this.complaintsByTypes.hasOwnProperty(this.choiceType)
+                ){
+                    obj = this.complaintsByTypes[this.choiceType];
+                }
+
+                return obj;
             }
         },
         methods: {
-            complaint() {
-                complaint({to_user_id: this.user.id, black_list: this.checked});
-                this.complaintSent = true;
+            complaintSend() {
+                complaint({
+                    to_user_id: this.user.id,
+                    contentId: this.contentId,
+                    type: this.choiceType,
+                    subtype: this.choiceSubtype,
+                }).then(()=>{
+                    // this.$store.dispatch('popups/closePopup', {
+                    //     popup: this.popup,
+                    //     animated: true
+                    // });
+
+                    this.$nav.back();
+                    this.$toasted.show('Жалоба отправлена');
+                });
+            }
+        },
+        watch: {
+            choiceSubtype(){
+                this.complaintSend();
             }
         }
     }

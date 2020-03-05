@@ -20,10 +20,29 @@
 <script>
     export default {
         name: "alert-dialog",
-        props: ['title', 'description', 'onClose', 'btnText'],
+        props: {
+            title: {
+                type: String
+            },
+            description: {
+                type: String
+            },
+            onClose: {
+                type: Function
+            },
+            btnText: {
+                type: String
+            },
+            popup: {
+                type: Object
+            }
+        },
         methods: {
             close(){
-                this.$nav.back()
+                this.$store.dispatch('popups/closePopup', {
+                    popup: this.popup,
+                    animated: true
+                });
             }
         }
     }

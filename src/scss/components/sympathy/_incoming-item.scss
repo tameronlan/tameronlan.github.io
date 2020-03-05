@@ -1,10 +1,13 @@
-
 .incoming-item {
     display: flex;
     padding: $s $m;
     align-items: stretch;
     width: 100%;
     will-change: transform;
+
+    &.touch{
+        background: $color-gray1;
+    }
 
     &_unread-theirs{
         .messenger-contact__message-text{

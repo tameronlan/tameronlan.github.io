@@ -156,6 +156,7 @@ const feed = {
     complain(user) {
         let popup = new Popup({
             component: Complaint,
+            options: {myClass: 'popup_extend'},
             props: {user}
         });
 

@@ -9,7 +9,7 @@
 
 .incoming-user-head{
     display: flex;
-    border-bottom: #f0f0f0 1px solid;
+    border-bottom: rgba(#84AAE4, .2) 1px solid;
     align-items: center;
 
     &__controls {
@@ -81,12 +81,12 @@
 
 .incoming-user-item{
     display: flex;
-    padding: 0 1px;
+    padding: 2px 0;
 
     &_mine{
-        align-items: flex-end;
+        justify-content: flex-end;
 
-        .incoming-user-item__buble{
+        .incoming-user-item__bubble{
             background: #D4CEEB;
             margin: 0 0 0 32px;
         }

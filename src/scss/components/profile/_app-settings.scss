@@ -1,14 +1,25 @@
 .app-settings {
   	position: relative;
 
+    &__content{
+        padding: 16px 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
   	&__fields {
 		background-color: #fff;
-	  	padding-left: 20px;
+        flex-grow: 1;
 	}
 
 	&__field {
-	  	border-bottom: 1px solid $color-gray2;
+	  	border-top: 1px solid $color-gray1;
 		padding: 14px 20px 14px 0;
+
+        &:first-child{
+            border-top: 0;
+        }
 
 		a {
 			color: $color-black;
@@ -21,16 +32,16 @@
 	  	display: flex;
 	  	flex-direction: column;
 	  	align-items: center;
-	  	@include absolute($right: 0, $bottom: 0, $left: 0);
 	}
 
 	&__btn-support {
-		strong {
-			color: #1d0aa5;
-		}
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+        display: block;
 	}
 
   	&__btn-remove {
-	  	margin: 50px 0;
+	  	margin: 36px 0 12px;
 	}
 }

@@ -34,7 +34,7 @@
 
             </div>
         </div>
-        <action-dialog v-if="isOpeningDialog"
+        <action-tooltip v-if="isOpeningDialog"
                        :actions="currentPhotoActions"
                        @close="isOpeningDialog = false"
                        @select="onSelectAction"/>
@@ -50,7 +50,7 @@
     import SliderDataSourceSet from '@/lib/slider/SliderDataSourceSet';
     import Photo from './Photo';
     import Loader from '@/components/common/Loader';
-    import ActionDialog from '../common/ActionsDialog';
+    import ActionsTooltip from '../common/ActionsTooltip';
     import feed from '@/feed/';
     import {setAvatar, photoDelete} from '../../api/profile';
 
@@ -60,7 +60,7 @@
 
     export default {
         props: ['fetch', 'initialId', 'user', 'urlAlias', 'onUpdate', 'editable'],
-        components: {Photo, Loader, ActionDialog},
+        components: {Photo, Loader, ActionsTooltip},
         data() {
             return {
                 isLoading: true,

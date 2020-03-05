@@ -22,7 +22,7 @@
                     </div>
                 </div>
 
-                <actions-dialog v-if="isOpeningDialog"
+                <actions-tooltip v-if="isOpeningDialog"
                                 :actions="actions"
                                 @close="isOpeningDialog = false"
                                 @select="onSelectAction"/>
@@ -36,12 +36,12 @@
 </template>
 
 <script>
-    import ActionsDialog from '../common/ActionsDialog';
+    import ActionsTooltip from '../common/ActionsTooltip';
     import IncomingUserItem from './IncomingUserItem';
 
     export default {
         name: "incoming-user",
-        components: {ActionsDialog, IncomingUserItem},
+        components: {ActionsTooltip, IncomingUserItem},
         props: {
             incomingItem: {
                 type: Object
@@ -108,7 +108,7 @@
 
                 this.list = [
                     {
-                        userId: 111,
+                        userId: 100,
                         type: 1,
                         time: 200
                     },

@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <actions-dialog v-if="isOpeningDialog"
+        <actions-tooltip v-if="isOpeningDialog"
                        :actions="actions"
                        @close="isOpeningDialog = false"
                        @select="onSelectAction"/>
@@ -28,11 +28,11 @@
 <script>
     import {mapActions} from 'vuex';
     import feed from '@/feed';
-    import ActionsDialog from '../common/ActionsDialog';
+    import ActionsTooltip from '../common/ActionsTooltip';
 
     export default {
         name: 'contact-header',
-        components: {ActionsDialog},
+        components: {ActionsTooltip},
         props: ['contact'],
         data() {
             return {
@@ -43,8 +43,12 @@
                         id: 1,
                     },
                     {
-                        label: 'Удалить',
+                        label: 'Удалить контакт',
                         id: 2,
+                    },
+                    {
+                        label: 'Заблокировать пользователя',
+                        id: 3,
                     },
                 ]
             }

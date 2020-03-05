@@ -2,7 +2,7 @@
     <div class="popup" :class="classes" ref="popup">
         <div class="popup__bg"></div>
         <div class="popup__content">
-            <component-view :component="popup.component" :props="popup.props"></component-view>
+            <component-view :component="popup.component" :props="{...popup.props, popup}"/>
         </div>
     </div>
 </template>
@@ -12,7 +12,11 @@
 
     export default {
         name: 'Popup',
-        props: ['popup'],
+        props: {
+            popup: {
+                type: Object
+            }
+        },
         data() {
             return {
                 hidden: true,
@@ -46,6 +50,7 @@
                     return new Promise(r => r());
                 }
             };
+
             this.popup.hide = (animated) => {
                 if (this.popup.component.hidePopupHandler !== undefined) {
                     this.popup.component.hidePopupHandler();

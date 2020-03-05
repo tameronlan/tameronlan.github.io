@@ -1,6 +1,6 @@
 <template>
     <div
-            class="incoming-item ripple ripple_lightblue"
+            class="incoming-item"
             :class="classes"
             @click="openIncomingForUser"
             v-touch

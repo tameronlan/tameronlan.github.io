@@ -146,13 +146,13 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    height: 70px;
+    height: 56px;
 
     &__back {
         display: flex;
         align-items: center;
         padding: 16px;
-        @include absolute($top: 0, $left: 0);
+        @include absolute($top: 0, $right: 0);
     }
 
     &__actions {

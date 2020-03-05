@@ -1,7 +1,9 @@
 .alert-dialog{
     &__title{
         font-size: $font-m;
-        padding: 12px 24px;
+        padding: 16px 48px;
+        font-weight: 700;
+        font-family: $font-family-montserrat;
     }
 
     &__content{
@@ -9,7 +11,7 @@
     }
 
     &__actions{
-        padding: 12px 24px;
+        padding: 16px 24px;
     }
 
     &__action{
