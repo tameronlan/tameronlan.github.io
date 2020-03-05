@@ -1,7 +1,8 @@
 <template>
-    <div>
-        <div class="loader-wrap loader-wrap-inside">
-            <loader/>
+    <div class="app__loader">
+        <loader/>
+        <div class="app__loader-title">
+            {{$t('loading_dots')}}
         </div>
     </div>
 </template>
@@ -11,20 +12,21 @@
     import Popups from './popups/Popups';
     import Push from './../components/push/Push';
     import feed from './../feed/';
-    import interstitials from './../advert/interstitials';
-    import bottomBanner from './../advert/bottomBanner';
     import bridge from './../bridge';
     import {mapState, mapGetters} from 'vuex';
     import {Trans} from './../plugins/Translation';
-    import {PLACEMENT_FEED, PLACEMENT_PROFILE, PLACEMENT_INCOMING, AVATAR_STATUS_APPROVED} from './../consts';
     import serverTime from './../lib/serverTime';
+    import {PLACEMENT_FEED, PLACEMENT_PROFILE, PLACEMENT_INCOMING, AVATAR_STATUS_APPROVED} from './../consts';
     import {getConfig} from './../api/meeting';
+    import interstitials from './../advert/interstitials';
+    import bottomBanner from './../advert/bottomBanner';
 
     export default {
         name: "start",
         components: {Loader, Popups, Push},
         computed: {
-            ...mapGetters('feed', ['numNotify'])
+            ...mapGetters('feed', ['numNotify']),
+            ...mapState(['currentUser'])
         },
         data() {
             return {
@@ -33,8 +35,8 @@
         },
         created() {
             this.loadLocalization({})
-                .then(response => {
-                    this.init(response);
+                .then(() => {
+                    this.init();
                     this.isLoading = false;
                 })
                 .catch(error => {
@@ -66,7 +68,7 @@
 
                 serverTime.init(config.server_time || parseInt(new Date().getTime() / 1000));
 
-                if (true || config.user){
+                if (this.currentUser){
                     this.$nav.redirect('/app/feed');
                 } else {
                     this.$nav.redirect('/app/signup');

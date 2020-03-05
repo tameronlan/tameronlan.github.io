@@ -1,9 +1,19 @@
 <template>
     <div class="app">
-        <nav-view/>
-        <nav-bar v-if="currentTabId !== 0"/>
-        <popups/>
-        <push/>
+        <template v-if="isLoading">
+            <div class="app__loader">
+                <loader/>
+                <div class="app__loader-title">
+                    {{$t('loading_dots')}}
+                </div>
+            </div>
+        </template>
+        <template>
+            <nav-view/>
+            <nav-bar v-if="currentTabId !== 0"/>
+            <popups/>
+            <push/>
+        </template>
     </div>
 </template>
 
@@ -25,7 +35,8 @@
         components: {Loader, NavBar, Popups, Push},
         data(){
             return {
-                cookie: ""
+                cookie: "",
+                isLoading: true
             }
         },
         computed: {
@@ -59,17 +70,26 @@
                 deviceId
             });
 
-            this.$api.init({ apiUrl, token, vendor, deviceId, appVersionCode, appVersionName });
+            this.$api.init({
+                apiUrl,
+                token,
+                vendor,
+                deviceId,
+                appVersionCode,
+                appVersionName
+            });
 
             // messengerSocket.init({});
+            // messenger.userId = 111;
 
-            messenger.userId = 111;
             messenger.dataSource = messengerDataSource;
+
+            getMyInfo().then(() => {
+                this.isLoading = false;
+            });
         },
         watch: {
-            moderationStatus(newStatus) {
-
-            },
+            moderationStatus(newStatus) {},
             numNotify(newValue) {
                 bridge.invokeNative('set_badge', {value: newValue.toString()});
             }

@@ -14,6 +14,8 @@ import SignupCity from '../components/signup/SignupCity';
 import SignupName from '../components/signup/SignupName';
 import SignupAge from '../components/signup/SignupAge';
 
+import Debug from '@/components/Debug';
+
 import {TAB_FEED, TAB_INCOMING, TAB_MESSENGER, TAB_PROFILE, TAB_NONE} from '../consts';
 
 import Messenger from '@/components/messenger/Messenger';
@@ -115,6 +117,12 @@ const vueNav = new VueNav({
         path: '/profile',
         component: MyProfile,
         didActivated: () => store.commit('setNavigationTab', TAB_PROFILE)
+    },
+    {
+        name: 'debug',
+        path: '/debug',
+        component: Debug,
+        didActivated: () => store.commit('setNavigationTab', TAB_NONE)
     }
 ]);
 

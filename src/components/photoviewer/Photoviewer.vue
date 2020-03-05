@@ -34,7 +34,7 @@
 
             </div>
         </div>
-        <action-tooltip v-if="isOpeningDialog"
+        <actions-tooltip v-if="isOpeningDialog"
                        :actions="currentPhotoActions"
                        @close="isOpeningDialog = false"
                        @select="onSelectAction"/>

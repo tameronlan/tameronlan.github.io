@@ -16,6 +16,22 @@
     flex-direction: column;
     height: 100%;
     background: $color-white;
+
+    &__loader{
+        @include absolute($left: 0, $top: 0, $right: 0, $bottom: 0);
+        background: $color-white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 10;
+
+        &-title{
+            padding: 24px 0 0;
+            font-size: $font-m;
+            font-family: $font-family-montserrat;
+        }
+    }
 }
 
 /* fix not responding textarea in ios */
