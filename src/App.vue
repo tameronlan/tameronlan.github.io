@@ -47,7 +47,7 @@
             ...mapState('feed', ['moderationStatus']),
             ...mapGetters('feed', ['numNotify']),
             ...mapGetters('common', ['config']),
-            ...mapGetters(['currentUser']),
+            ...mapState(['currentUser']),
         },
         created(){
             let apiUrl = Cookie.get('apiUrl');
@@ -123,7 +123,9 @@
                     return new Promise(resolve => resolve());
                 } else {
                     return getMyInfo().then(response => {
-                        this.currentUser = response;
+                        this.setCurrentUser(response);
+
+                        console.log(this.currentUser);
                     });
                 }
             },
@@ -140,6 +142,7 @@
                 bridge.invokeNative('set_badge', {value: this.numNotify.toString()});
             },
             ...mapActions('common', ['setConfig']),
+            ...mapMutations(['setCurrentUser']),
         },
     }
 </script>

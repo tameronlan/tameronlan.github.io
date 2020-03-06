@@ -34,15 +34,5 @@ export function setAvatar(params) {
 }
 
 export function parseResponse(response) {
-    if (response.meta) {
-        if (response.meta.avatar_status !== undefined) {
-            store.commit('feed/setModerationStatus', response.meta.avatar_status);
-        }
-
-        if (response.meta.avatars !== undefined) {
-            store.commit('updateUserAvatar', response.meta.avatars);
-        }
-    }
-
     return response;
 }

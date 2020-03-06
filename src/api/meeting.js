@@ -6,8 +6,6 @@ export function getConfig(params) {
         ...params,
         build: 367,
         v: 2
-    }).then(response => {
-        console.log(response);
     });
 }
 
@@ -147,27 +145,5 @@ export function postReviewResul(params = {}) {
 }
 
 export function parseResponse(response) {
-    if (response.meta) {
-        if (response.meta.counters) {
-            store.commit('feed/setCounters', response.meta.counters);
-        }
-
-        if (response.meta.filters) {
-            store.commit('feed/setFilter', response.meta.filters);
-        }
-
-        if (response.meta.avatar_status !== undefined) {
-            store.commit('feed/setModerationStatus', response.meta.avatar_status);
-        }
-
-        if (response.meta.daily_open_limit !== undefined) {
-            store.commit('feed/setDailyOpenLimit', response.meta.daily_open_limit);
-        }
-
-        if (response.meta.has_vip !== undefined) {
-            store.commit('vip/setVip', response.meta.has_vip);
-        }
-    }
-
-    return response;
+    return response.result;
 }

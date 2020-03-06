@@ -101,7 +101,10 @@ const api = {
 };
 
 function parseResponse(response) {
-    return response.result;
+    console.log("=== api: ", response);
+
+    return response.data.result;
+
     // if (response.data) {
     //     return new JSONAPIResponse(response.data);
     // }

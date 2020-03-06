@@ -15,16 +15,16 @@ export default new Vuex.Store({
     state: {
         config: null,
         currentUser: {
-            id: 100,
-            name: 'me',
-            gender: 'm',
-            age: '31',
+            id: 0,
+            name: '',
+            gender: '',
+            age: 0,
             avatars: {
-                s1: 'https://sun9-21.userapi.com/c847220/v847220850/ad672/5Luku6GutMw.jpg',
-                s2: 'https://sun9-21.userapi.com/c847220/v847220850/ad672/5Luku6GutMw.jpg',
-                s3: 'https://sun9-21.userapi.com/c847220/v847220850/ad672/5Luku6GutMw.jpg',
-                s4: 'https://sun9-21.userapi.com/c847220/v847220850/ad672/5Luku6GutMw.jpg',
-                s5: 'https://sun9-21.userapi.com/c847220/v847220850/ad672/5Luku6GutMw.jpg',
+                s1: '',
+                s2: '',
+                s3: '',
+                s4: '',
+                s5: '',
             }
         },
         currentTabId: 0,
@@ -39,6 +39,8 @@ export default new Vuex.Store({
             state.bannerIsShown = payload;
         },
         setCurrentUser: (state, payload) => {
+            console.log(payload);
+
             state.currentUser = payload;
         },
         updateUserAvatar: (state, payload) => {
