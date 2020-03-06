@@ -14,6 +14,7 @@ export function getMyInfo(params) {
 
     params = {...params, fields};
 
+    
     return api.get('user.getMyInfo', params);
 }
 
