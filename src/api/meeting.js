@@ -6,6 +6,8 @@ export function getConfig(params) {
         ...params,
         build: 367,
         v: 2
+    }).then(response => {
+        console.log(response);
     });
 }
 

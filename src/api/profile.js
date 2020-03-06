@@ -10,11 +10,11 @@ export function getInfo() {
 }
 
 export function getMyInfo(params) {
-    let field = `country,city,age,about_me,avatar,vip_end,gender,birthday,email_approved,complainted,avatar_status,is_hidden,meeting_last_visit,register_time,is_banned,ban_till_time,meeting_first_visit,payable,can_change_age_gender,offers_enabled,video_enabled,ig_user_id,ig_username,vip_trial_ttl,preferences,coins,coins_daily,coins_daily_progress_current,coins_daily_progress_maximum,wanna_talk,actions,cardExtension,audioGreeting,audioVisualization`;
+    let fields = `country,city,age,about_me,avatar,vip_end,gender,birthday,email_approved,complainted,avatar_status,is_hidden,meeting_last_visit,register_time,is_banned,ban_till_time,meeting_first_visit,payable,can_change_age_gender,offers_enabled,video_enabled,ig_user_id,ig_username,vip_trial_ttl,preferences,coins,coins_daily,coins_daily_progress_current,coins_daily_progress_maximum,wanna_talk,actions,cardExtension,audioGreeting,audioVisualization`;
 
-    params = {...params, field};
+    params = {...params, fields};
 
-    return api.post('user.getMyInfo', params);
+    return api.get('user.getMyInfo', params);
 }
 
 export function saveField(params) {

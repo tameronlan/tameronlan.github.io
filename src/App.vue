@@ -122,7 +122,9 @@
                 if (this.config.token === undefined){
                     return new Promise(resolve => resolve());
                 } else {
-                    return getMyInfo();
+                    return getMyInfo().then(response => {
+                        this.currentUser = response;
+                    });
                 }
             },
             init (config={}) {

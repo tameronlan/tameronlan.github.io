@@ -27,7 +27,7 @@ const api = {
 
         locale = props.locale;
         token = props.token;
-        vendor = props.vendor;
+        vendor = Number(props.vendor);
         appVersionName = props.appVersionName;
         appVersionCode = Number(props.appVersionCode);
         deviceId = props.deviceId;
@@ -101,6 +101,7 @@ const api = {
 };
 
 function parseResponse(response) {
+    return response.result;
     // if (response.data) {
     //     return new JSONAPIResponse(response.data);
     // }
