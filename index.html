@@ -30,16 +30,19 @@
         installButton.addEventListener('click', () => {
             deferredPrompt.prompt();
 
-            deferredPrompt.userChoice
-                .then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('Пользователь согласился установить PWA');
-                    } else {
-                        console.log('Пользователь отклонил установку PWA');
-                    }
+            deferredPrompt.userChoice.then((choiceResult) => {
+                console.log('Choice', choiceResult);
 
-                    deferredPrompt = null;
-                });
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('Пользователь согласился установить PWA');
+                } else {
+                    console.log('Пользователь отклонил установку PWA');
+                }
+
+                deferredPrompt = null;
+            }).catch(err => {
+                console.log('Choice::err', err);
+            });
         });
 
         document.body.appendChild(installButton);
