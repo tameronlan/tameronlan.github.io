@@ -1,62 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пример PWA</title>
-    <link rel="manifest" href="/manifest.json">
-</head>
-<body>
-<h1>Добро пожаловать на наш сайт PWA</h1>
-
-<script>
-    let deferredPrompt;
-
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then(registration => {
-                console.log('Сервис-воркер зарегистрирован:', registration);
-            })
-            .catch(error => {
-                console.error('Ошибка регистрации сервис-воркера:', error);
-            });
-    }
-
-    if (!window.matchMedia('(display-mode: standalone)').matches) {
-        const installButton = document.createElement('button');
-
-        installButton.textContent = 'Установить PWA';
-
-        installButton.addEventListener('click', () => {
-            deferredPrompt.prompt();
-
-            deferredPrompt.userChoice.then((choiceResult) => {
-                console.log('Choice', choiceResult);
-
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('Пользователь согласился установить PWA');
-                } else {
-                    console.log('Пользователь отклонил установку PWA');
+    <head>
+        <meta charset="UTF-8">
+        <title>Пример PWA</title>
+        <link rel="manifest" href="/manifest.json">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Refresh" content="0; url='x-safari-https://ihappydate.com/app?param=1'" />
+        <script>
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'hidden') {
+                    setTimeout(window.close);
                 }
-
-                deferredPrompt = null;
-            }).catch(err => {
-                console.log('Choice::err', err);
             });
-        });
-
-        document.body.appendChild(installButton);
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-
-            deferredPrompt = e;
-
-            installButton.style.display = 'block';
-
-            console.log("Prompt install got")
-        });
-    }
-</script>
-</body>
+        </script>
+    </head>
+    <body>
+        <h1>Добро пожаловать на наш сайт PWA</h1>
+    </body>
 </html>
